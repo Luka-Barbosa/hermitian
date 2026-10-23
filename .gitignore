@@ -1,0 +1,17 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# generated data (the DuckDB file can pass GitHub's 100 MB limit)
+data/
+
+# deps and build
+node_modules/
+.next/
+*.tsbuildinfo
+
+# private working files
+docs/
+.claude/
+CLAUDE.md
