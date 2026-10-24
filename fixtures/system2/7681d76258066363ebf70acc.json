@@ -1,0 +1,19 @@
+{
+  "hash": "7681d76258066363ebf70acc",
+  "task": "parse_period",
+  "tag": "period: How did the number of payments in September compare with August?",
+  "model": "gemini-3.5-flash-lite",
+  "recordedAt": "2026-10-24T06:51:40.684Z",
+  "latencyMs": 1552,
+  "request": {
+    "system": "You turn the time period in an analytics question into explicit dates.\n\"Today\" is 2026-09-30. The data covers 2026-04-01 to 2026-09-30. Dates are inclusive, YYYY-MM-DD.\nA single day has start = end. Weeks start on Monday. A named month without a year means the most recent such month on or before today.\nIf the question names a second period to compare against, return it as comparison_start/comparison_end; otherwise return null for both.",
+    "prompt": "{\"question\":\"How did the number of payments in September compare with August?\",\"needs_comparison_if_named\":true}"
+  },
+  "output": {
+    "start": "2026-09-01",
+    "end": "2026-09-30",
+    "comparison_start": "2026-08-01",
+    "comparison_end": "2026-08-31",
+    "note": "Comparing September 2026 with August 2026"
+  }
+}

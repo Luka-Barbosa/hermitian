@@ -1,0 +1,53 @@
+{
+  "hash": "d54e5bcc84cf56822f4ea401",
+  "tag": "claims: How has approval rate moved this quarter?",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:15:15.399Z",
+  "latencyMs": 298,
+  "inputTokens": 953,
+  "request": {
+    "state": {
+      "facts": [
+        "Scope: Jul–Sep 2026; all payments.",
+        "Series \"Jul–Sep 2026\" (Approval rate, by week): lowest 91.0% at w/c 21 Sep; highest 92.2% at w/c 24 Aug.",
+        "\"Jul–Sep 2026\" points: w/c 29 Jun 91.5%; w/c 6 Jul 91.4%; w/c 13 Jul 91.3%; w/c 20 Jul 91.5%; w/c 27 Jul 91.3%; w/c 3 Aug 91.8%; w/c 10 Aug 91.7%; w/c 17 Aug 91.5%; w/c 24 Aug 92.2%; w/c 31 Aug 91.8%; w/c 7 Sep 91.4%; w/c 14 Sep 91.3%; w/c 21 Sep 91.0%; w/c 28 Sep 91.6%",
+        "Comparison series \"Apr–Jun 2026\" (Approval rate, by week): lowest 90.4% at w/c 6 Apr; highest 91.2% at w/c 1 Jun.",
+        "\"Apr–Jun 2026\" points: w/c 30 Mar 91.1%; w/c 6 Apr 90.4%; w/c 13 Apr 90.7%; w/c 20 Apr 90.8%; w/c 27 Apr 90.5%; w/c 4 May 91.1%; w/c 11 May 91.0%; w/c 18 May 90.8%; w/c 25 May 91.0%; w/c 1 Jun 91.2%; w/c 8 Jun 90.6%; w/c 15 Jun 91.2%; w/c 22 Jun 90.6%; w/c 29 Jun 90.7%"
+      ],
+      "claims": [
+        "approval rate peaked at 92.2 percent",
+        "During Jul–Sep 2026, the approval rate reached its lowest point of 91.0% at w/c 21 Sep and its highest point of 92.2% at w/c 24 Aug.",
+        "This compares to Apr–Jun 2026 where the lowest was 90.4% at w/c 6 Apr and the highest was 91.2% at w/c 1 Jun."
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_1": {
+        "type": "noul",
+        "instructions": "`claims[1]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_2": {
+        "type": "noul",
+        "instructions": "`claims[2]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 0.92
+    },
+    "claim_1": {
+      "type": "noul",
+      "noul": 0.97
+    },
+    "claim_2": {
+      "type": "noul",
+      "noul": 0.96
+    }
+  }
+}

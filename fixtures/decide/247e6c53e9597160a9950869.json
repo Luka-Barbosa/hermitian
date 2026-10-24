@@ -1,0 +1,38 @@
+{
+  "hash": "247e6c53e9597160a9950869",
+  "tag": "form: Why is captured value up this month?",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:21:35.689Z",
+  "latencyMs": 418,
+  "inputTokens": 404,
+  "request": {
+    "state": {
+      "question": "Why is captured value up this month?",
+      "result": "a start total, an end total and 4 contributions to the change between them"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "waterfall": "Waterfall: How a start value became an end value, as a step for each contribution",
+          "table": "Table: Exact values in rows and columns, or individual records to read one by one",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "waterfall",
+      "confidence": 1,
+      "probabilities": {
+        "waterfall": 1,
+        "table": 0,
+        "none_of_these": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "hash": "92f005313c512da7803c4d51",
+  "tag": "claims: Compare our approval rate in the last 7 days with the week before.",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:14:44.610Z",
+  "latencyMs": 288,
+  "inputTokens": 536,
+  "request": {
+    "state": {
+      "facts": [
+        "Scope: 24–30 Sep 2026; all payments.",
+        "Approval rate, 24–30 Sep 2026: 91.0%",
+        "Approval rate, 17–23 Sep 2026: 91.4%",
+        "Change: -0.4 pp",
+        "Relative change: -0.4%"
+      ],
+      "claims": [
+        "Approval rate dropped by 0.4 pp",
+        "Across all payments, the approval rate reached 91.0% in 24–30 Sep 2026.",
+        "This was down from 91.4% recorded in 17–23 Sep 2026, reflecting a relative change of -0.4%."
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_1": {
+        "type": "noul",
+        "instructions": "`claims[1]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_2": {
+        "type": "noul",
+        "instructions": "`claims[2]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 0.98
+    },
+    "claim_1": {
+      "type": "noul",
+      "noul": 0.98
+    },
+    "claim_2": {
+      "type": "noul",
+      "noul": 0.91
+    }
+  }
+}

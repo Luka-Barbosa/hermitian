@@ -1,0 +1,207 @@
+{
+  "note": "Expected answers are paths into data/scenarios.json (the generator's answer key), never computed by the agent's query code. {{path}} in a question is filled from the same file.",
+  "questions": [
+    {
+      "id": "L1", "intent": "lookup", "forms": ["text", "kpi"],
+      "question": "What was captured value yesterday?",
+      "checks": [{ "kind": "scalar", "expect": "daily[window.start=2026-09-29].capturedValue", "unit": "zar" }]
+    },
+    {
+      "id": "L2", "intent": "lookup", "forms": ["text", "kpi"],
+      "question": "How many payments did we capture today?",
+      "checks": [{ "kind": "scalar", "expect": "windows.today.paymentCount", "unit": "count" }]
+    },
+    {
+      "id": "L3", "intent": "lookup", "forms": ["text", "kpi"],
+      "question": "What was the average transaction value last month?",
+      "checks": [{ "kind": "scalar", "expect": "windows.last_month.averageTransactionValue", "unit": "ratio" }]
+    },
+    {
+      "id": "L4", "intent": "lookup", "forms": ["text", "kpi"],
+      "question": "What was our approval rate in the last 7 days?",
+      "checks": [{ "kind": "scalar", "expect": "windows.last_7_days.approvalRate", "unit": "ratio" }]
+    },
+    {
+      "id": "L5", "intent": "lookup", "forms": ["text", "kpi"],
+      "question": "How many unique customers paid us last month?",
+      "checks": [{ "kind": "scalar", "expect": "windows.last_month.uniqueCustomers", "unit": "count" }]
+    },
+    {
+      "id": "L6", "intent": "lookup", "forms": ["text", "kpi"],
+      "question": "What was the refund rate last month?",
+      "checks": [{ "kind": "scalar", "expect": "windows.last_month.refundRate", "unit": "ratio" }]
+    },
+    {
+      "id": "L7", "intent": "lookup", "forms": ["text", "kpi"], "scenario": "chargeback_ring",
+      "question": "How many different customer accounts used card {{scenarios.chargeback_ring.answer.topCard.fingerprint}} in the last 90 days?",
+      "checks": [{ "kind": "scalar", "expect": "scenarios.chargeback_ring.answer.topCard.accounts", "unit": "count" }]
+    },
+    {
+      "id": "C1", "intent": "compare", "forms": ["kpi"],
+      "question": "How does captured value this month compare with last month?",
+      "checks": [{ "kind": "delta", "current": "months[month=2026-09].capturedValue", "previous": "months[month=2026-08].capturedValue", "unit": "zar" }]
+    },
+    {
+      "id": "C2", "intent": "compare", "forms": ["kpi"], "scenario": "payday",
+      "question": "How did captured value on 25 September compare with 24 September?",
+      "checks": [{ "kind": "delta", "current": "scenarios.payday.answer.sep25", "previous": "scenarios.payday.answer.sep24", "unit": "zar" }]
+    },
+    {
+      "id": "C3", "intent": "compare", "forms": ["kpi"],
+      "question": "Compare our approval rate in the last 7 days with the week before.",
+      "checks": [{ "kind": "delta", "current": "windows.last_7_days.approvalRate", "previous": "windows.previous_7_days.approvalRate", "unit": "ratio" }]
+    },
+    {
+      "id": "C4", "intent": "compare", "forms": ["kpi"],
+      "question": "How did the number of payments in September compare with August?",
+      "checks": [{ "kind": "delta", "current": "months[month=2026-09].paymentCount", "previous": "months[month=2026-08].paymentCount", "unit": "count" }]
+    },
+    {
+      "id": "T1", "intent": "trend", "forms": ["line"], "scenario": "payday",
+      "question": "How did captured value move this month?",
+      "checks": [
+        { "kind": "series_point", "key": "2026-09-25", "expect": "scenarios.payday.answer.sep25", "unit": "zar" },
+        { "kind": "series_max", "key": "2026-09-25" }
+      ]
+    },
+    {
+      "id": "T2", "intent": "trend", "forms": ["line"], "scenario": "issuer_dip",
+      "question": "Show Protea Bank's approval rate by hour on Saturday 26 September.",
+      "checks": [
+        { "kind": "series_point", "key": "2026-09-26 14:00", "expect": "scenarios.issuer_dip.answer.hourly[hour=14].issuer.rate", "unit": "ratio" },
+        { "kind": "series_point", "key": "2026-09-26 10:00", "expect": "scenarios.issuer_dip.answer.hourly[hour=10].issuer.rate", "unit": "ratio" },
+        { "kind": "series_min_in", "keys": ["2026-09-26 13:00", "2026-09-26 14:00", "2026-09-26 15:00", "2026-09-26 16:00"] }
+      ]
+    },
+    {
+      "id": "T3", "intent": "trend", "forms": ["line"], "scenario": "issuer_dip",
+      "question": "How has approval rate moved over the last 7 days?",
+      "checks": [{ "kind": "series_point", "key": "2026-09-26", "expect": "daily[window.start=2026-09-26].approvalRate", "unit": "ratio" }]
+    },
+    {
+      "id": "T4", "intent": "trend", "forms": ["line"],
+      "question": "How has approval rate moved this quarter?",
+      "checks": [{ "kind": "plan_period", "start": "2026-07-01", "end": "2026-09-30" }]
+    },
+    {
+      "id": "T5", "intent": "trend", "forms": ["line"],
+      "question": "Show daily captured value over the last 7 days.",
+      "checks": [
+        { "kind": "series_point", "key": "2026-09-24", "expect": "daily[window.start=2026-09-24].capturedValue", "unit": "zar" },
+        { "kind": "series_point", "key": "2026-09-30", "expect": "daily[window.start=2026-09-30].capturedValue", "unit": "zar" }
+      ]
+    },
+    {
+      "id": "B1", "intent": "breakdown", "forms": ["stacked100"], "scenario": "wallet_shift",
+      "question": "Show payment-method share by month.",
+      "checks": [
+        { "kind": "share_cell", "bucket": "2026-09", "category": "Apple Pay", "expect": "scenarios.wallet_shift.answer.monthly[month=2026-09].shares.Apple Pay" },
+        { "kind": "share_cell", "bucket": "2026-09", "category": "Card", "expect": "scenarios.wallet_shift.answer.monthly[month=2026-09].shares.Card" },
+        { "kind": "share_cell", "bucket": "2026-04", "category": "Card", "expect": "scenarios.wallet_shift.answer.monthly[month=2026-04].shares.Card" },
+        { "kind": "share_cell", "bucket": "2026-04", "category": "Capitec Pay", "expect": "scenarios.wallet_shift.answer.monthly[month=2026-04].shares.Capitec Pay" }
+      ]
+    },
+    {
+      "id": "B2", "intent": ["breakdown", "trend"], "forms": ["stacked100"], "scenario": "wallet_shift",
+      "question": "How has our payment method mix changed over the last six months?",
+      "checks": [
+        { "kind": "share_cell", "bucket": "2026-09", "category": "Capitec Pay", "expect": "scenarios.wallet_shift.answer.monthly[month=2026-09].shares.Capitec Pay" },
+        { "kind": "share_cell", "bucket": "2026-08", "category": "Apple Pay", "expect": "scenarios.wallet_shift.answer.monthly[month=2026-08].shares.Apple Pay" }
+      ]
+    },
+    {
+      "id": "B3", "intent": "breakdown", "forms": ["hbar"],
+      "question": "Break down captured value by channel last month.",
+      "checks": [
+        { "kind": "item", "label": "Online", "expect": "breakdowns.capturedByChannelLastMonth[key=Online].value", "unit": "zar" },
+        { "kind": "item", "label": "In-store", "expect": "breakdowns.capturedByChannelLastMonth[key=In-store].value", "unit": "zar" }
+      ]
+    },
+    {
+      "id": "B4", "intent": ["breakdown", "lookup"], "forms": ["hbar", "text", "kpi"],
+      "question": "What share of captured value came from new customers this month?",
+      "checks": [{ "kind": "item_share", "label": "New", "expect": "breakdowns.capturedByCustomerTypeMonthToDate[key=New].share" }]
+    },
+    {
+      "id": "R1", "intent": "ranking", "forms": ["hbar"],
+      "question": "Which issuer has the lowest approval rate?",
+      "checks": [{ "kind": "top_item", "expectLabel": "scenarios.issuer_dip.answer.last90Ranking[0].issuer", "expect": "scenarios.issuer_dip.answer.last90Ranking[0].rate", "unit": "ratio" }]
+    },
+    {
+      "id": "R2", "intent": "ranking", "forms": ["hbar"], "scenario": "issuer_dip",
+      "question": "Which issuer had the lowest approval rate on Saturday 26 September?",
+      "checks": [{ "kind": "top_item", "expectLabel": "scenarios.issuer_dip.planted.issuer", "expect": "scenarios.issuer_dip.answer.dayRanking[0].rate", "unit": "ratio" }]
+    },
+    {
+      "id": "F1", "intent": "trend", "forms": ["line"], "scenario": "issuer_dip", "followUpOf": "R2",
+      "question": "Show its approval rate by hour that day.",
+      "checks": [
+        { "kind": "series_point", "key": "2026-09-26 15:00", "expect": "scenarios.issuer_dip.answer.hourly[hour=15].issuer.rate", "unit": "ratio" },
+        { "kind": "series_min_in", "keys": ["2026-09-26 13:00", "2026-09-26 14:00", "2026-09-26 15:00", "2026-09-26 16:00"] }
+      ]
+    },
+    {
+      "id": "R3", "intent": "ranking", "forms": ["hbar"], "scenario": "chargeback_ring",
+      "question": "Which cards have the highest chargeback rate in the last 90 days?",
+      "checks": [
+        { "kind": "top_items_set", "n": 6, "expect": "scenarios.chargeback_ring.planted.fingerprints" },
+        { "kind": "top_item", "expectLabel": "scenarios.chargeback_ring.answer.rankingLast90[0].fingerprint", "expect": "scenarios.chargeback_ring.answer.rankingLast90[0].rate", "unit": "ratio" }
+      ]
+    },
+    {
+      "id": "R4", "intent": "ranking", "forms": ["hbar"],
+      "question": "Which stores took the most captured value last month?",
+      "checks": [{ "kind": "top_item", "expectLabel": "breakdowns.capturedByStoreLastMonth[0].key", "expect": "breakdowns.capturedByStoreLastMonth[0].value", "unit": "zar" }]
+    },
+    {
+      "id": "R5", "intent": "ranking", "forms": ["hbar"],
+      "question": "Which payment method has the highest refund rate in the last 90 days?",
+      "checks": [{ "kind": "top_item", "expectLabel": "breakdowns.refundRateByMethodLast90[0].key", "expect": "breakdowns.refundRateByMethodLast90[0].rate", "unit": "ratio" }]
+    },
+    {
+      "id": "E1", "intent": "explain_change", "forms": ["waterfall"], "scenario": "promo",
+      "question": "Why is captured value up this month?",
+      "checks": [
+        { "kind": "contribution", "start": "scenarios.promo.answer.previousValue", "end": "scenarios.promo.answer.currentValue", "change": "scenarios.promo.answer.change", "steps": "scenarios.promo.answer.segments" }
+      ]
+    },
+    {
+      "id": "E2", "intent": "explain_change", "forms": ["waterfall"], "scenario": "issuer_dip",
+      "question": "Why did approval rate drop on 26 September compared with 19 September?",
+      "checks": [
+        { "kind": "contribution_rates", "start": "daily[window.start=2026-09-19].approvalRate", "end": "daily[window.start=2026-09-26].approvalRate" },
+        { "kind": "top_step", "expectLabel": "scenarios.issuer_dip.planted.issuer" }
+      ]
+    },
+    {
+      "id": "RL1", "intent": "record_listing", "forms": ["table"], "scenario": "chargeback_ring",
+      "question": "Show the chargebacks on card {{scenarios.chargeback_ring.answer.topCard.fingerprint}}.",
+      "checks": [{ "kind": "records", "ids": "scenarios.chargeback_ring.answer.topCard.disputeIds", "idColumn": "dispute_id", "total": "scenarios.chargeback_ring.answer.topCard.chargebacks" }]
+    },
+    {
+      "id": "RL2", "intent": "record_listing", "forms": ["table"],
+      "question": "Show the last three payments for customer {{records.sampleCustomer.customerId}}.",
+      "checks": [{ "kind": "records", "ids": "records.sampleCustomer.lastThree[*].paymentId", "idColumn": "payment_id", "total": "records.sampleCustomer.capturedPayments" }]
+    },
+    {
+      "id": "RL3", "intent": "record_listing", "forms": ["table"],
+      "question": "List refunds over R5,000 last month.",
+      "checks": [{ "kind": "records_total", "total": "breakdowns.refundsOver5000LastMonth" }]
+    },
+    {
+      "id": "O1", "intent": "out_of_scope", "forms": ["text"], "scenario": "out_of_scope",
+      "question": "Which customer will default?",
+      "checks": [{ "kind": "no_query" }]
+    },
+    {
+      "id": "O2", "intent": "out_of_scope", "forms": ["text"],
+      "question": "What will captured value be next month?",
+      "checks": [{ "kind": "no_query" }]
+    },
+    {
+      "id": "O3", "intent": "out_of_scope", "forms": ["text"],
+      "question": "What was our profit margin last month?",
+      "checks": [{ "kind": "no_query" }]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "hash": "0dd8d20d80d7f20d749c3832",
+  "task": "narrative",
+  "tag": "narrative: How did the number of payments in September compare with August?",
+  "model": "gemini-3.5-flash-lite",
+  "recordedAt": "2026-10-24T06:51:48.211Z",
+  "latencyMs": 4240,
+  "request": {
+    "system": "You write the short narrative for one answer in a payments analytics app.\nUse only the facts given. Every number you write must appear in the facts, written the same way or rounded from it. Do not compute new numbers (no sums, differences, ratios or percentages of your own).\nheadline: one short sentence-case statement of the main finding, at most 9 words, no trailing full stop. Not Title Case.\nsentences: one to three plain sentences that add what the headline does not: the period, the comparison, what stands out and why it matters. Do not restate the headline. No filler, no advice, no markdown.\nLead with what stands out: a dip, a spike, the leader, the biggest driver or the outlier, not the first or last value.\nName the period the way the facts do (e.g. 'September 2026', '26 Sep 2026').\nCaptured value is not revenue; never call it revenue or profit.",
+    "prompt": "{\n  \"question\": \"How did the number of payments in September compare with August?\",\n  \"topic\": \"PAYMENT COUNT · COMPARE\",\n  \"form\": \"kpi\",\n  \"facts\": [\n    \"Scope: September 2026; all payments.\",\n    \"Payment count, September 2026: 57,268\",\n    \"Payment count, August 2026: 50,180\",\n    \"Change: +7,088\",\n    \"Relative change: +14.1%\"\n  ],\n  \"notes\": []\n}"
+  },
+  "output": {
+    "headline": "September 2026 payment count increased by 14.1%",
+    "sentences": [
+      "The payment count rose to 57,268 in September 2026 compared to 50,180 in August 2026.",
+      "This represents an increase of +7,088 payments over the previous month."
+    ]
+  }
+}

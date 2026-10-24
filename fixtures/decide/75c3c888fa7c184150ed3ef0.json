@@ -1,0 +1,38 @@
+{
+  "hash": "75c3c888fa7c184150ed3ef0",
+  "tag": "form: How has approval rate moved this quarter?",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:21:09.560Z",
+  "latencyMs": 409,
+  "inputTokens": 390,
+  "request": {
+    "state": {
+      "question": "How has approval rate moved this quarter?",
+      "result": "a time series by week: 2 series of 14 points"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "line": "Line chart: How a value moves over time",
+          "table": "Table: Exact values in rows and columns, or individual records to read one by one",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "line",
+      "confidence": 1,
+      "probabilities": {
+        "line": 1,
+        "table": 0,
+        "none_of_these": 0
+      }
+    }
+  }
+}

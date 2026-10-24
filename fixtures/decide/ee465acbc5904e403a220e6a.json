@@ -1,0 +1,38 @@
+{
+  "hash": "ee465acbc5904e403a220e6a",
+  "tag": "form: Which issuer had the lowest approval rate on Saturday 26 September?",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:21:23.382Z",
+  "latencyMs": 418,
+  "inputTokens": 400,
+  "request": {
+    "state": {
+      "question": "Which issuer had the lowest approval rate on Saturday 26 September?",
+      "result": "8 groups by issuer bank, ranked lowest first"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "hbar": "Horizontal bar: Groups compared and ranked by one value, as bars from longest to shortest",
+          "table": "Table: Exact values in rows and columns, or individual records to read one by one",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "table",
+      "confidence": 0.37,
+      "probabilities": {
+        "hbar": 0.37,
+        "table": 0.58,
+        "none_of_these": 0.05
+      }
+    }
+  }
+}

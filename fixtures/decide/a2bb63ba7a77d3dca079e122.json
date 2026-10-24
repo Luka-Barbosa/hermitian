@@ -1,0 +1,38 @@
+{
+  "hash": "a2bb63ba7a77d3dca079e122",
+  "tag": "form: How many different customer accounts used card fp_afc6eb9e in the last 90 days?",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:23:05.323Z",
+  "latencyMs": 312,
+  "inputTokens": 404,
+  "request": {
+    "state": {
+      "question": "How many different customer accounts used card fp_afc6eb9e in the last 90 days?",
+      "result": "one value for one period"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "text": "Text: A sentence or two with no chart: one figure or a short statement is the whole answer",
+          "kpi": "KPI card: One headline number, with its change against another period",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "text",
+      "confidence": 0.77,
+      "probabilities": {
+        "text": 0.85,
+        "kpi": 0.14,
+        "none_of_these": 0.01
+      }
+    }
+  }
+}

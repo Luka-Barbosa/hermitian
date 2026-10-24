@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+/* docs/design.md: black and white, typographic, thin rules, light mode only. */
+@theme {
+  --color-ink: #0a0a0a;
+  --color-muted: #6b6b6b;
+  --color-fill: #f4f4f4;
+  --color-paper: #ffffff;
+  --color-think: #8b5cf6;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  background: #ffffff;
+  color: #0a0a0a;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+b,
+strong,
+h1,
+h2,
+h3,
+th {
+  font-weight: 300;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6b6b6b;
+}
+
+.mono-sm {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #6b6b6b;
+}
+
+/* The only purple on the page: the thinking indicator. */
+.think-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: #8b5cf6;
+  animation: think 1.2s ease-in-out infinite;
+  flex: none;
+}
+
+@keyframes think {
+  0%,
+  100% {
+    transform: scale(0.8);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .think-dot {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+.rule {
+  border-top: 1px solid #0a0a0a;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+textarea:focus-visible,
+a:focus-visible,
+summary:focus-visible {
+  outline: 1px solid #0a0a0a;
+  outline-offset: 2px;
+}
+
+.recharts-surface:focus,
+.recharts-wrapper:focus,
+.recharts-sector:focus,
+.recharts-rectangle:focus {
+  outline: none;
+}

@@ -1,0 +1,38 @@
+{
+  "hash": "98b3cee757509b1bbda8e83c",
+  "tag": "form: Show its approval rate by hour that day.",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:21:27.375Z",
+  "latencyMs": 365,
+  "inputTokens": 391,
+  "request": {
+    "state": {
+      "question": "Show its approval rate by hour that day.",
+      "result": "a time series by hour: 2 series of 24 points"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "line": "Line chart: How a value moves over time",
+          "table": "Table: Exact values in rows and columns, or individual records to read one by one",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "line",
+      "confidence": 0.95,
+      "probabilities": {
+        "line": 0.97,
+        "table": 0.03,
+        "none_of_these": 0
+      }
+    }
+  }
+}

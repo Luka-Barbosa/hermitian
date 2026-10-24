@@ -1,0 +1,38 @@
+{
+  "hash": "7019fb657a13b6354ec731fc",
+  "tag": "form: How did captured value move this month?",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:21:05.019Z",
+  "latencyMs": 287,
+  "inputTokens": 390,
+  "request": {
+    "state": {
+      "question": "How did captured value move this month?",
+      "result": "a time series by day: 2 series of 30 points"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "line": "Line chart: How a value moves over time",
+          "table": "Table: Exact values in rows and columns, or individual records to read one by one",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "line",
+      "confidence": 1,
+      "probabilities": {
+        "line": 1,
+        "table": 0,
+        "none_of_these": 0
+      }
+    }
+  }
+}

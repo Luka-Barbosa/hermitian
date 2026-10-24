@@ -1,0 +1,53 @@
+{
+  "hash": "79a94c55f2622ad6e8a653ac",
+  "tag": "claims: How did the number of payments in September compare with August?",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:14:45.661Z",
+  "latencyMs": 381,
+  "inputTokens": 519,
+  "request": {
+    "state": {
+      "facts": [
+        "Scope: September 2026; all payments.",
+        "Payment count, September 2026: 57,268",
+        "Payment count, August 2026: 50,180",
+        "Change: +7,088",
+        "Relative change: +14.1%"
+      ],
+      "claims": [
+        "September 2026 payment count increased by 14.1%",
+        "The payment count rose to 57,268 in September 2026 compared to 50,180 in August 2026.",
+        "This represents an increase of +7,088 payments over the previous month."
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_1": {
+        "type": "noul",
+        "instructions": "`claims[1]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_2": {
+        "type": "noul",
+        "instructions": "`claims[2]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 0.97
+    },
+    "claim_1": {
+      "type": "noul",
+      "noul": 0.97
+    },
+    "claim_2": {
+      "type": "noul",
+      "noul": 0.98
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "hash": "23b848f9191f6d8c04058a58",
+  "tag": "claims: What was the refund rate last month?",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:20:55.582Z",
+  "latencyMs": 300,
+  "inputTokens": 486,
+  "request": {
+    "state": {
+      "facts": [
+        "Scope: August 2026; all payments.",
+        "Refund rate, August 2026: 3.5%",
+        "Calculated from R1.4m refunded value and R39.7m captured value."
+      ],
+      "claims": [
+        "August 2026 refund rate was 3.5%",
+        "During August 2026, the refund rate reached 3.5% across all payments.",
+        "This was calculated from R1.4m refunded value and R39.7m captured value."
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_1": {
+        "type": "noul",
+        "instructions": "`claims[1]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_2": {
+        "type": "noul",
+        "instructions": "`claims[2]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 0.96
+    },
+    "claim_1": {
+      "type": "noul",
+      "noul": 0.57
+    },
+    "claim_2": {
+      "type": "noul",
+      "noul": 0.96
+    }
+  }
+}

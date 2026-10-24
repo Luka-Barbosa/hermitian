@@ -1,0 +1,21 @@
+{
+  "hash": "9b06b324dc003d834cf308c6",
+  "task": "resolve_slots",
+  "tag": "resolve: How has approval rate moved this quarter?",
+  "model": "gemini-3.5-flash-lite",
+  "recordedAt": "2026-10-24T08:23:13.113Z",
+  "latencyMs": 3027,
+  "request": {
+    "system": "You resolve ambiguous slots for a read-only payments analytics agent.\nFor each slot, pick exactly one option key from its options. Use none_of_these when nothing fits.\nA fast classifier was unsure about these slots; its guess is shown but may be wrong.\nReply with option keys only, plus a one-line reason. Never invent options.",
+    "prompt": "{\n  \"question\": \"How has approval rate moved this quarter?\",\n  \"context\": \"\",\n  \"slots\": [\n    {\n      \"slot\": \"period\",\n      \"instructions\": \"Which time period does `question` ask about? For a comparison, pick the more recent period.\",\n      \"options\": {\n        \"today\": \"Today, the latest day in the data\",\n        \"yesterday\": \"Yesterday\",\n        \"last_7_days\": \"The last 7 days, this week or the past week\",\n        \"month_to_date\": \"This month or month to date (the current month)\",\n        \"last_month\": \"Last month: the previous calendar month as a whole\",\n        \"last_90_days\": \"The last 90 days or the last three months\",\n        \"last_6_months\": \"The last six months, all the data, or month by month over the whole period\",\n        \"custom\": \"A specific date or range not listed above: a named day or month, a quarter, a date like 25 September, or two named periods to compare\",\n        \"not_stated\": \"No time period is mentioned\",\n        \"none_of_these\": \"None of these fits the question\"\n      },\n      \"classifier_guess\": \"custom\"\n    }\n  ]\n}"
+  },
+  "output": {
+    "choices": [
+      {
+        "slot": "period",
+        "choice": "custom",
+        "reason": "The question asks about this quarter, which is a specific time range not covered by standard preset options."
+      }
+    ]
+  }
+}

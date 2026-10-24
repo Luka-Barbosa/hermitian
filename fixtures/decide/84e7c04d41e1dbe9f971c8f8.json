@@ -1,0 +1,41 @@
+{
+  "hash": "84e7c04d41e1dbe9f971c8f8",
+  "tag": "claims: How many unique customers paid us last month?",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:20:26.038Z",
+  "latencyMs": 394,
+  "inputTokens": 395,
+  "request": {
+    "state": {
+      "facts": [
+        "Scope: August 2026; all payments.",
+        "Unique customers, August 2026: 37,135"
+      ],
+      "claims": [
+        "37,135 unique customers made payments",
+        "This covers all payments in August 2026."
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_1": {
+        "type": "noul",
+        "instructions": "`claims[1]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 0.83
+    },
+    "claim_1": {
+      "type": "noul",
+      "noul": 0.92
+    }
+  }
+}

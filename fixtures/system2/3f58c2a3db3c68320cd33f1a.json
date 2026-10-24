@@ -1,0 +1,19 @@
+{
+  "hash": "3f58c2a3db3c68320cd33f1a",
+  "task": "narrative",
+  "tag": "narrative: How has approval rate moved over the last 7 days?",
+  "model": "gemini-3.5-flash-lite",
+  "recordedAt": "2026-10-24T06:52:36.604Z",
+  "latencyMs": 4110,
+  "request": {
+    "system": "You write the short narrative for one answer in a payments analytics app.\nUse only the facts given. Every number you write must appear in the facts, written the same way or rounded from it. Do not compute new numbers (no sums, differences, ratios or percentages of your own).\nheadline: one short sentence-case statement of the main finding, at most 9 words, no trailing full stop. Not Title Case.\nsentences: one to three plain sentences that add what the headline does not: the period, the comparison, what stands out and why it matters. Do not restate the headline. No filler, no advice, no markdown.\nLead with what stands out: a dip, a spike, the leader, the biggest driver or the outlier, not the first or last value.\nName the period the way the facts do (e.g. 'September 2026', '26 Sep 2026').\nCaptured value is not revenue; never call it revenue or profit.",
+    "prompt": "{\n  \"question\": \"How has approval rate moved over the last 7 days?\",\n  \"topic\": \"APPROVAL RATE · TREND\",\n  \"form\": \"line\",\n  \"facts\": [\n    \"Scope: 24–30 Sep 2026; all payments.\",\n    \"Series \\\"24–30 Sep 2026\\\" (Approval rate, by day): lowest 88.4% at 26 Sep; highest 92.6% at 24 Sep.\",\n    \"\\\"24–30 Sep 2026\\\" points: 24 Sep 92.6%; 25 Sep 91.3%; 26 Sep 88.4%; 27 Sep 91.9%; 28 Sep 92.3%; 29 Sep 90.3%; 30 Sep 92.1%\",\n    \"Comparison series \\\"17–23 Sep 2026\\\" (Approval rate, by day): lowest 90.6% at 19 Sep; highest 91.8% at 21 Sep.\",\n    \"\\\"17–23 Sep 2026\\\" points: 17 Sep 91.4%; 18 Sep 90.8%; 19 Sep 90.6%; 20 Sep 91.7%; 21 Sep 91.8%; 22 Sep 91.8%; 23 Sep 91.7%\"\n  ],\n  \"notes\": []\n}"
+  },
+  "output": {
+    "headline": "Approval rate hit lowest point on 26 Sep",
+    "sentences": [
+      "During the period of 24–30 Sep 2026, the approval rate dropped to 88.4% on 26 Sep from a high of 92.6% on 24 Sep.",
+      "Performance recovered in the following days, ending the week at 92.1% on 30 Sep."
+    ]
+  }
+}

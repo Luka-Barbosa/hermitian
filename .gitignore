@@ -15,3 +15,5 @@ node_modules/
 docs/
 .claude/
 CLAUDE.md
+# next
+next-env.d.ts

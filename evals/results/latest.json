@@ -1,0 +1,1130 @@
+{
+  "ranAt": "2026-10-24T08:24:02.594Z",
+  "backend": "replay",
+  "decideBackend": "replay",
+  "system2Backend": "replay",
+  "questions": 34,
+  "passed": 34,
+  "meetsBar": true,
+  "bar": [
+    {
+      "item": "Every planted scenario returns exactly the right numbers from the database",
+      "ok": true,
+      "detail": "14/14 scenario questions"
+    },
+    {
+      "item": "Questions expected to return text, a table or a chart come back in that form",
+      "ok": true,
+      "detail": "34/34 in the expected form"
+    },
+    {
+      "item": "Each chart type appears correctly at least once",
+      "ok": true,
+      "detail": "line 6, hbar 7, waterfall 2, stacked100 2"
+    },
+    {
+      "item": "No ungrounded claim reaches an answer",
+      "ok": true,
+      "detail": "34/34 answers fully grounded; 4 claims cut before display"
+    },
+    {
+      "item": "Misses are logged in a results table and shown in the demo, not hidden",
+      "ok": true,
+      "detail": "evals/results/latest.md and the app's Eval page"
+    }
+  ],
+  "rows": [
+    {
+      "id": "L1",
+      "question": "What was captured value yesterday?",
+      "scenario": null,
+      "expectedIntent": "lookup",
+      "actualIntent": "lookup",
+      "expectedForm": "text | kpi",
+      "chosenForm": "text",
+      "expectedAnswer": "971577.1300",
+      "actualAnswer": "971577.1300",
+      "route": "System 1",
+      "latencyMs": 105,
+      "modelLatencyMs": 14954,
+      "checks": [
+        {
+          "kind": "scalar",
+          "pass": true,
+          "expected": "971577.1300",
+          "actual": "971577.1300"
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "Captured payment value reached R971,577"
+    },
+    {
+      "id": "L2",
+      "question": "How many payments did we capture today?",
+      "scenario": null,
+      "expectedIntent": "lookup",
+      "actualIntent": "lookup",
+      "expectedForm": "text | kpi",
+      "chosenForm": "text",
+      "expectedAnswer": "1505",
+      "actualAnswer": "1505",
+      "route": "System 1",
+      "latencyMs": 27,
+      "modelLatencyMs": 30330,
+      "checks": [
+        {
+          "kind": "scalar",
+          "pass": true,
+          "expected": "1505",
+          "actual": "1505"
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "Captured 1,505 payments"
+    },
+    {
+      "id": "L3",
+      "question": "What was the average transaction value last month?",
+      "scenario": null,
+      "expectedIntent": "lookup",
+      "actualIntent": "lookup",
+      "expectedForm": "text | kpi",
+      "chosenForm": "text",
+      "expectedAnswer": "791.1882864",
+      "actualAnswer": "791.1882864",
+      "route": "System 1",
+      "latencyMs": 53,
+      "modelLatencyMs": 54912,
+      "checks": [
+        {
+          "kind": "scalar",
+          "pass": true,
+          "expected": "791.1882864",
+          "actual": "791.1882864"
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "Average transaction value stood at R791.19"
+    },
+    {
+      "id": "L4",
+      "question": "What was our approval rate in the last 7 days?",
+      "scenario": null,
+      "expectedIntent": "lookup",
+      "actualIntent": "lookup",
+      "expectedForm": "text | kpi",
+      "chosenForm": "text",
+      "expectedAnswer": "0.9100207326",
+      "actualAnswer": "0.9100207326",
+      "route": "System 1",
+      "latencyMs": 68,
+      "modelLatencyMs": 6628,
+      "checks": [
+        {
+          "kind": "scalar",
+          "pass": true,
+          "expected": "0.9100207326",
+          "actual": "0.9100207326"
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "Approval rate stood at 91.0%"
+    },
+    {
+      "id": "L5",
+      "question": "How many unique customers paid us last month?",
+      "scenario": null,
+      "expectedIntent": "lookup",
+      "actualIntent": "lookup",
+      "expectedForm": "text | kpi",
+      "chosenForm": "text",
+      "expectedAnswer": "37135",
+      "actualAnswer": "37135",
+      "route": "System 1",
+      "latencyMs": 41,
+      "modelLatencyMs": 8413,
+      "checks": [
+        {
+          "kind": "scalar",
+          "pass": true,
+          "expected": "37135",
+          "actual": "37135"
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "37,135 unique customers made payments"
+    },
+    {
+      "id": "L6",
+      "question": "What was the refund rate last month?",
+      "scenario": null,
+      "expectedIntent": "lookup",
+      "actualIntent": "lookup",
+      "expectedForm": "text | kpi",
+      "chosenForm": "text",
+      "expectedAnswer": "0.03500497188",
+      "actualAnswer": "0.03500497188",
+      "route": "System 1",
+      "latencyMs": 61,
+      "modelLatencyMs": 29441,
+      "checks": [
+        {
+          "kind": "scalar",
+          "pass": true,
+          "expected": "0.03500497188",
+          "actual": "0.03500497188"
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "August 2026 refund rate was 3.5%"
+    },
+    {
+      "id": "L7",
+      "question": "How many different customer accounts used card fp_afc6eb9e in the last 90 days?",
+      "scenario": "chargeback_ring",
+      "expectedIntent": "lookup",
+      "actualIntent": "lookup",
+      "expectedForm": "text | kpi",
+      "chosenForm": "text",
+      "expectedAnswer": "12",
+      "actualAnswer": "12",
+      "route": "escalated",
+      "latencyMs": 46,
+      "modelLatencyMs": 9872,
+      "checks": [
+        {
+          "kind": "scalar",
+          "pass": true,
+          "expected": "12",
+          "actual": "12"
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "Twelve customer accounts used card fp_afc6eb9e"
+    },
+    {
+      "id": "C1",
+      "question": "How does captured value this month compare with last month?",
+      "scenario": null,
+      "expectedIntent": "compare",
+      "actualIntent": "compare",
+      "expectedForm": "kpi",
+      "chosenForm": "kpi",
+      "expectedAnswer": "\"42353655.56 vs 39701828.21\"",
+      "actualAnswer": "\"42353655.56 vs 39701828.21\"",
+      "route": "System 1",
+      "latencyMs": 52,
+      "modelLatencyMs": 7345,
+      "checks": [
+        {
+          "kind": "delta",
+          "pass": true,
+          "expected": "\"42353655.56 vs 39701828.21\"",
+          "actual": "\"42353655.56 vs 39701828.21\""
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "Captured payment value increased in September 2026"
+    },
+    {
+      "id": "C2",
+      "question": "How did captured value on 25 September compare with 24 September?",
+      "scenario": "payday",
+      "expectedIntent": "compare",
+      "actualIntent": "compare",
+      "expectedForm": "kpi",
+      "chosenForm": "kpi",
+      "expectedAnswer": "\"3104322.930 vs 1003607.250\"",
+      "actualAnswer": "\"3104322.930 vs 1003607.250\"",
+      "route": "escalated",
+      "latencyMs": 37,
+      "modelLatencyMs": 90504,
+      "checks": [
+        {
+          "kind": "delta",
+          "pass": true,
+          "expected": "\"3104322.930 vs 1003607.250\"",
+          "actual": "\"3104322.930 vs 1003607.250\""
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "Captured payment value surged on 25 Sep 2026"
+    },
+    {
+      "id": "C3",
+      "question": "Compare our approval rate in the last 7 days with the week before.",
+      "scenario": null,
+      "expectedIntent": "compare",
+      "actualIntent": "compare",
+      "expectedForm": "kpi",
+      "chosenForm": "kpi",
+      "expectedAnswer": "\"0.9100207326 vs 0.9136970554\"",
+      "actualAnswer": "\"0.9100207326 vs 0.9136970554\"",
+      "route": "System 1",
+      "latencyMs": 107,
+      "modelLatencyMs": 683863,
+      "checks": [
+        {
+          "kind": "delta",
+          "pass": true,
+          "expected": "\"0.9100207326 vs 0.9136970554\"",
+          "actual": "\"0.9100207326 vs 0.9136970554\""
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "Approval rate dropped by 0.4 pp"
+    },
+    {
+      "id": "C4",
+      "question": "How did the number of payments in September compare with August?",
+      "scenario": null,
+      "expectedIntent": "compare",
+      "actualIntent": "compare",
+      "expectedForm": "kpi",
+      "chosenForm": "kpi",
+      "expectedAnswer": "\"57268 vs 50180\"",
+      "actualAnswer": "\"57268 vs 50180\"",
+      "route": "escalated",
+      "latencyMs": 48,
+      "modelLatencyMs": 6784,
+      "checks": [
+        {
+          "kind": "delta",
+          "pass": true,
+          "expected": "\"57268 vs 50180\"",
+          "actual": "\"57268 vs 50180\""
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "September 2026 payment count increased by 14.1%"
+    },
+    {
+      "id": "T1",
+      "question": "How did captured value move this month?",
+      "scenario": "payday",
+      "expectedIntent": "trend",
+      "actualIntent": "trend",
+      "expectedForm": "line",
+      "chosenForm": "line",
+      "expectedAnswer": "\"2026-09-25: 3104322.930\"; \"max at 2026-09-25\"",
+      "actualAnswer": "\"2026-09-25: 3104322.930\"; \"max at 2026-09-25\"",
+      "route": "System 1",
+      "latencyMs": 115,
+      "modelLatencyMs": 2475,
+      "checks": [
+        {
+          "kind": "series_point",
+          "pass": true,
+          "expected": "\"2026-09-25: 3104322.930\"",
+          "actual": "\"2026-09-25: 3104322.930\""
+        },
+        {
+          "kind": "series_max",
+          "pass": true,
+          "expected": "\"max at 2026-09-25\"",
+          "actual": "\"max at 2026-09-25\""
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 1,
+      "error": null,
+      "pass": true,
+      "headline": "Captured value peaked at r3.1m"
+    },
+    {
+      "id": "T2",
+      "question": "Show Protea Bank's approval rate by hour on Saturday 26 September.",
+      "scenario": "issuer_dip",
+      "expectedIntent": "trend",
+      "actualIntent": "trend",
+      "expectedForm": "line",
+      "chosenForm": "line",
+      "expectedAnswer": "\"2026-09-26 14:00: 0.4418604651\"; \"2026-09-26 10:00: 0.8846153846\"; \"min in 2026-09-26 13:00, 2026-09-26 14:00, 2026-09-26 15:00, 2026-09-26 16:00\"",
+      "actualAnswer": "\"2026-09-26 14:00: 0.4418604651\"; \"2026-09-26 10:00: 0.8846153846\"; \"min at 2026-09-26 15:00\"",
+      "route": "escalated",
+      "latencyMs": 154,
+      "modelLatencyMs": 7313,
+      "checks": [
+        {
+          "kind": "series_point",
+          "pass": true,
+          "expected": "\"2026-09-26 14:00: 0.4418604651\"",
+          "actual": "\"2026-09-26 14:00: 0.4418604651\""
+        },
+        {
+          "kind": "series_point",
+          "pass": true,
+          "expected": "\"2026-09-26 10:00: 0.8846153846\"",
+          "actual": "\"2026-09-26 10:00: 0.8846153846\""
+        },
+        {
+          "kind": "series_min_in",
+          "pass": true,
+          "expected": "\"min in 2026-09-26 13:00, 2026-09-26 14:00, 2026-09-26 15:00, 2026-09-26 16:00\"",
+          "actual": "\"min at 2026-09-26 15:00\""
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "Lowest approval rate dropped to 43.8% at 15:00"
+    },
+    {
+      "id": "T3",
+      "question": "How has approval rate moved over the last 7 days?",
+      "scenario": "issuer_dip",
+      "expectedIntent": "trend",
+      "actualIntent": "trend",
+      "expectedForm": "line",
+      "chosenForm": "line",
+      "expectedAnswer": "\"2026-09-26: 0.8839566585\"",
+      "actualAnswer": "\"2026-09-26: 0.8839566585\"",
+      "route": "System 1",
+      "latencyMs": 133,
+      "modelLatencyMs": 4972,
+      "checks": [
+        {
+          "kind": "series_point",
+          "pass": true,
+          "expected": "\"2026-09-26: 0.8839566585\"",
+          "actual": "\"2026-09-26: 0.8839566585\""
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "Approval rate hit lowest point on 26 Sep"
+    },
+    {
+      "id": "T4",
+      "question": "How has approval rate moved this quarter?",
+      "scenario": null,
+      "expectedIntent": "trend",
+      "actualIntent": "trend",
+      "expectedForm": "line",
+      "chosenForm": "line",
+      "expectedAnswer": "\"2026-07-01 to 2026-09-30\"",
+      "actualAnswer": "\"2026-07-01 to 2026-09-30\"",
+      "route": "escalated",
+      "latencyMs": 147,
+      "modelLatencyMs": 8838,
+      "checks": [
+        {
+          "kind": "plan_period",
+          "pass": true,
+          "expected": "\"2026-07-01 to 2026-09-30\"",
+          "actual": "\"2026-07-01 to 2026-09-30\""
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "Approval rate peaked at 92.2 percent"
+    },
+    {
+      "id": "T5",
+      "question": "Show daily captured value over the last 7 days.",
+      "scenario": null,
+      "expectedIntent": "trend",
+      "actualIntent": "trend",
+      "expectedForm": "line",
+      "chosenForm": "line",
+      "expectedAnswer": "\"2026-09-24: 1003607.250\"; \"2026-09-30: 1181834.950\"",
+      "actualAnswer": "\"2026-09-24: 1003607.250\"; \"2026-09-30: 1181834.950\"",
+      "route": "System 1",
+      "latencyMs": 53,
+      "modelLatencyMs": 5348,
+      "checks": [
+        {
+          "kind": "series_point",
+          "pass": true,
+          "expected": "\"2026-09-24: 1003607.250\"",
+          "actual": "\"2026-09-24: 1003607.250\""
+        },
+        {
+          "kind": "series_point",
+          "pass": true,
+          "expected": "\"2026-09-30: 1181834.950\"",
+          "actual": "\"2026-09-30: 1181834.950\""
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "Captured value peaked sharply on 25 Sep"
+    },
+    {
+      "id": "B1",
+      "question": "Show payment-method share by month.",
+      "scenario": "wallet_shift",
+      "expectedIntent": "breakdown",
+      "actualIntent": "breakdown",
+      "expectedForm": "stacked100",
+      "chosenForm": "stacked100",
+      "expectedAnswer": "\"2026-09 Apple Pay: 0.3370811981\"; \"2026-09 Card: 0.3095409503\"; \"2026-04 Card: 0.4591684062\"; \"2026-04 Capitec Pay: 0.06622988717\"",
+      "actualAnswer": "\"0.3370811981\"; \"0.3095409503\"; \"0.4591684062\"; \"0.06622988717\"",
+      "route": "escalated",
+      "latencyMs": 101,
+      "modelLatencyMs": 7030,
+      "checks": [
+        {
+          "kind": "share_cell",
+          "pass": true,
+          "expected": "\"2026-09 Apple Pay: 0.3370811981\"",
+          "actual": "\"0.3370811981\""
+        },
+        {
+          "kind": "share_cell",
+          "pass": true,
+          "expected": "\"2026-09 Card: 0.3095409503\"",
+          "actual": "\"0.3095409503\""
+        },
+        {
+          "kind": "share_cell",
+          "pass": true,
+          "expected": "\"2026-04 Card: 0.4591684062\"",
+          "actual": "\"0.4591684062\""
+        },
+        {
+          "kind": "share_cell",
+          "pass": true,
+          "expected": "\"2026-04 Capitec Pay: 0.06622988717\"",
+          "actual": "\"0.06622988717\""
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 1,
+      "error": null,
+      "pass": true,
+      "headline": "Apple Pay leads in Sep 2026 at 33.7%"
+    },
+    {
+      "id": "B2",
+      "question": "How has our payment method mix changed over the last six months?",
+      "scenario": "wallet_shift",
+      "expectedIntent": "breakdown | trend",
+      "actualIntent": "breakdown",
+      "expectedForm": "stacked100",
+      "chosenForm": "stacked100",
+      "expectedAnswer": "\"2026-09 Capitec Pay: 0.1459513458\"; \"2026-08 Apple Pay: 0.3010262408\"",
+      "actualAnswer": "\"0.1459513458\"; \"0.3010262408\"",
+      "route": "escalated",
+      "latencyMs": 115,
+      "modelLatencyMs": 8227,
+      "checks": [
+        {
+          "kind": "share_cell",
+          "pass": true,
+          "expected": "\"2026-09 Capitec Pay: 0.1459513458\"",
+          "actual": "\"0.1459513458\""
+        },
+        {
+          "kind": "share_cell",
+          "pass": true,
+          "expected": "\"2026-08 Apple Pay: 0.3010262408\"",
+          "actual": "\"0.3010262408\""
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "Apple Pay surged while card share dropped"
+    },
+    {
+      "id": "B3",
+      "question": "Break down captured value by channel last month.",
+      "scenario": null,
+      "expectedIntent": "breakdown",
+      "actualIntent": "breakdown",
+      "expectedForm": "hbar",
+      "chosenForm": "hbar",
+      "expectedAnswer": "\"Online: 18770562.59\"; \"In-store: 9809885.480\"",
+      "actualAnswer": "\"Online: 18770562.59\"; \"In-store: 9809885.480\"",
+      "route": "System 1",
+      "latencyMs": 58,
+      "modelLatencyMs": 2148,
+      "checks": [
+        {
+          "kind": "item",
+          "pass": true,
+          "expected": "\"Online: 18770562.59\"",
+          "actual": "\"Online: 18770562.59\""
+        },
+        {
+          "kind": "item",
+          "pass": true,
+          "expected": "\"In-store: 9809885.480\"",
+          "actual": "\"In-store: 9809885.480\""
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "Online channel led August 2026 captured value"
+    },
+    {
+      "id": "B4",
+      "question": "What share of captured value came from new customers this month?",
+      "scenario": null,
+      "expectedIntent": "breakdown | lookup",
+      "actualIntent": "breakdown",
+      "expectedForm": "hbar | text | kpi",
+      "chosenForm": "hbar",
+      "expectedAnswer": "\"New share 0.2122854316\"",
+      "actualAnswer": "\"0.2122854316\"",
+      "route": "escalated",
+      "latencyMs": 56,
+      "modelLatencyMs": 6887,
+      "checks": [
+        {
+          "kind": "item_share",
+          "pass": true,
+          "expected": "\"New share 0.2122854316\"",
+          "actual": "\"0.2122854316\""
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "New customers generated r9.0m in September 2026"
+    },
+    {
+      "id": "R1",
+      "question": "Which issuer has the lowest approval rate?",
+      "scenario": null,
+      "expectedIntent": "ranking",
+      "actualIntent": "ranking",
+      "expectedForm": "hbar",
+      "chosenForm": "hbar",
+      "expectedAnswer": "\"\\\"Quagga Bank\\\" 0.8920842825\"",
+      "actualAnswer": "\"\\\"Quagga Bank\\\" 0.8920842825\"",
+      "route": "System 1",
+      "latencyMs": 93,
+      "modelLatencyMs": 3869,
+      "checks": [
+        {
+          "kind": "top_item",
+          "pass": true,
+          "expected": "\"\\\"Quagga Bank\\\" 0.8920842825\"",
+          "actual": "\"\\\"Quagga Bank\\\" 0.8920842825\""
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "Quagga Bank recorded the lowest approval rate"
+    },
+    {
+      "id": "R2",
+      "question": "Which issuer had the lowest approval rate on Saturday 26 September?",
+      "scenario": "issuer_dip",
+      "expectedIntent": "ranking",
+      "actualIntent": "ranking",
+      "expectedForm": "hbar",
+      "chosenForm": "hbar",
+      "expectedAnswer": "\"\\\"Protea Bank\\\" 0.7516483516\"",
+      "actualAnswer": "\"\\\"Protea Bank\\\" 0.7516483516\"",
+      "route": "escalated",
+      "latencyMs": 69,
+      "modelLatencyMs": 4851,
+      "checks": [
+        {
+          "kind": "top_item",
+          "pass": true,
+          "expected": "\"\\\"Protea Bank\\\" 0.7516483516\"",
+          "actual": "\"\\\"Protea Bank\\\" 0.7516483516\""
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "Protea Bank recorded the lowest approval rate"
+    },
+    {
+      "id": "F1",
+      "question": "Show its approval rate by hour that day.",
+      "scenario": "issuer_dip",
+      "expectedIntent": "trend",
+      "actualIntent": "trend",
+      "expectedForm": "line",
+      "chosenForm": "line",
+      "expectedAnswer": "\"2026-09-26 15:00: 0.4375000000\"; \"min in 2026-09-26 13:00, 2026-09-26 14:00, 2026-09-26 15:00, 2026-09-26 16:00\"",
+      "actualAnswer": "\"2026-09-26 15:00: 0.4375000000\"; \"min at 2026-09-26 15:00\"",
+      "route": "escalated",
+      "latencyMs": 110,
+      "modelLatencyMs": 6744,
+      "checks": [
+        {
+          "kind": "series_point",
+          "pass": true,
+          "expected": "\"2026-09-26 15:00: 0.4375000000\"",
+          "actual": "\"2026-09-26 15:00: 0.4375000000\""
+        },
+        {
+          "kind": "series_min_in",
+          "pass": true,
+          "expected": "\"min in 2026-09-26 13:00, 2026-09-26 14:00, 2026-09-26 15:00, 2026-09-26 16:00\"",
+          "actual": "\"min at 2026-09-26 15:00\""
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "Lowest approval rate of 43.8% at 15:00"
+    },
+    {
+      "id": "R3",
+      "question": "Which cards have the highest chargeback rate in the last 90 days?",
+      "scenario": "chargeback_ring",
+      "expectedIntent": "ranking",
+      "actualIntent": "ranking",
+      "expectedForm": "hbar",
+      "chosenForm": "hbar",
+      "expectedAnswer": "\"fp_025a0ccc,fp_1abf5464,fp_2044ec4e,fp_242e539c,fp_afc6eb9e,fp_d549f9c4\"; \"\\\"fp_d549f9c4\\\" 0.8620689655\"",
+      "actualAnswer": "\"fp_025a0ccc,fp_1abf5464,fp_2044ec4e,fp_242e539c,fp_afc6eb9e,fp_d549f9c4\"; \"\\\"fp_d549f9c4\\\" 0.8620689655\"",
+      "route": "escalated",
+      "latencyMs": 69,
+      "modelLatencyMs": 7912,
+      "checks": [
+        {
+          "kind": "top_items_set",
+          "pass": true,
+          "expected": "\"fp_025a0ccc,fp_1abf5464,fp_2044ec4e,fp_242e539c,fp_afc6eb9e,fp_d549f9c4\"",
+          "actual": "\"fp_025a0ccc,fp_1abf5464,fp_2044ec4e,fp_242e539c,fp_afc6eb9e,fp_d549f9c4\""
+        },
+        {
+          "kind": "top_item",
+          "pass": true,
+          "expected": "\"\\\"fp_d549f9c4\\\" 0.8620689655\"",
+          "actual": "\"\\\"fp_d549f9c4\\\" 0.8620689655\""
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 1,
+      "error": null,
+      "pass": true,
+      "headline": "fp_d549f9c4 leads with highest chargeback rate"
+    },
+    {
+      "id": "R4",
+      "question": "Which stores took the most captured value last month?",
+      "scenario": null,
+      "expectedIntent": "ranking",
+      "actualIntent": "ranking",
+      "expectedForm": "hbar",
+      "chosenForm": "hbar",
+      "expectedAnswer": "\"\\\"Kloofmere Paarl\\\" 479971.3100\"",
+      "actualAnswer": "\"\\\"Kloofmere Paarl\\\" 479971.3100\"",
+      "route": "System 1",
+      "latencyMs": 38,
+      "modelLatencyMs": 5136,
+      "checks": [
+        {
+          "kind": "top_item",
+          "pass": true,
+          "expected": "\"\\\"Kloofmere Paarl\\\" 479971.3100\"",
+          "actual": "\"\\\"Kloofmere Paarl\\\" 479971.3100\""
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "Kloofmere Paarl led captured value"
+    },
+    {
+      "id": "R5",
+      "question": "Which payment method has the highest refund rate in the last 90 days?",
+      "scenario": null,
+      "expectedIntent": "ranking",
+      "actualIntent": "ranking",
+      "expectedForm": "hbar",
+      "chosenForm": "hbar",
+      "expectedAnswer": "\"\\\"Pay by Bank\\\" 0.04341806832\"",
+      "actualAnswer": "\"\\\"Pay by Bank\\\" 0.04341806832\"",
+      "route": "System 1",
+      "latencyMs": 77,
+      "modelLatencyMs": 3320,
+      "checks": [
+        {
+          "kind": "top_item",
+          "pass": true,
+          "expected": "\"\\\"Pay by Bank\\\" 0.04341806832\"",
+          "actual": "\"\\\"Pay by Bank\\\" 0.04341806832\""
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "Pay by Bank leads refund rates"
+    },
+    {
+      "id": "E1",
+      "question": "Why is captured value up this month?",
+      "scenario": "promo",
+      "expectedIntent": "explain_change",
+      "actualIntent": "explain_change",
+      "expectedForm": "waterfall",
+      "chosenForm": "waterfall",
+      "expectedAnswer": "\"39701828.21 → 42353655.56, 4 steps\"",
+      "actualAnswer": "\"39701828.21 → 42353655.56, Spring Sale · Returning 8837202.73; No promotion · Returning -7375523.50; Spring Sale · New 2466928.27; No promotion · New -1276780.15\"",
+      "route": "System 1",
+      "latencyMs": 90,
+      "modelLatencyMs": 3012,
+      "checks": [
+        {
+          "kind": "contribution",
+          "pass": true,
+          "expected": "\"39701828.21 → 42353655.56, 4 steps\"",
+          "actual": "\"39701828.21 → 42353655.56, Spring Sale · Returning 8837202.73; No promotion · Returning -7375523.50; Spring Sale · New 2466928.27; No promotion · New -1276780.15\""
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "Spring Sale returning drove captured value growth"
+    },
+    {
+      "id": "E2",
+      "question": "Why did approval rate drop on 26 September compared with 19 September?",
+      "scenario": "issuer_dip",
+      "expectedIntent": "explain_change",
+      "actualIntent": "explain_change",
+      "expectedForm": "waterfall",
+      "chosenForm": "waterfall",
+      "expectedAnswer": "\"0.9061433447 → 0.8839566585\"; \"largest step \\\"Protea Bank\\\"\"",
+      "actualAnswer": "\"0.9061433447 → 0.8839566585\"; \"\\\"Protea Bank\\\"\"",
+      "route": "escalated",
+      "latencyMs": 68,
+      "modelLatencyMs": 7508,
+      "checks": [
+        {
+          "kind": "contribution_rates",
+          "pass": true,
+          "expected": "\"0.9061433447 → 0.8839566585\"",
+          "actual": "\"0.9061433447 → 0.8839566585\""
+        },
+        {
+          "kind": "top_step",
+          "pass": true,
+          "expected": "\"largest step \\\"Protea Bank\\\"\"",
+          "actual": "\"\\\"Protea Bank\\\"\""
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "Protea Bank drove the drop on 26 Sep 2026"
+    },
+    {
+      "id": "RL1",
+      "question": "Show the chargebacks on card fp_afc6eb9e.",
+      "scenario": "chargeback_ring",
+      "expectedIntent": "record_listing",
+      "actualIntent": "record_listing",
+      "expectedForm": "table",
+      "chosenForm": "table",
+      "expectedAnswer": "\"10 ids, 27 total\"",
+      "actualAnswer": "\"10 ids (match), 27 total\"",
+      "route": "escalated",
+      "latencyMs": 55,
+      "modelLatencyMs": 8115,
+      "checks": [
+        {
+          "kind": "records",
+          "pass": true,
+          "expected": "\"10 ids, 27 total\"",
+          "actual": "\"10 ids (match), 27 total\""
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "10 chargebacks shown out of 27 matching"
+    },
+    {
+      "id": "RL2",
+      "question": "Show the last three payments for customer cus_sap5trau.",
+      "scenario": null,
+      "expectedIntent": "record_listing",
+      "actualIntent": "record_listing",
+      "expectedForm": "table",
+      "chosenForm": "table",
+      "expectedAnswer": "\"3 ids, 25 total\"",
+      "actualAnswer": "\"3 ids (match), 25 total\"",
+      "route": "System 1",
+      "latencyMs": 44,
+      "modelLatencyMs": 4470,
+      "checks": [
+        {
+          "kind": "records",
+          "pass": true,
+          "expected": "\"3 ids, 25 total\"",
+          "actual": "\"3 ids (match), 25 total\""
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "Last three captured payments for cus_sap5trau"
+    },
+    {
+      "id": "RL3",
+      "question": "List refunds over R5,000 last month.",
+      "scenario": null,
+      "expectedIntent": "record_listing",
+      "actualIntent": "record_listing",
+      "expectedForm": "table",
+      "chosenForm": "table",
+      "expectedAnswer": "\"1 matching\"",
+      "actualAnswer": "\"1 matching\"",
+      "route": "escalated",
+      "latencyMs": 55,
+      "modelLatencyMs": 6843,
+      "checks": [
+        {
+          "kind": "records_total",
+          "pass": true,
+          "expected": "\"1 matching\"",
+          "actual": "\"1 matching\""
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 1,
+      "error": null,
+      "pass": true,
+      "headline": "Refunds matching the question: 1"
+    },
+    {
+      "id": "O1",
+      "question": "Which customer will default?",
+      "scenario": "out_of_scope",
+      "expectedIntent": "out_of_scope",
+      "actualIntent": "out_of_scope",
+      "expectedForm": "text",
+      "chosenForm": "text",
+      "expectedAnswer": "\"no query, out of scope\"",
+      "actualAnswer": "\"0 queries, out of scope\"",
+      "route": "System 1",
+      "latencyMs": 1,
+      "modelLatencyMs": 326,
+      "checks": [
+        {
+          "kind": "no_query",
+          "pass": true,
+          "expected": "\"no query, out of scope\"",
+          "actual": "\"0 queries, out of scope\""
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "This data can't answer that"
+    },
+    {
+      "id": "O2",
+      "question": "What will captured value be next month?",
+      "scenario": null,
+      "expectedIntent": "out_of_scope",
+      "actualIntent": "out_of_scope",
+      "expectedForm": "text",
+      "chosenForm": "text",
+      "expectedAnswer": "\"no query, out of scope\"",
+      "actualAnswer": "\"0 queries, out of scope\"",
+      "route": "System 1",
+      "latencyMs": 0,
+      "modelLatencyMs": 575,
+      "checks": [
+        {
+          "kind": "no_query",
+          "pass": true,
+          "expected": "\"no query, out of scope\"",
+          "actual": "\"0 queries, out of scope\""
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "This data can't answer that"
+    },
+    {
+      "id": "O3",
+      "question": "What was our profit margin last month?",
+      "scenario": null,
+      "expectedIntent": "out_of_scope",
+      "actualIntent": "out_of_scope",
+      "expectedForm": "text",
+      "chosenForm": "text",
+      "expectedAnswer": "\"no query, out of scope\"",
+      "actualAnswer": "\"0 queries, out of scope\"",
+      "route": "escalated",
+      "latencyMs": 1,
+      "modelLatencyMs": 2985,
+      "checks": [
+        {
+          "kind": "no_query",
+          "pass": true,
+          "expected": "\"no query, out of scope\"",
+          "actual": "\"0 queries, out of scope\""
+        }
+      ],
+      "formOk": true,
+      "intentOk": true,
+      "numbersOk": true,
+      "grounded": true,
+      "cutClaims": 0,
+      "error": null,
+      "pass": true,
+      "headline": "This data can't answer that"
+    }
+  ]
+}

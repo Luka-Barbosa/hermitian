@@ -1,0 +1,38 @@
+{
+  "hash": "d113e7497ba88f6419027ee3",
+  "tag": "form: Why did approval rate drop on 26 September compared with 19 September?",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:21:36.814Z",
+  "latencyMs": 512,
+  "inputTokens": 413,
+  "request": {
+    "state": {
+      "question": "Why did approval rate drop on 26 September compared with 19 September?",
+      "result": "a start total, an end total and 7 contributions to the change between them"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "waterfall": "Waterfall: How a start value became an end value, as a step for each contribution",
+          "table": "Table: Exact values in rows and columns, or individual records to read one by one",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "waterfall",
+      "confidence": 0.98,
+      "probabilities": {
+        "waterfall": 0.99,
+        "table": 0.01,
+        "none_of_these": 0
+      }
+    }
+  }
+}

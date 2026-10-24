@@ -1,0 +1,21 @@
+{
+  "hash": "0b15ceb9e47dd9b44732ba6d",
+  "task": "resolve_slots",
+  "tag": "resolve: Show the chargebacks on card fp_afc6eb9e.",
+  "model": "gemini-3.5-flash-lite",
+  "recordedAt": "2026-10-24T08:23:41.618Z",
+  "latencyMs": 3988,
+  "request": {
+    "system": "You resolve ambiguous slots for a read-only payments analytics agent.\nFor each slot, pick exactly one option key from its options. Use none_of_these when nothing fits.\nA fast classifier was unsure about these slots; its guess is shown but may be wrong.\nReply with option keys only, plus a one-line reason. Never invent options.",
+    "prompt": "{\n  \"question\": \"Show the chargebacks on card fp_afc6eb9e.\",\n  \"context\": \"\",\n  \"slots\": [\n    {\n      \"slot\": \"filter_promotion\",\n      \"instructions\": \"Does `question` restrict the data to one promotion? If so, which?\",\n      \"options\": {\n        \"no_filter\": \"Not restricted to a single promotion\",\n        \"winter_warmers\": \"Winter Warmers\",\n        \"spring_sale\": \"Spring Sale\",\n        \"no_promotion\": \"No promotion\",\n        \"none_of_these\": \"None of these fits the question\"\n      },\n      \"classifier_guess\": \"no_filter\"\n    }\n  ]\n}"
+  },
+  "output": {
+    "choices": [
+      {
+        "slot": "filter_promotion",
+        "choice": "no_filter",
+        "reason": "The question does not mention any promotion filter."
+      }
+    ]
+  }
+}

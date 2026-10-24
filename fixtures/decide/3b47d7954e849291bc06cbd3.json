@@ -1,0 +1,56 @@
+{
+  "hash": "3b47d7954e849291bc06cbd3",
+  "tag": "claims: Which payment method has the highest refund rate in the last 90 days?",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:21:34.748Z",
+  "latencyMs": 387,
+  "inputTokens": 693,
+  "request": {
+    "state": {
+      "facts": [
+        "Scope: 3 Jul – 30 Sep 2026; all payments.",
+        "Ranked by refund rate, highest first: Pay by Bank has the highest refund rate of the payment method groups ranked.",
+        "1. Pay by Bank: 4.3% (R772,741 refunded value, R17.8m captured value)",
+        "2. PayShap Request: 4.3% (R396,282 refunded value, R9.3m captured value)",
+        "3. Capitec Pay: 3.7% (R565,316 refunded value, R15.1m captured value)",
+        "4. Card: 3.5% (R1.5m refunded value, R41.2m captured value)",
+        "5. Apple Pay: 2.8% (R1.0m refunded value, R36.0m captured value)",
+        "Payment method groups: 5 in total. Period: 3 Jul – 30 Sep 2026."
+      ],
+      "claims": [
+        "Pay by bank leads refund rates",
+        "Pay by Bank and PayShap Request both share the highest refund rate of 4.3% in the period 3 Jul – 30 Sep 2026.",
+        "Pay by Bank recorded R772,741 in refunded value from R17.8m captured value among the 5 payment method groups ranked."
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_1": {
+        "type": "noul",
+        "instructions": "`claims[1]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_2": {
+        "type": "noul",
+        "instructions": "`claims[2]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 0.71
+    },
+    "claim_1": {
+      "type": "noul",
+      "noul": 0.83
+    },
+    "claim_2": {
+      "type": "noul",
+      "noul": 0.95
+    }
+  }
+}

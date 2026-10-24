@@ -1,0 +1,53 @@
+{
+  "hash": "b57b5074993871eedd7146eb",
+  "tag": "claims: Show the last three payments for customer cus_sap5trau.",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:16:01.902Z",
+  "latencyMs": 300,
+  "inputTokens": 765,
+  "request": {
+    "state": {
+      "facts": [
+        "Scope: Apr–Sep 2026; limited to Customer cus_sap5trau.",
+        "3 captured payments shown, of 25 matching in Apr–Sep 2026.",
+        "Row 1: Payment pay_qhgmafyb9u, Captured 2026-09-24 19:08, Amount R699.99, Method Capitec Pay, Channel Online, Store —, Customer cus_sap5trau, Promotion No promotion",
+        "Row 2: Payment pay_cm44sak9vz, Captured 2026-09-24 15:18, Amount R479.99, Method Apple Pay, Channel Online, Store —, Customer cus_sap5trau, Promotion No promotion",
+        "Row 3: Payment pay_myjanqhur4, Captured 2026-09-23 13:12, Amount R759.99, Method Card, Channel App, Store —, Customer cus_sap5trau, Promotion No promotion"
+      ],
+      "claims": [
+        "last three captured payments for cus_sap5trau",
+        "Three captured payments are shown out of 25 matching in Apr–Sep 2026.",
+        "The payments include pay_qhgmafyb9u for R699.99 on 2026-09-24 19:08 using Capitec Pay online, pay_cm44sak9vz for R479.99 on 2026-09-24 15:18 using Apple Pay online, and pay_myjanqhur4 for R759.99 on 2026-09-23 13:12 using Card in app."
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_1": {
+        "type": "noul",
+        "instructions": "`claims[1]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_2": {
+        "type": "noul",
+        "instructions": "`claims[2]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 0.51
+    },
+    "claim_1": {
+      "type": "noul",
+      "noul": 0.97
+    },
+    "claim_2": {
+      "type": "noul",
+      "noul": 0.95
+    }
+  }
+}

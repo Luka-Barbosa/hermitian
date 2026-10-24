@@ -1,0 +1,40 @@
+{
+  "hash": "09381ddd165a4abf2583e2cb",
+  "tag": "form: How has our payment method mix changed over the last six months?",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:21:12.227Z",
+  "latencyMs": 396,
+  "inputTokens": 446,
+  "request": {
+    "state": {
+      "question": "How has our payment method mix changed over the last six months?",
+      "result": "shares of 5 payment method groups in each of 6 months, summing to 100% per month"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "stacked100": "100% stacked bar: How a total splits into parts, with every period adding up to 100%",
+          "table": "Table: Exact values in rows and columns, or individual records to read one by one",
+          "line": "Line chart: How a value moves over time",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "stacked100",
+      "confidence": 0.89,
+      "probabilities": {
+        "stacked100": 0.92,
+        "table": 0.04,
+        "line": 0.04,
+        "none_of_these": 0
+      }
+    }
+  }
+}

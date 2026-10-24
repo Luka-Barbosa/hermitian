@@ -1,0 +1,19 @@
+{
+  "hash": "c748c566988bf1d80f2d24de",
+  "task": "narrative",
+  "tag": "narrative: List refunds over R5,000 last month.",
+  "model": "gemini-3.5-flash-lite",
+  "recordedAt": "2026-10-24T06:57:13.156Z",
+  "latencyMs": 3652,
+  "request": {
+    "system": "You write the short narrative for one answer in a payments analytics app.\nUse only the facts given. Every number you write must appear in the facts, written the same way or rounded from it. Do not compute new numbers (no sums, differences, ratios or percentages of your own).\nheadline: one short sentence-case statement of the main finding, at most 9 words, no trailing full stop. Not Title Case.\nsentences: one to three plain sentences that add what the headline does not: the period, the comparison, what stands out and why it matters. Do not restate the headline. No filler, no advice, no markdown.\nLead with what stands out: a dip, a spike, the leader, the biggest driver or the outlier, not the first or last value.\nName the period the way the facts do (e.g. 'September 2026', '26 Sep 2026').\nCaptured value is not revenue; never call it revenue or profit.",
+    "prompt": "{\n  \"question\": \"List refunds over R5,000 last month.\",\n  \"topic\": \"REFUNDS · RECORDS\",\n  \"form\": \"table\",\n  \"facts\": [\n    \"Scope: August 2026; limited to amount over R5,000.\",\n    \"1 refunds shown, of 1 matching in August 2026.\",\n    \"Row 1: Refund ref_w6hkmqyjrf, Requested 2026-08-03 13:35, Status RefundCompleted, Payment pay_kbu9uuenjd, Amount R6,829.99, Reason other, Method Pay by Bank\"\n  ],\n  \"notes\": []\n}"
+  },
+  "output": {
+    "headline": "one refund exceeded R5,000 in august 2026",
+    "sentences": [
+      "During August 2026, the single matching refund reached R6,829.99.",
+      "This completed transaction used the Pay by Bank method with the reason other."
+    ]
+  }
+}

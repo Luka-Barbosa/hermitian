@@ -1,0 +1,20 @@
+{
+  "hash": "0592243ea3551c3a8c82115a",
+  "task": "narrative",
+  "tag": "narrative: Why is captured value up this month?",
+  "model": "gemini-3.5-flash-lite",
+  "recordedAt": "2026-10-24T06:56:05.781Z",
+  "latencyMs": 1892,
+  "request": {
+    "system": "You write the short narrative for one answer in a payments analytics app.\nUse only the facts given. Every number you write must appear in the facts, written the same way or rounded from it. Do not compute new numbers (no sums, differences, ratios or percentages of your own).\nheadline: one short sentence-case statement of the main finding, at most 9 words, no trailing full stop. Not Title Case.\nsentences: one to three plain sentences that add what the headline does not: the period, the comparison, what stands out and why it matters. Do not restate the headline. No filler, no advice, no markdown.\nLead with what stands out: a dip, a spike, the leader, the biggest driver or the outlier, not the first or last value.\nName the period the way the facts do (e.g. 'September 2026', '26 Sep 2026').\nCaptured value is not revenue; never call it revenue or profit.",
+    "prompt": "{\n  \"question\": \"Why is captured value up this month?\",\n  \"topic\": \"CAPTURED VALUE · EXPLAIN CHANGE\",\n  \"form\": \"waterfall\",\n  \"facts\": [\n    \"Scope: September 2026; all payments.\",\n    \"Captured payment value, August 2026: R39.7m\",\n    \"Captured payment value, September 2026: R42.4m\",\n    \"Change: +R2.7m (+6.7%)\",\n    \"Contribution of Spring Sale · Returning: +R8.8m (R0.00 → R8.8m)\",\n    \"Contribution of No promotion · Returning: -R7.4m (R31.9m → R24.5m)\",\n    \"Contribution of Spring Sale · New: +R2.5m (R0.00 → R2.5m)\",\n    \"Contribution of No promotion · New: -R1.3m (R7.8m → R6.5m)\"\n  ],\n  \"notes\": [\n    \"Change split by promotion and customer type; the largest 6 movements are shown, the rest grouped as Other.\"\n  ]\n}"
+  },
+  "output": {
+    "headline": "spring sale returning drove captured value growth",
+    "sentences": [
+      "Captured payment value rose from R39.7m in August 2026 to R42.4m in September 2026, marking an increase of +R2.7m or +6.7%.",
+      "The biggest driver was Spring Sale · Returning, contributing +R8.8m as it went from R0.00 to R8.8m.",
+      "This growth was partially offset by a drop in No promotion · Returning of -R7.4m, moving from R31.9m to R24.5m."
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "hash": "4b56a29061e29d4d3fe2aa99",
+  "tag": "form: What was captured value yesterday?",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:18:31.887Z",
+  "latencyMs": 615,
+  "inputTokens": 388,
+  "request": {
+    "state": {
+      "question": "What was captured value yesterday?",
+      "result": "one value for one period"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "text": "Text: A sentence or two with no chart: one figure or a short statement is the whole answer",
+          "kpi": "KPI card: One headline number, with its change against another period",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "text",
+      "confidence": 0.4,
+      "probabilities": {
+        "text": 0.6,
+        "kpi": 0.38,
+        "none_of_these": 0.02
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "hash": "24a1dac84a88957082c1c39e",
+  "tag": "form: Break down captured value by channel last month.",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:21:12.936Z",
+  "latencyMs": 317,
+  "inputTokens": 390,
+  "request": {
+    "state": {
+      "question": "Break down captured value by channel last month.",
+      "result": "3 groups by channel"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "hbar": "Horizontal bar: Groups compared and ranked by one value, as bars from longest to shortest",
+          "table": "Table: Exact values in rows and columns, or individual records to read one by one",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "hbar",
+      "confidence": 0.23,
+      "probabilities": {
+        "hbar": 0.49,
+        "table": 0.47,
+        "none_of_these": 0.04
+      }
+    }
+  }
+}

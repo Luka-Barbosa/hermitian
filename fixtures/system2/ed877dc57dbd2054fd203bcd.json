@@ -1,0 +1,26 @@
+{
+  "hash": "ed877dc57dbd2054fd203bcd",
+  "task": "resolve_slots",
+  "tag": "resolve: How many different customer accounts used card fp_afc6eb9e in the last 90 days?",
+  "model": "gemini-3.5-flash-lite",
+  "recordedAt": "2026-10-24T08:23:04.968Z",
+  "latencyMs": 5203,
+  "request": {
+    "system": "You resolve ambiguous slots for a read-only payments analytics agent.\nFor each slot, pick exactly one option key from its options. Use none_of_these when nothing fits.\nA fast classifier was unsure about these slots; its guess is shown but may be wrong.\nReply with option keys only, plus a one-line reason. Never invent options.",
+    "prompt": "{\n  \"question\": \"How many different customer accounts used card fp_afc6eb9e in the last 90 days?\",\n  \"context\": \"\",\n  \"slots\": [\n    {\n      \"slot\": \"breakdown\",\n      \"instructions\": \"Does `question` ask to split, group or rank the metric by something? If so, by what?\",\n      \"options\": {\n        \"no_breakdown\": \"No grouping is asked for\",\n        \"payment_method\": \"Payment method: Card, Apple Pay, Pay by Bank, Capitec Pay or PayShap Request\",\n        \"issuer_bank\": \"Issuer bank: The bank that issued the card or holds the paying account\",\n        \"channel\": \"Channel: Online, app or in-store (POS)\",\n        \"store\": \"Store: One of about 40 physical stores (in-store payments only)\",\n        \"customer_type\": \"Customer type: New (account under 30 days old) vs returning customers\",\n        \"promotion\": \"Promotion: Promotion code used (Winter Warmers, Spring Sale) or no promotion\",\n        \"card\": \"Card: Individual card, by card fingerprint (fp_...)\",\n        \"customer\": \"Customer: Individual customer, by pseudonymised ID (cus_...)\",\n        \"hour_of_day\": \"Hour of day: Hour of the day as a category, for 'which hour' questions (not for hour-by-hour trends)\",\n        \"day_of_week\": \"Day of week: Weekday as a category, for 'which day of the week' questions\",\n        \"none_of_these\": \"None of these fits the question\"\n      },\n      \"classifier_guess\": \"customer\"\n    },\n    {\n      \"slot\": \"filter_promotion\",\n      \"instructions\": \"Does `question` restrict the data to one promotion? If so, which?\",\n      \"options\": {\n        \"no_filter\": \"Not restricted to a single promotion\",\n        \"winter_warmers\": \"Winter Warmers\",\n        \"spring_sale\": \"Spring Sale\",\n        \"no_promotion\": \"No promotion\",\n        \"none_of_these\": \"None of these fits the question\"\n      },\n      \"classifier_guess\": \"no_filter\"\n    }\n  ]\n}"
+  },
+  "output": {
+    "choices": [
+      {
+        "slot": "breakdown",
+        "choice": "no_breakdown",
+        "reason": "The question asks for a single aggregate count of customer accounts, not a breakdown."
+      },
+      {
+        "slot": "filter_promotion",
+        "choice": "no_filter",
+        "reason": "The question does not mention any promotions."
+      }
+    ]
+  }
+}

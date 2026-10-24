@@ -1,0 +1,41 @@
+{
+  "hash": "6cb4de0454c0f16cc776012d",
+  "tag": "claims: How many payments did we capture today?",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:14:12.056Z",
+  "latencyMs": 285,
+  "inputTokens": 402,
+  "request": {
+    "state": {
+      "facts": [
+        "Scope: 30 Sep 2026; all payments.",
+        "Payment count, 30 Sep 2026: 1,505"
+      ],
+      "claims": [
+        "Captured 1,505 payments",
+        "This covers all payments on 30 Sep 2026."
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_1": {
+        "type": "noul",
+        "instructions": "`claims[1]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 0.93
+    },
+    "claim_1": {
+      "type": "noul",
+      "noul": 0.94
+    }
+  }
+}

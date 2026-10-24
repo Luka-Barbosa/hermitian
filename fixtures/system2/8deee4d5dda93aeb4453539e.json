@@ -1,0 +1,19 @@
+{
+  "hash": "8deee4d5dda93aeb4453539e",
+  "task": "narrative",
+  "tag": "narrative: Which issuer had the lowest approval rate on Saturday 26 September?",
+  "model": "gemini-3.5-flash-lite",
+  "recordedAt": "2026-10-24T08:21:26.121Z",
+  "latencyMs": 2734,
+  "request": {
+    "system": "You write the short narrative for one answer in a payments analytics app.\nUse only the facts given. Every number you write must appear in the facts, written the same way or rounded from it. Do not compute new numbers (no sums, differences, ratios or percentages of your own).\nheadline: one short sentence-case statement of the main finding, at most 9 words, no trailing full stop. Not Title Case.\nsentences: one to three plain sentences that add what the headline does not: the period, the comparison, what stands out and why it matters. Do not restate the headline. No filler, no advice, no markdown.\nLead with what stands out: a dip, a spike, the leader, the biggest driver or the outlier, not the first or last value.\nName the period the way the facts do (e.g. 'September 2026', '26 Sep 2026').\nCaptured value is not revenue; never call it revenue or profit.",
+    "prompt": "{\n  \"question\": \"Which issuer had the lowest approval rate on Saturday 26 September?\",\n  \"topic\": \"APPROVAL RATE · RANKING\",\n  \"form\": \"hbar\",\n  \"facts\": [\n    \"Scope: 26 Sep 2026; all payments.\",\n    \"Ranked by approval rate, lowest first: Protea Bank has the lowest approval rate of the issuer bank groups ranked.\",\n    \"1. Protea Bank: 75.2% (342 approved attempts, 455 authorization attempts)\",\n    \"2. Quagga Bank: 88.0% (161 approved attempts, 183 authorization attempts)\",\n    \"3. Kestrel Bank: 88.8% (175 approved attempts, 197 authorization attempts)\",\n    \"4. Aloe Bank: 91.1% (224 approved attempts, 246 authorization attempts)\",\n    \"5. Highveld Bank: 91.3% (345 approved attempts, 378 authorization attempts)\",\n    \"6. Karoo Bank: 92.0% (472 approved attempts, 513 authorization attempts)\",\n    \"7. Fynbos Bank: 93.0% (253 approved attempts, 272 authorization attempts)\",\n    \"8. Marula Bank: 93.1% (188 approved attempts, 202 authorization attempts)\",\n    \"Issuer bank groups: 8 in total, 0 with fewer than 10 not ranked. Period: 26 Sep 2026.\"\n  ],\n  \"notes\": [\n    \"Groups with fewer than 10 authorization attempts are not ranked.\",\n    \"No issuer (Capitec Pay) is excluded from this grouping.\"\n  ]\n}"
+  },
+  "output": {
+    "headline": "Protea Bank recorded the lowest approval rate",
+    "sentences": [
+      "On 26 Sep 2026, Protea Bank achieved an approval rate of 75.2% from 455 authorization attempts.",
+      "This was out of 8 issuer bank groups ranked for the period."
+    ]
+  }
+}

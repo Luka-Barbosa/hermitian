@@ -1,0 +1,19 @@
+{
+  "hash": "cbc0ca56a1ef150ab0cb031d",
+  "task": "narrative",
+  "tag": "narrative: Compare our approval rate in the last 7 days with the week before.",
+  "model": "gemini-3.8-flash",
+  "recordedAt": "2026-10-24T06:59:25.855Z",
+  "latencyMs": 682837,
+  "request": {
+    "system": "You write the short narrative for one answer in a payments analytics app.\nUse only the facts given. Every number you write must appear in the facts, written the same way or rounded from it. Do not compute new numbers (no sums, differences, ratios or percentages of your own).\nheadline: one short sentence-case statement of the main finding, at most 9 words, no trailing full stop. Not Title Case.\nsentences: one to three plain sentences that add what the headline does not: the period, the comparison, what stands out and why it matters. Do not restate the headline. No filler, no advice, no markdown.\nLead with what stands out: a dip, a spike, the leader, the biggest driver or the outlier, not the first or last value.\nName the period the way the facts do (e.g. 'September 2026', '26 Sep 2026').\nCaptured value is not revenue; never call it revenue or profit.",
+    "prompt": "{\n  \"question\": \"Compare our approval rate in the last 7 days with the week before.\",\n  \"topic\": \"APPROVAL RATE · COMPARE\",\n  \"form\": \"kpi\",\n  \"facts\": [\n    \"Scope: 24–30 Sep 2026; all payments.\",\n    \"Approval rate, 24–30 Sep 2026: 91.0%\",\n    \"Approval rate, 17–23 Sep 2026: 91.4%\",\n    \"Change: -0.4 pp\",\n    \"Relative change: -0.4%\"\n  ],\n  \"notes\": []\n}"
+  },
+  "output": {
+    "headline": "Approval rate dropped by 0.4 pp",
+    "sentences": [
+      "Across all payments, the approval rate reached 91.0% in 24–30 Sep 2026.",
+      "This was down from 91.4% recorded in 17–23 Sep 2026, reflecting a relative change of -0.4%."
+    ]
+  }
+}

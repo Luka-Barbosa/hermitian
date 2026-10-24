@@ -1,0 +1,52 @@
+{
+  "hash": "4c8aefff72f4f875d84483c4",
+  "tag": "claims: What share of captured value came from new customers this month?",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:23:29.240Z",
+  "latencyMs": 415,
+  "inputTokens": 510,
+  "request": {
+    "state": {
+      "facts": [
+        "Scope: September 2026; all payments.",
+        "1. Returning: R33.4m (78.8% of total)",
+        "2. New: R9.0m (21.2% of total)",
+        "Customer type groups: 2 in total. Period: September 2026."
+      ],
+      "claims": [
+        "new customers generated r9.0m in september 2026",
+        "New customers accounted for 21.2% of total captured value during the month.",
+        "Returning customers delivered the remaining R33.4m, representing 78.8% of the total across all payments."
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_1": {
+        "type": "noul",
+        "instructions": "`claims[1]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_2": {
+        "type": "noul",
+        "instructions": "`claims[2]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 0.9
+    },
+    "claim_1": {
+      "type": "noul",
+      "noul": 0.92
+    },
+    "claim_2": {
+      "type": "noul",
+      "noul": 0.88
+    }
+  }
+}

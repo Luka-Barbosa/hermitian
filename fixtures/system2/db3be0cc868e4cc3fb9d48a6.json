@@ -1,0 +1,19 @@
+{
+  "hash": "db3be0cc868e4cc3fb9d48a6",
+  "task": "parse_period",
+  "tag": "period: Show Protea Bank's approval rate by hour on Saturday 26 September.",
+  "model": "gemini-3.5-flash",
+  "recordedAt": "2026-10-24T00:50:34.673Z",
+  "latencyMs": 3174,
+  "request": {
+    "system": "You turn the time period in an analytics question into explicit dates.\n\"Today\" is 2026-09-30. The data covers 2026-04-01 to 2026-09-30. Dates are inclusive, YYYY-MM-DD.\nA single day has start = end. Weeks start on Monday. A named month without a year means the most recent such month on or before today.\nIf the question names a second period to compare against, return it as comparison_start/comparison_end; otherwise return null for both.",
+    "prompt": "{\"question\":\"Show Protea Bank's approval rate by hour on Saturday 26 September.\",\"needs_comparison_if_named\":false}"
+  },
+  "output": {
+    "start": "2026-09-26",
+    "end": "2026-09-26",
+    "comparison_start": null,
+    "comparison_end": null,
+    "note": "Date corresponds to Saturday, September 26, 2026."
+  }
+}
