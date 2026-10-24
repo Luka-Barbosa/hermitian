@@ -8,7 +8,7 @@ Unaffiliated demo. Data model inspired by Stitch's public API docs. All data syn
 
 ## Run it
 
-Needs Node 22+ and pnpm.
+Needs Node 22+ and pnpm. On Windows, keep the checkout path short: very deep paths hit the 260-character limit inside `node_modules` and Vitest fails to start.
 
 ```bash
 pnpm install
