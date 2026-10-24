@@ -1,0 +1,18 @@
+{
+  "hash": "d8eecf3a98f1d7af27cd4c8c",
+  "task": "narrative",
+  "tag": "narrative: What was captured value yesterday?",
+  "model": "gemini-3.5-flash",
+  "recordedAt": "2026-10-24T00:42:13.543Z",
+  "latencyMs": 6024,
+  "request": {
+    "system": "You write the short narrative for one answer in a payments analytics app.\nUse only the facts given. Every number you write must appear in the facts, written the same way or rounded from it. Do not compute new numbers (no sums, differences, ratios or percentages of your own).\nheadline: one short sentence-case statement of the main finding, at most 9 words, no trailing full stop. Not Title Case.\nsentences: one to three plain sentences that explain what the chart or table shows and why it matters. No hedging filler, no advice, no markdown.\nCaptured value is not revenue; never call it revenue or profit.",
+    "prompt": "{\n  \"question\": \"What was captured value yesterday?\",\n  \"topic\": \"CAPTURED VALUE · LOOKUP\",\n  \"form\": \"kpi\",\n  \"facts\": [\n    \"Captured payment value, 29 Sep 2026: R971,577\"\n  ],\n  \"notes\": []\n}"
+  },
+  "output": {
+    "headline": "Captured payment value was R971,577",
+    "sentences": [
+      "Captured payment value was R971,577 on 29 Sep 2026."
+    ]
+  }
+}

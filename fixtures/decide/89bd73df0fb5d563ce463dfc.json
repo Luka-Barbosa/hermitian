@@ -1,0 +1,38 @@
+{
+  "hash": "89bd73df0fb5d563ce463dfc",
+  "tag": "form: How many payments did we capture today?",
+  "source": "gemini-sim",
+  "model": "gemini-3.5-flash-lite (simulated Jev)",
+  "recordedAt": "2026-10-24T00:53:52.816Z",
+  "latencyMs": 1378,
+  "inputTokens": null,
+  "request": {
+    "state": {
+      "question": "How many payments did we capture today?",
+      "result": "one value for one period"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "text": "Text",
+          "kpi": "KPI card",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "kpi",
+      "confidence": 0.8499999999999999,
+      "probabilities": {
+        "text": 0.05,
+        "kpi": 0.9,
+        "none_of_these": 0.05
+      }
+    }
+  }
+}

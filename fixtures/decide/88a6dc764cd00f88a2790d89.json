@@ -1,0 +1,40 @@
+{
+  "hash": "88a6dc764cd00f88a2790d89",
+  "tag": "form: Which issuer has the lowest approval rate?",
+  "source": "gemini-sim",
+  "model": "gemini-3.5-flash-lite (simulated Jev)",
+  "recordedAt": "2026-10-24T00:42:21.437Z",
+  "latencyMs": 1015,
+  "inputTokens": null,
+  "request": {
+    "state": {
+      "question": "Which issuer has the lowest approval rate?",
+      "result": "1 groups by issuer bank, ranked lowest first"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "text": "Text",
+          "kpi": "KPI card",
+          "table": "Table",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "table",
+      "confidence": 1,
+      "probabilities": {
+        "text": 0,
+        "kpi": 0,
+        "table": 1,
+        "none_of_these": 0
+      }
+    }
+  }
+}

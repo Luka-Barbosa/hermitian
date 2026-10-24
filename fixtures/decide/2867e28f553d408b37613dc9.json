@@ -1,0 +1,38 @@
+{
+  "hash": "2867e28f553d408b37613dc9",
+  "tag": "form: What was our approval rate in the last 7 days?",
+  "source": "gemini-sim",
+  "model": "gemini-3.5-flash-lite (simulated Jev)",
+  "recordedAt": "2026-10-24T00:54:24.077Z",
+  "latencyMs": 906,
+  "inputTokens": null,
+  "request": {
+    "state": {
+      "question": "What was our approval rate in the last 7 days?",
+      "result": "one value for one period"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "text": "Text",
+          "kpi": "KPI card",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "kpi",
+      "confidence": 0.9249999999999999,
+      "probabilities": {
+        "text": 0.05,
+        "kpi": 0.95,
+        "none_of_these": 0
+      }
+    }
+  }
+}

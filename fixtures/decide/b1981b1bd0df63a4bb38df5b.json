@@ -1,0 +1,58 @@
+{
+  "hash": "b1981b1bd0df63a4bb38df5b",
+  "tag": "claims: Which issuer has the lowest approval rate?",
+  "source": "gemini-sim",
+  "model": "gemini-3.5-flash-lite (simulated Jev)",
+  "recordedAt": "2026-10-24T00:51:23.708Z",
+  "latencyMs": 901,
+  "inputTokens": null,
+  "request": {
+    "state": {
+      "facts": [
+        "Ranked by approval rate, lowest first: Quagga Bank has the lowest approval rate of the issuer bank groups ranked.",
+        "1. Quagga Bank: 89.2% (9,399 of 10,536)",
+        "2. Kestrel Bank: 90.3% (12,273 of 13,593)",
+        "3. Aloe Bank: 90.8% (13,613 of 15,000)",
+        "4. Karoo Bank: 91.5% (27,335 of 29,876)",
+        "5. Fynbos Bank: 91.8% (16,351 of 17,810)",
+        "6. Highveld Bank: 92.3% (22,089 of 23,940)",
+        "7. Marula Bank: 92.7% (11,013 of 11,875)",
+        "8. Protea Bank: 93.2% (24,938 of 26,751)",
+        "Issuer bank groups: 8 in total, 0 with fewer than 10 not ranked. Period: 3 Jul – 30 Sep 2026."
+      ],
+      "claims": [
+        "Quagga Bank has the lowest approval rate",
+        "For the period 3 Jul – 30 Sep 2026, Quagga Bank recorded 89.2% (9,399 of 10,536).",
+        "Kestrel Bank had the next lowest rate at 90.3% (12,273 of 13,593), while Protea Bank ranked highest among all 8 issuer bank groups at 93.2% (24,938 of 26,751)."
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_1": {
+        "type": "noul",
+        "instructions": "`claims[1]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_2": {
+        "type": "noul",
+        "instructions": "`claims[2]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 1
+    },
+    "claim_1": {
+      "type": "noul",
+      "noul": 1
+    },
+    "claim_2": {
+      "type": "noul",
+      "noul": 1
+    }
+  }
+}

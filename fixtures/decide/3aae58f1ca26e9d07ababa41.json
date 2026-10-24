@@ -1,0 +1,38 @@
+{
+  "hash": "3aae58f1ca26e9d07ababa41",
+  "tag": "form: Show Protea Bank's approval rate by hour on Saturday 26 September.",
+  "source": "gemini-sim",
+  "model": "gemini-3.5-flash-lite (simulated Jev)",
+  "recordedAt": "2026-10-24T00:50:36.949Z",
+  "latencyMs": 2166,
+  "inputTokens": null,
+  "request": {
+    "state": {
+      "question": "Show Protea Bank's approval rate by hour on Saturday 26 September.",
+      "result": "a time series by hour: 5 series of 24 points"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "line": "Line chart",
+          "table": "Table",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "line",
+      "confidence": 0.9249999999999999,
+      "probabilities": {
+        "line": 0.95,
+        "table": 0.05,
+        "none_of_these": 0
+      }
+    }
+  }
+}

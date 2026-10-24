@@ -1,0 +1,40 @@
+{
+  "hash": "6fd329ce86d3ca9c1c914487",
+  "tag": "form: Show payment-method share by month.",
+  "source": "gemini-sim",
+  "model": "gemini-3.5-flash-lite (simulated Jev)",
+  "recordedAt": "2026-10-24T00:50:55.763Z",
+  "latencyMs": 1283,
+  "inputTokens": null,
+  "request": {
+    "state": {
+      "question": "Show payment-method share by month.",
+      "result": "shares of 5 payment method groups in each of 6 months, summing to 100% per month"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "stacked100": "100% stacked bar",
+          "table": "Table",
+          "line": "Line chart",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "stacked100",
+      "confidence": 0.7999999999999999,
+      "probabilities": {
+        "stacked100": 0.85,
+        "table": 0.1,
+        "line": 0.05,
+        "none_of_these": 0
+      }
+    }
+  }
+}

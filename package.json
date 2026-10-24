@@ -16,7 +16,8 @@
     "fixtures:record": "tsx scripts/record-fixtures.ts",
     "eval": "tsx evals/run.ts",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "ask": "tsx scripts/ask.ts"
   },
   "dependencies": {
     "@ai-sdk/google": "^4.0.104",

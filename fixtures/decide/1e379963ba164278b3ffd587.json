@@ -1,0 +1,38 @@
+{
+  "hash": "1e379963ba164278b3ffd587",
+  "tag": "form: How many different customer accounts used card fp_afc6eb9e in the last 90 days?",
+  "source": "gemini-sim",
+  "model": "gemini-3.5-flash-lite (simulated Jev)",
+  "recordedAt": "2026-10-24T00:55:22.807Z",
+  "latencyMs": 1291,
+  "inputTokens": null,
+  "request": {
+    "state": {
+      "question": "How many different customer accounts used card fp_afc6eb9e in the last 90 days?",
+      "result": "one value for one period"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "text": "Text",
+          "kpi": "KPI card",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "kpi",
+      "confidence": 0.9249999999999999,
+      "probabilities": {
+        "text": 0.05,
+        "kpi": 0.95,
+        "none_of_these": 0
+      }
+    }
+  }
+}

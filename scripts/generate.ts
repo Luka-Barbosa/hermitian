@@ -857,6 +857,46 @@ const paydayByMonth = months.map((m) => {
   return { month: m, paydayValue: dailyValue(`${m}-25`), peakDay: sorted[0]!.window.start, peakValue: sorted[0]!.capturedValue };
 });
 
+// Extra windows and breakdowns used by non-scenario eval questions.
+const extraWindows: Record<string, Window> = {
+  previous_7_days: { start: shiftDays(AS_OF, -13), end: shiftDays(AS_OF, -7) },
+  quarter_3: { start: "2026-07-01", end: "2026-09-30" },
+};
+const labelOf = (id: string) => METHODS.find((m) => m.id === id)!.label;
+const channelLabel: Record<ChannelId, string> = { online: "Online", app: "App", in_store: "In-store" };
+function groupValue(w: Window, key: (p: Payment) => string | null) {
+  const m = new Map<string, number>();
+  let total = 0;
+  for (const p of captured) {
+    if (!inWindow(p.completedAt, w)) continue;
+    const k = key(p);
+    if (k === null) continue;
+    m.set(k, (m.get(k) ?? 0) + p.amountCents);
+    total += p.amountCents;
+  }
+  return [...m.entries()]
+    .map(([k, c]) => ({ key: k, value: cents(c), share: c / total }))
+    .sort((a, b) => b.value - a.value || a.key.localeCompare(b.key));
+}
+function refundRateBy(w: Window, key: (p: Payment) => string) {
+  const refunded = new Map<string, number>();
+  const base = new Map<string, number>();
+  for (const r of refunds) if (r.status === "RefundCompleted" && inWindow(r.completedAt, w)) refunded.set(key(r.payment), (refunded.get(key(r.payment)) ?? 0) + r.amountCents);
+  for (const p of captured) if (inWindow(p.completedAt, w)) base.set(key(p), (base.get(key(p)) ?? 0) + p.amountCents);
+  return [...base.entries()]
+    .map(([k, b]) => ({ key: k, refundedValue: cents(refunded.get(k) ?? 0), capturedValue: cents(b), rate: (refunded.get(k) ?? 0) / b }))
+    .sort((a, b) => b.rate - a.rate);
+}
+const storeName = new Map(stores.map((s) => [s.id, s.name]));
+const lastMonth = presetWindows.last_month!;
+const breakdowns = {
+  capturedByChannelLastMonth: groupValue(lastMonth, (p) => channelLabel[p.channel]),
+  capturedByStoreLastMonth: groupValue(lastMonth, (p) => (p.storeId ? storeName.get(p.storeId)! : null)).slice(0, 10),
+  capturedByCustomerTypeMonthToDate: groupValue(presetWindows.month_to_date!, (p) => p.customerType),
+  refundRateByMethodLast90: refundRateBy(last90, (p) => labelOf(p.method)),
+  refundsOver5000LastMonth: refunds.filter((r) => inWindow(r.requestedAt, lastMonth) && r.amountCents > 500_000).length,
+};
+
 const scenarios = {
   meta: {
     seed,
@@ -872,7 +912,8 @@ const scenarios = {
   },
   params: PARAMS,
   presetWindows,
-  windows: Object.fromEntries(Object.entries(presetWindows).map(([k, w]) => [k, aggregate(w)])),
+  windows: Object.fromEntries(Object.entries({ ...presetWindows, ...extraWindows }).map(([k, w]) => [k, aggregate(w)])),
+  breakdowns,
   months: months.map((m) => ({ month: m, ...aggregate(monthWindow(m)) })),
   daily,
   scenarios: {

@@ -23,10 +23,12 @@ export const SYSTEM2_BACKENDS = ["replay", "record", "live"] as const;
 
 const schema = z.object({
   GOOGLE_GENERATIVE_AI_API_KEY: optionalString,
-  SYSTEM2_MODEL: z.preprocess(blankToUndefined, z.string().trim().default("gemini-2.5-flash")),
+  SYSTEM2_MODEL: z.preprocess(blankToUndefined, z.string().trim().default("gemini-3.5-flash")),
   SYSTEM2_MODEL_PARSE: optionalString,
   SYSTEM2_MODEL_NARRATIVE: optionalString,
   SYSTEM2_BACKEND: z.preprocess(blankToUndefined, z.enum(SYSTEM2_BACKENDS).default("replay")),
+  /** Minimum spacing between live Gemini calls (free-tier rate limits). */
+  GEMINI_MIN_INTERVAL_MS: z.preprocess(blankToUndefined, z.coerce.number().int().nonnegative().default(4000)),
 
   AI_GATEWAY_API_KEY: optionalString,
   TYPESAFE_BASE_URL: z.preprocess(blankToUndefined, z.url().default("https://ai-gateway.vercel.sh/typesafe")),

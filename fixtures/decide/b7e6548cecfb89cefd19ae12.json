@@ -1,0 +1,58 @@
+{
+  "hash": "b7e6548cecfb89cefd19ae12",
+  "tag": "claims: Show Protea Bank's approval rate by hour on Saturday 26 September.",
+  "source": "gemini-sim",
+  "model": "gemini-3.5-flash-lite (simulated Jev)",
+  "recordedAt": "2026-10-24T00:50:47.676Z",
+  "latencyMs": 917,
+  "inputTokens": null,
+  "request": {
+    "state": {
+      "facts": [
+        "Series \"13:00\" (Approval rate, by hour): highest 45.9% at 13:00; lowest 45.9% at 13:00; first 45.9% at 13:00; last 45.9% at 13:00.",
+        "\"13:00\" points: 13:00 45.9%",
+        "Series \"14:00\" (Approval rate, by hour): highest 44.2% at 14:00; lowest 44.2% at 14:00; first 44.2% at 14:00; last 44.2% at 14:00.",
+        "\"14:00\" points: 14:00 44.2%",
+        "Series \"15:00\" (Approval rate, by hour): highest 43.8% at 15:00; lowest 43.8% at 15:00; first 43.8% at 15:00; last 43.8% at 15:00.",
+        "\"15:00\" points: 15:00 43.8%",
+        "Series \"16:00\" (Approval rate, by hour): highest 48.1% at 16:00; lowest 48.1% at 16:00; first 48.1% at 16:00; last 48.1% at 16:00.",
+        "\"16:00\" points: 16:00 48.1%",
+        "Series \"17:00\" (Approval rate, by hour): highest 97.4% at 17:00; lowest 97.4% at 17:00; first 97.4% at 17:00; last 97.4% at 17:00.",
+        "\"17:00\" points: 17:00 97.4%"
+      ],
+      "claims": [
+        "Protea Bank approval rate reached 97.4% at 17:00",
+        "Approval rates on Saturday 26 September were lowest at 43.8% at 15:00.",
+        "Rates stood at 45.9% at 13:00, 44.2% at 14:00, and 48.1% at 16:00 before jumping to 97.4% at 17:00."
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_1": {
+        "type": "noul",
+        "instructions": "`claims[1]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_2": {
+        "type": "noul",
+        "instructions": "`claims[2]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 0.5
+    },
+    "claim_1": {
+      "type": "noul",
+      "noul": 0.5
+    },
+    "claim_2": {
+      "type": "noul",
+      "noul": 0.5
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "hash": "9f96774d960ac69060923b47",
+  "task": "parse_period",
+  "tag": "period: How did captured value on 25 September compare with 24 September?",
+  "model": "gemini-3.5-flash",
+  "recordedAt": "2026-10-24T00:57:09.632Z",
+  "latencyMs": 80404,
+  "request": {
+    "system": "You turn the time period in an analytics question into explicit dates.\n\"Today\" is 2026-09-30. The data covers 2026-04-01 to 2026-09-30. Dates are inclusive, YYYY-MM-DD.\nA single day has start = end. Weeks start on Monday. A named month without a year means the most recent such month on or before today.\nIf the question names a second period to compare against, return it as comparison_start/comparison_end; otherwise return null for both.",
+    "prompt": "{\"question\":\"How did captured value on 25 September compare with 24 September?\",\"needs_comparison_if_named\":true}"
+  },
+  "output": {
+    "start": "2026-09-25",
+    "end": "2026-09-25",
+    "comparison_start": "2026-09-24",
+    "comparison_end": "2026-09-24",
+    "note": "Comparing captured value on 25 September 2026 to 24 September 2026."
+  }
+}

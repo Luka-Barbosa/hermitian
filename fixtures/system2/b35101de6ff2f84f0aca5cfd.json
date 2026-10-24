@@ -1,0 +1,19 @@
+{
+  "hash": "b35101de6ff2f84f0aca5cfd",
+  "task": "narrative",
+  "tag": "narrative: How does this month compare with last month?",
+  "model": "gemini-3.5-flash",
+  "recordedAt": "2026-10-24T00:42:46.700Z",
+  "latencyMs": 7518,
+  "request": {
+    "system": "You write the short narrative for one answer in a payments analytics app.\nUse only the facts given. Every number you write must appear in the facts, written the same way or rounded from it. Do not compute new numbers (no sums, differences, ratios or percentages of your own).\nheadline: one short sentence-case statement of the main finding, at most 9 words, no trailing full stop. Not Title Case.\nsentences: one to three plain sentences that explain what the chart or table shows and why it matters. No hedging filler, no advice, no markdown.\nCaptured value is not revenue; never call it revenue or profit.",
+    "prompt": "{\n  \"question\": \"How does this month compare with last month?\",\n  \"topic\": \"CAPTURED VALUE · COMPARE\",\n  \"form\": \"kpi\",\n  \"facts\": [\n    \"Captured payment value, September 2026: R42.4m\",\n    \"Captured payment value, August 2026: R39.7m\",\n    \"Change: +R2.7m\",\n    \"Relative change: +6.7%\"\n  ],\n  \"notes\": []\n}"
+  },
+  "output": {
+    "headline": "Captured payment value increased in September 2026",
+    "sentences": [
+      "Captured payment value reached R42.4m in September 2026, compared to R39.7m in August 2026.",
+      "This represents a change of +R2.7m, or a relative change of +6.7%."
+    ]
+  }
+}

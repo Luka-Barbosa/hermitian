@@ -1,0 +1,33 @@
+{
+  "hash": "093fd9d1e8efbc881cdc86ee",
+  "tag": "claims: What was our approval rate in the last 7 days?",
+  "source": "gemini-sim",
+  "model": "gemini-3.5-flash-lite (simulated Jev)",
+  "recordedAt": "2026-10-24T00:54:34.093Z",
+  "latencyMs": 723,
+  "inputTokens": null,
+  "request": {
+    "state": {
+      "facts": [
+        "Scope: 24–30 Sep 2026; all payments.",
+        "Approval rate, 24–30 Sep 2026: 91.0%",
+        "That is 13,168 out of 14,470."
+      ],
+      "claims": [
+        "Approval rate reached 91.0%"
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 1
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "hash": "e58de24c62b5567047d47466",
+  "tag": "form: How did captured value on 25 September compare with 24 September?",
+  "source": "gemini-sim",
+  "model": "gemini-3.5-flash-lite (simulated Jev)",
+  "recordedAt": "2026-10-24T00:57:12.231Z",
+  "latencyMs": 2510,
+  "inputTokens": null,
+  "request": {
+    "state": {
+      "question": "How did captured value on 25 September compare with 24 September?",
+      "result": "one value in the current period and one in a comparison period, with the change"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "kpi": "KPI card",
+          "text": "Text",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "kpi",
+      "confidence": 0.7749999999999998,
+      "probabilities": {
+        "kpi": 0.85,
+        "text": 0.15,
+        "none_of_these": 0
+      }
+    }
+  }
+}

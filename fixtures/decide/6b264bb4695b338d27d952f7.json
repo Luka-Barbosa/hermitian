@@ -1,0 +1,38 @@
+{
+  "hash": "6b264bb4695b338d27d952f7",
+  "tag": "form: How does captured value this month compare with last month?",
+  "source": "gemini-sim",
+  "model": "gemini-3.5-flash-lite (simulated Jev)",
+  "recordedAt": "2026-10-24T00:50:13.358Z",
+  "latencyMs": 1156,
+  "inputTokens": null,
+  "request": {
+    "state": {
+      "question": "How does captured value this month compare with last month?",
+      "result": "one value in the current period and one in a comparison period, with the change"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "kpi": "KPI card",
+          "text": "Text",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "kpi",
+      "confidence": 0.9249999999999999,
+      "probabilities": {
+        "kpi": 0.95,
+        "text": 0.05,
+        "none_of_these": 0
+      }
+    }
+  }
+}

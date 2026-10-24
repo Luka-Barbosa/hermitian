@@ -74,6 +74,7 @@ SELECT
   a.decline_reason,
   a.three_ds_result,
   a.issuer_bank,
+  pa.amount_cents,
   pa.payment_method,
   pa.channel,
   pa.store,

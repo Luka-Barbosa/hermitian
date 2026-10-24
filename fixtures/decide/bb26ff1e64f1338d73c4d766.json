@@ -1,0 +1,41 @@
+{
+  "hash": "bb26ff1e64f1338d73c4d766",
+  "tag": "claims: What was captured value yesterday?",
+  "source": "gemini-sim",
+  "model": "gemini-3.5-flash-lite (simulated Jev)",
+  "recordedAt": "2026-10-24T00:53:44.703Z",
+  "latencyMs": 785,
+  "inputTokens": null,
+  "request": {
+    "state": {
+      "facts": [
+        "Scope: 29 Sep 2026; all payments.",
+        "Captured payment value, 29 Sep 2026: R971,577"
+      ],
+      "claims": [
+        "Captured payment value reached R971,577",
+        "This covers all payments on 29 Sep 2026."
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_1": {
+        "type": "noul",
+        "instructions": "`claims[1]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 1
+    },
+    "claim_1": {
+      "type": "noul",
+      "noul": 1
+    }
+  }
+}
