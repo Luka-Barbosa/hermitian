@@ -1,0 +1,38 @@
+{
+  "hash": "0c2ca44e8b74d3735da55410",
+  "tag": "form: How did the number of payments in September compare with August?",
+  "source": "gemini-sim",
+  "model": "gemini-3.5-flash-lite (simulated Jev)",
+  "recordedAt": "2026-10-24T06:51:43.970Z",
+  "latencyMs": 3243,
+  "inputTokens": null,
+  "request": {
+    "state": {
+      "question": "How did the number of payments in September compare with August?",
+      "result": "one value in the current period and one in a comparison period, with the change"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "kpi": "KPI card",
+          "text": "Text",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "kpi",
+      "confidence": 0.9249999999999999,
+      "probabilities": {
+        "kpi": 0.95,
+        "text": 0.05,
+        "none_of_these": 0
+      }
+    }
+  }
+}

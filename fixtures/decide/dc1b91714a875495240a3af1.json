@@ -1,0 +1,51 @@
+{
+  "hash": "dc1b91714a875495240a3af1",
+  "tag": "claims: What was the average transaction value last month?",
+  "source": "gemini-sim",
+  "model": "gemini-3.5-flash-lite (simulated Jev)",
+  "recordedAt": "2026-10-24T06:47:43.154Z",
+  "latencyMs": 1895,
+  "inputTokens": null,
+  "request": {
+    "state": {
+      "facts": [
+        "Scope: August 2026; all payments.",
+        "Average transaction value, August 2026: R791.19",
+        "Calculated from R39.7m captured value and 50,180 captured payments."
+      ],
+      "claims": [
+        "Average transaction value was R791.19 in August 2026",
+        "50,180 captured payments resulted in R39.7m captured value.",
+        "The scope for August 2026 includes all payments."
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_1": {
+        "type": "noul",
+        "instructions": "`claims[1]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_2": {
+        "type": "noul",
+        "instructions": "`claims[2]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 1
+    },
+    "claim_1": {
+      "type": "noul",
+      "noul": 1
+    },
+    "claim_2": {
+      "type": "noul",
+      "noul": 1
+    }
+  }
+}

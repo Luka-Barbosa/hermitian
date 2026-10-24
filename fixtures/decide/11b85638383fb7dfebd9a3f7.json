@@ -1,0 +1,53 @@
+{
+  "hash": "11b85638383fb7dfebd9a3f7",
+  "tag": "claims: How did captured value on 25 September compare with 24 September?",
+  "source": "gemini-sim",
+  "model": "gemini-3.5-flash-lite (simulated Jev)",
+  "recordedAt": "2026-10-24T00:57:22.327Z",
+  "latencyMs": 991,
+  "inputTokens": null,
+  "request": {
+    "state": {
+      "facts": [
+        "Scope: 25 Sep 2026; all payments.",
+        "Captured payment value, 25 Sep 2026: R3.1m",
+        "Captured payment value, 24 Sep 2026: R1.0m",
+        "Change: +R2.1m",
+        "Relative change: +209.3%"
+      ],
+      "claims": [
+        "Captured payment value surged on 25 Sep 2026",
+        "Captured payment value reached R3.1m on 25 Sep 2026, up from R1.0m on 24 Sep 2026.",
+        "This represents an increase of +R2.1m, or a relative change of +209.3%."
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_1": {
+        "type": "noul",
+        "instructions": "`claims[1]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_2": {
+        "type": "noul",
+        "instructions": "`claims[2]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 0.99
+    },
+    "claim_1": {
+      "type": "noul",
+      "noul": 1
+    },
+    "claim_2": {
+      "type": "noul",
+      "noul": 1
+    }
+  }
+}

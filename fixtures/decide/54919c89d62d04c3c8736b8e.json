@@ -1,0 +1,55 @@
+{
+  "hash": "54919c89d62d04c3c8736b8e",
+  "tag": "claims: Show the chargebacks on card fp_afc6eb9e.",
+  "source": "gemini-sim",
+  "model": "gemini-3.5-flash-lite (simulated Jev)",
+  "recordedAt": "2026-10-24T06:57:42.192Z",
+  "latencyMs": 1221,
+  "inputTokens": null,
+  "request": {
+    "state": {
+      "facts": [
+        "Scope: Apr–Sep 2026; limited to Payment method Card; Card fp_afc6eb9e.",
+        "10 chargebacks shown, of 27 matching in Apr–Sep 2026.",
+        "Row 1: Dispute dsp_rm7rf6ydfr, Received 2026-09-11 06:47, Card fp_afc6eb9e, Customer cus_esvuwa7z, Account created 2026-08-04 21:43, Amount R5,599.00, Reason 10.4 Fraud: card-absent environment, Outcome pending",
+        "Row 2: Dispute dsp_zxbztp66pv, Received 2026-09-09 11:07, Card fp_afc6eb9e, Customer cus_5maw6ps8, Account created 2026-08-07 09:08, Amount R4,399.00, Reason 10.4 Fraud: card-absent environment, Outcome lost",
+        "Row 3: Dispute dsp_ssxrycejbu, Received 2026-09-07 02:46, Card fp_afc6eb9e, Customer cus_hpds5p8v, Account created 2026-08-08 18:31, Amount R4,999.00, Reason 10.4 Fraud: card-absent environment, Outcome lost",
+        "Row 4: Dispute dsp_a6z5vzbpv4, Received 2026-09-06 23:32, Card fp_afc6eb9e, Customer cus_tktwtr49, Account created 2026-08-05 17:20, Amount R7,299.00, Reason 10.4 Fraud: card-absent environment, Outcome lost",
+        "Row 5: Dispute dsp_3xss4na97u, Received 2026-09-06 19:45, Card fp_afc6eb9e, Customer cus_stjjx723, Account created 2026-08-05 17:21, Amount R6,199.00, Reason 10.4 Fraud: card-absent environment, Outcome lost"
+      ],
+      "claims": [
+        "10 chargebacks shown out of 27 matching",
+        "The records cover Apr–Sep 2026 for card fp_afc6eb9e.",
+        "All shown disputes involve Reason 10.4 Fraud: card-absent environment with amounts ranging from R4,399.00 to R7,299.00."
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_1": {
+        "type": "noul",
+        "instructions": "`claims[1]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_2": {
+        "type": "noul",
+        "instructions": "`claims[2]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 1
+    },
+    "claim_1": {
+      "type": "noul",
+      "noul": 1
+    },
+    "claim_2": {
+      "type": "noul",
+      "noul": 1
+    }
+  }
+}

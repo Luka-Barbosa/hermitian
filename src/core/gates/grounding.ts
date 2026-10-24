@@ -133,7 +133,7 @@ export function allowedFrom(results: QueryResult[], context: number[] = []): All
           if (c.type === "zar") a.zar.push(Number(val));
           else if (c.type === "count") a.plain.push(Number(val));
           else if (c.type === "datetime") addDate(a, String(val));
-          else for (const n of String(val).match(/d+(?:.d+)?/g) ?? []) a.plain.push(Number(n));
+          else for (const n of String(val).match(/\d+(?:\.\d+)?/g) ?? []) a.plain.push(Number(n));
         }
         a.plain.push(d.rows.length, d.totalMatching);
         addPeriodDates(a, d.period);
@@ -184,6 +184,12 @@ export function extract(text: string): Extracted {
     dates.push({ month: Number(mo), day: Number(d), raw: m });
     return blank(m);
   });
+  // Day ranges: "24–30 Sep", "1-15 September".
+  t = t.replace(new RegExp(`\\b(\\d{1,2})\\s?[–—-]\\s?(\\d{1,2})(?:st|nd|rd|th)?\\s+${MONTH_RE}\\b`, "gi"), (m, d1, d2, mo) => {
+    const month = MONTHS[mo.toLowerCase()] ?? null;
+    dates.push({ month, day: Number(d1), raw: m }, { month, day: Number(d2), raw: m });
+    return blank(m);
+  });
   t = t.replace(new RegExp(`\\b(\\d{1,2})(?:st|nd|rd|th)?\\s+(?:of\\s+)?${MONTH_RE}\\b`, "gi"), (m, d, mo) => {
     dates.push({ month: MONTHS[mo.toLowerCase()] ?? null, day: Number(d), raw: m });
     return blank(m);
@@ -199,7 +205,8 @@ export function extract(text: string): Extracted {
   t = t.replace(/\b20\d\d\b/g, blank);
 
   const numbers: NumberToken[] = [];
-  t = t.replace(/[-−+]?R\s?(\d[\d,]*(?:\.\d+)?)\s?(bn|billion|mn|million|m|k|thousand)?\b/gi, (m, n, sc) => {
+  // Rand amounts: a capital R not inside a word ("for 24" is not R24).
+  t = t.replace(/[-−+]?(?<![A-Za-z])R\s?(\d[\d,]*(?:\.\d+)?)\s?(bn|billion|mn|million|m|k|thousand)?\b/g, (m, n, sc) => {
     numbers.push({ raw: m.trim(), kind: "zar", ...parseNum(n), scale: SCALES[(sc ?? "").toLowerCase()] ?? 1 });
     return blank(m);
   });

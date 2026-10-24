@@ -1,0 +1,38 @@
+{
+  "hash": "1cdbe41ec3a77e7c4cb5e97a",
+  "tag": "form: Compare our approval rate in the last 7 days with the week before.",
+  "source": "gemini-sim",
+  "model": "gemini-3.5-flash-lite (simulated Jev)",
+  "recordedAt": "2026-10-24T00:57:30.298Z",
+  "latencyMs": 1205,
+  "inputTokens": null,
+  "request": {
+    "state": {
+      "question": "Compare our approval rate in the last 7 days with the week before.",
+      "result": "one value in the current period and one in a comparison period, with the change"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "kpi": "KPI card",
+          "text": "Text",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "kpi",
+      "confidence": 0.7749999999999998,
+      "probabilities": {
+        "kpi": 0.85,
+        "text": 0.15,
+        "none_of_these": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "hash": "28350947d5b3634f10f5f7ad",
+  "tag": "claims: List refunds over R5,000 last month.",
+  "source": "gemini-sim",
+  "model": "gemini-3.5-flash-lite (simulated Jev)",
+  "recordedAt": "2026-10-24T06:57:17.001Z",
+  "latencyMs": 3844,
+  "inputTokens": null,
+  "request": {
+    "state": {
+      "facts": [
+        "Scope: August 2026; limited to amount over R5,000.",
+        "1 refunds shown, of 1 matching in August 2026.",
+        "Row 1: Refund ref_w6hkmqyjrf, Requested 2026-08-03 13:35, Status RefundCompleted, Payment pay_kbu9uuenjd, Amount R6,829.99, Reason other, Method Pay by Bank"
+      ],
+      "claims": [
+        "During August 2026, the single matching refund reached R6,829.99.",
+        "This completed transaction used the Pay by Bank method with the reason other."
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_1": {
+        "type": "noul",
+        "instructions": "`claims[1]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 1
+    },
+    "claim_1": {
+      "type": "noul",
+      "noul": 1
+    }
+  }
+}

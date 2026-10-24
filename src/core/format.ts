@@ -40,6 +40,11 @@ export function formatValue(v: number | null, unit: Unit | "pp", mode: "compact"
   return formatPct(v);
 }
 
+/** A ratio's numerator or denominator in its own unit. */
+export function formatTerm(v: number, unit: "zar" | "count"): string {
+  return unit === "zar" ? formatZar(v) : formatCount(v);
+}
+
 export function formatDelta(v: number, unit: Unit | "pp"): string {
   if (unit === "zar") return v > 0 ? `+${formatZar(v)}` : formatZar(v);
   if (unit === "count") return v > 0 ? `+${formatCount(v)}` : formatCount(v);

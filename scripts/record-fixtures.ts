@@ -31,9 +31,9 @@ const prefer = (name: "DECIDE_SIM_MODEL" | "SYSTEM2_MODEL_PARSE" | "SYSTEM2_MODE
     chosen.push(`${name}=${model}`);
   }
 };
-prefer("DECIDE_SIM_MODEL", "gemini-3.5-flash-lite");
-prefer("SYSTEM2_MODEL_PARSE", "gemini-3.5-flash");
-prefer("SYSTEM2_MODEL_NARRATIVE", "gemini-3.5-flash");
+prefer("DECIDE_SIM_MODEL", "gemini-3.5-flash-lite,gemini-flash-lite-latest,gemini-3-flash-preview");
+prefer("SYSTEM2_MODEL_PARSE", "gemini-3.5-flash,gemini-3.5-flash-lite,gemini-flash-lite-latest,gemini-3-flash-preview");
+prefer("SYSTEM2_MODEL_NARRATIVE", "gemini-3.5-flash,gemini-3.5-flash-lite,gemini-flash-lite-latest,gemini-3-flash-preview");
 resetEnvCache();
 const e = env();
 console.log(`Recording: System 1 via ${e.RECORD_VIA}${e.RECORD_VIA === "jev" ? ` (cap ${e.MAX_LIVE_JEV_CALLS} live calls)` : " (simulated Jev)"}, System 2 via Gemini.`);

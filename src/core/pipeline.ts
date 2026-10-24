@@ -50,6 +50,25 @@ const DEFAULT_PERIOD: Record<Intent, "month_to_date" | "last_90_days" | "last_6_
 
 const PLAYFUL = ["Stitching…", "Counting rands…", "Squaring the ledger…", "Lining up the bars…"];
 
+const MONTH_NAMES = /\b(jan|feb|mar|apr|jun|jul|aug|sep|sept|oct|nov|dec|january|february|march|april|june|july|august|september|october|november|december)\b/gi;
+
+/** Display only: sentence case and capitalised month names. Words and numbers are unchanged. */
+function tidy(text: string): string {
+  const t = text.trim().replace(MONTH_NAMES, (m) => m.charAt(0).toUpperCase() + m.slice(1).toLowerCase());
+  // Leave identifiers such as fp_d549f9c4 as they are.
+  if (/^[a-z]+_[a-z0-9]+/.test(t)) return t;
+  return t.charAt(0).toUpperCase() + t.slice(1);
+}
+
+function escapeRegExp(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+/** Display only: restores the catalog's casing of names the narrative lower-cased. */
+function canonicalCase(text: string, names: string[]): string {
+  return names.reduce((acc, n) => acc.replace(new RegExp(`\\b${escapeRegExp(n)}\\b`, "gi"), n), text);
+}
+
 function questionText(q: string): string {
   return q.trim().replace(/\s+/g, " ");
 }
@@ -121,6 +140,9 @@ export async function ask(input: AskInput, deps: { adapter: DataAdapter; onEvent
       });
     }
 
+    // System 2 also fills gaps System 1 cannot (custom dates, free filter values): those turns count as escalated.
+    const gapsFilled: string[] = [];
+    const route = () => (u.routed === "escalated" || gapsFilled.length ? "escalated" : "system1");
     const prev = input.followUp?.plan ? QueryPlanSchema.safeParse(input.followUp.plan) : null;
     const prevPlan = prev?.success ? prev.data : null;
 
@@ -133,6 +155,7 @@ export async function ask(input: AskInput, deps: { adapter: DataAdapter; onEvent
       const { value: p, ms } = await timed(() => parsePeriod(context, { asOf: catalog.asOf, dataStart: catalog.dataStart, dataEnd: catalog.dataEnd, wantsComparison: u.intent === "compare" || u.intent === "explain_change" }));
       const o = p.output;
       modelTime(p.meta);
+      gapsFilled.push("custom period");
       const valid = isValidIsoDate(o.start) && isValidIsoDate(o.end) && o.start <= o.end;
       trace.add({
         kind: "system2", title: "System 2 · custom period", ok: valid, latencyMs: ms,
@@ -159,6 +182,7 @@ export async function ask(input: AskInput, deps: { adapter: DataAdapter; onEvent
       status("Asking Gemini for the amount filter…");
       const { value: a, ms } = await timed(() => parseAmount(question));
       modelTime(a.meta);
+      gapsFilled.push("amount filter");
       const ok = a.output.present && a.output.op !== null && a.output.value_rand !== null && a.output.value_rand > 0;
       trace.add({ kind: "system2", title: "System 2 · amount filter", ok, latencyMs: ms, detail: [["model", `${a.meta.model} (${a.meta.backend})`], ["filter", ok ? `${a.output.op} R${a.output.value_rand}` : "none found"]] });
       if (ok) filters.push({ kind: "amount", op: a.output.op!, value: a.output.value_rand!, source: "system2" });
@@ -225,7 +249,7 @@ export async function ask(input: AskInput, deps: { adapter: DataAdapter; onEvent
     const topicFor = (p: QueryPlan) => `${p.metric ? metricById(catalog, p.metric)!.topic : p.records ? (recordTypeById(catalog, p.records.type)?.label.toUpperCase() ?? "RECORDS") : "ANSWER"} · ${INTENT_TOPIC[p.intent]}`;
     if (!g1.ok) {
       return base({
-        topic: topicFor(plan), plan, route: u.routed, intentConfidence: intentSlot?.confidence ?? null,
+        topic: topicFor(plan), plan, route: route(), intentConfidence: intentSlot?.confidence ?? null,
         headline: "This data can't answer that as asked",
         sentences: [g1.reason ?? "The plan failed the data-support gate."],
         followUp: { question, answer: `Not answerable: ${g1.reason}`, plan },
@@ -237,7 +261,7 @@ export async function ask(input: AskInput, deps: { adapter: DataAdapter; onEvent
     const w = windowGate(needsComparison ? { ...plan, comparison: plan.comparison ?? previousPeriod(plan.period) } : plan, catalog);
     trace.add({ kind: "gate", title: "Gate 2 · calculation (windows)", ok: !w.fatal, latencyMs: 0, detail: w.checks.map((c) => [`${c.ok ? "pass" : "note"} · ${c.check}`, c.detail]) });
     if (w.fatal) {
-      return base({ topic: topicFor(plan), plan, route: u.routed, headline: "No data for that period", sentences: [w.fatal], followUp: { question, answer: w.fatal, plan } });
+      return base({ topic: topicFor(plan), plan, route: route(), headline: "No data for that period", sentences: [w.fatal], followUp: { question, answer: w.fatal, plan } });
     }
     plan = w.plan;
 
@@ -254,6 +278,12 @@ export async function ask(input: AskInput, deps: { adapter: DataAdapter; onEvent
       const latencyMs = Math.round(performance.now() - t);
       const result: QueryResult = {
         id: `q${i + 1}`, op: built.op, metricId: built.metric?.id ?? null, metricLabel: built.metric?.label ?? null, unit: built.unit,
+        terms: built.metric?.denominator
+          ? {
+              numerator: { label: built.metric.numeratorLabel ?? "numerator", unit: built.metric.numerator.unit ?? "count" },
+              denominator: { label: built.metric.denominatorLabel ?? "denominator", unit: built.metric.denominator.unit ?? "count" },
+            }
+          : null,
         views: built.views, sql: built.sql, rowCount: rows.reduce((a, r) => a + r.length, 0), latencyMs, notes: built.notes, data: built.toData(rows),
       };
       results.push(result);
@@ -327,8 +357,13 @@ export async function ask(input: AskInput, deps: { adapter: DataAdapter; onEvent
       });
     }
     const headlineOk = supported.has(0);
-    const headline = headlineOk ? nar.output.headline : primary ? templateHeadline(primary) : "Answer";
-    const sentences = nar.output.sentences.filter((_, j) => supported.has(j + 1));
+    // Display only: catalog names keep their own casing ("Apple Pay", "Protea Bank").
+    const names = catalog.dimensions
+      .flatMap((d) => (d.kind === "categorical" ? (d.values ?? []) : []))
+      .filter((n) => n.includes(" ") && /[A-Z].*[A-Z]/.test(n));
+    const canon = (t: string) => canonicalCase(t, names);
+    const headline = canon(tidy(headlineOk ? nar.output.headline : primary ? templateHeadline(primary) : "Answer"));
+    const sentences = nar.output.sentences.filter((_, j) => supported.has(j + 1)).map((x) => canon(tidy(x)));
     trace.add({
       kind: "gate", title: "Gate 3 · narrative grounding", ok: true, latencyMs: Math.round(performance.now() - gt),
       detail: [
@@ -344,7 +379,7 @@ export async function ask(input: AskInput, deps: { adapter: DataAdapter; onEvent
     const answerSummary = `${headline}. (${m?.label ?? plan.records?.type ?? ""}, ${plan.period.label}${plan.filters.length ? `, filtered` : ""})`;
     return base({
       topic, headline, sentences, cutClaims: cut, form, validForms: valid, primaryResultId: primary?.id ?? null, results,
-      source: primary ? `${primary.views.join(" + ")} · ${primary.id}` : "", route: u.routed, intentConfidence: intentSlot?.confidence ?? null, formConfidence, plan,
+      source: primary ? `${primary.views.join(" + ")} · ${primary.id}` : "", route: route(), intentConfidence: intentSlot?.confidence ?? null, formConfidence, plan,
       followUp: { question, answer: answerSummary, plan },
     });
   } catch (err) {

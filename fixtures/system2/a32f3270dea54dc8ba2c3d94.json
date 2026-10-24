@@ -1,0 +1,19 @@
+{
+  "hash": "a32f3270dea54dc8ba2c3d94",
+  "task": "narrative",
+  "tag": "narrative: Which issuer has the lowest approval rate?",
+  "model": "gemini-3.5-flash-lite",
+  "recordedAt": "2026-10-24T06:54:24.575Z",
+  "latencyMs": 1451,
+  "request": {
+    "system": "You write the short narrative for one answer in a payments analytics app.\nUse only the facts given. Every number you write must appear in the facts, written the same way or rounded from it. Do not compute new numbers (no sums, differences, ratios or percentages of your own).\nheadline: one short sentence-case statement of the main finding, at most 9 words, no trailing full stop. Not Title Case.\nsentences: one to three plain sentences that add what the headline does not: the period, the comparison, what stands out and why it matters. Do not restate the headline. No filler, no advice, no markdown.\nLead with what stands out: a dip, a spike, the leader, the biggest driver or the outlier, not the first or last value.\nName the period the way the facts do (e.g. 'September 2026', '26 Sep 2026').\nCaptured value is not revenue; never call it revenue or profit.",
+    "prompt": "{\n  \"question\": \"Which issuer has the lowest approval rate?\",\n  \"topic\": \"APPROVAL RATE · RANKING\",\n  \"form\": \"hbar\",\n  \"facts\": [\n    \"Scope: 3 Jul – 30 Sep 2026; all payments.\",\n    \"Ranked by approval rate, lowest first: Quagga Bank has the lowest approval rate of the issuer bank groups ranked.\",\n    \"1. Quagga Bank: 89.2% (9,399 approved attempts, 10,536 authorization attempts)\",\n    \"2. Kestrel Bank: 90.3% (12,273 approved attempts, 13,593 authorization attempts)\",\n    \"3. Aloe Bank: 90.8% (13,613 approved attempts, 15,000 authorization attempts)\",\n    \"4. Karoo Bank: 91.5% (27,335 approved attempts, 29,876 authorization attempts)\",\n    \"5. Fynbos Bank: 91.8% (16,351 approved attempts, 17,810 authorization attempts)\",\n    \"6. Highveld Bank: 92.3% (22,089 approved attempts, 23,940 authorization attempts)\",\n    \"7. Marula Bank: 92.7% (11,013 approved attempts, 11,875 authorization attempts)\",\n    \"8. Protea Bank: 93.2% (24,938 approved attempts, 26,751 authorization attempts)\",\n    \"Issuer bank groups: 8 in total, 0 with fewer than 10 not ranked. Period: 3 Jul – 30 Sep 2026.\"\n  ],\n  \"notes\": [\n    \"Groups with fewer than 10 authorization attempts are not ranked.\",\n    \"No issuer (Capitec Pay) is excluded from this grouping.\"\n  ]\n}"
+  },
+  "output": {
+    "headline": "Quagga Bank recorded the lowest approval rate",
+    "sentences": [
+      "Quagga Bank achieved an approval rate of 89.2% across 10,536 authorization attempts between 3 Jul and 30 Sep 2026.",
+      "Protea Bank led the group with the highest approval rate of 93.2% from 26,751 authorization attempts during the same period."
+    ]
+  }
+}

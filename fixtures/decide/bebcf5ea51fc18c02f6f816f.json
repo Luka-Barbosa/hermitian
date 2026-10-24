@@ -1,0 +1,70 @@
+{
+  "hash": "bebcf5ea51fc18c02f6f816f",
+  "tag": "claims: Which cards have the highest chargeback rate in the last 90 days?",
+  "source": "gemini-sim",
+  "model": "gemini-3.5-flash-lite (simulated Jev)",
+  "recordedAt": "2026-10-24T06:55:24.772Z",
+  "latencyMs": 3865,
+  "inputTokens": null,
+  "request": {
+    "state": {
+      "facts": [
+        "Scope: 3 Jul – 30 Sep 2026; all payments.",
+        "Ranked by chargeback rate, highest first: fp_d549f9c4 has the highest chargeback rate of the card groups ranked.",
+        "1. fp_d549f9c4: 86.2% (25 chargebacks, 29 captured payments)",
+        "2. fp_afc6eb9e: 84.4% (27 chargebacks, 32 captured payments)",
+        "3. fp_242e539c: 82.1% (23 chargebacks, 28 captured payments)",
+        "4. fp_1abf5464: 81.5% (22 chargebacks, 27 captured payments)",
+        "5. fp_2044ec4e: 71.0% (22 chargebacks, 31 captured payments)",
+        "6. fp_025a0ccc: 60.7% (17 chargebacks, 28 captured payments)",
+        "7. fp_00a9bf4e: 0.0% (0 chargebacks, 10 captured payments)",
+        "8. fp_0c948f2d: 0.0% (0 chargebacks, 10 captured payments)",
+        "9. fp_11034043: 0.0% (0 chargebacks, 10 captured payments)",
+        "10. fp_18fbf6e2: 0.0% (0 chargebacks, 10 captured payments)",
+        "Card groups: 63,540 in total, 63,518 with fewer than 10 not ranked. Period: 3 Jul – 30 Sep 2026."
+      ],
+      "claims": [
+        "fp_d549f9c4 leads with highest chargeback rate",
+        "During the period of 3 Jul – 30 Sep 2026, fp_d549f9c4 reached an 86.2% chargeback rate with 25 chargebacks from 29 captured payments.",
+        "This was closely followed by fp_afc6eb9e at 84.4% with 27 chargebacks from 32 captured payments.",
+        "Card groups with fewer than 10 captured payments were not ranked out of the 63,540 in total."
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_1": {
+        "type": "noul",
+        "instructions": "`claims[1]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_2": {
+        "type": "noul",
+        "instructions": "`claims[2]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_3": {
+        "type": "noul",
+        "instructions": "`claims[3]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 1
+    },
+    "claim_1": {
+      "type": "noul",
+      "noul": 1
+    },
+    "claim_2": {
+      "type": "noul",
+      "noul": 1
+    },
+    "claim_3": {
+      "type": "noul",
+      "noul": 1
+    }
+  }
+}

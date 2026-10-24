@@ -1,0 +1,19 @@
+{
+  "hash": "2559f2f4f89e7fbd663624d8",
+  "task": "narrative",
+  "tag": "narrative: Which payment method has the highest refund rate in the last 90 days?",
+  "model": "gemini-3.5-flash-lite",
+  "recordedAt": "2026-10-24T06:55:53.010Z",
+  "latencyMs": 3918,
+  "request": {
+    "system": "You write the short narrative for one answer in a payments analytics app.\nUse only the facts given. Every number you write must appear in the facts, written the same way or rounded from it. Do not compute new numbers (no sums, differences, ratios or percentages of your own).\nheadline: one short sentence-case statement of the main finding, at most 9 words, no trailing full stop. Not Title Case.\nsentences: one to three plain sentences that add what the headline does not: the period, the comparison, what stands out and why it matters. Do not restate the headline. No filler, no advice, no markdown.\nLead with what stands out: a dip, a spike, the leader, the biggest driver or the outlier, not the first or last value.\nName the period the way the facts do (e.g. 'September 2026', '26 Sep 2026').\nCaptured value is not revenue; never call it revenue or profit.",
+    "prompt": "{\n  \"question\": \"Which payment method has the highest refund rate in the last 90 days?\",\n  \"topic\": \"REFUND RATE · RANKING\",\n  \"form\": \"hbar\",\n  \"facts\": [\n    \"Scope: 3 Jul – 30 Sep 2026; all payments.\",\n    \"Ranked by refund rate, highest first: Pay by Bank has the highest refund rate of the payment method groups ranked.\",\n    \"1. Pay by Bank: 4.3% (R772,741 refunded value, R17.8m captured value)\",\n    \"2. PayShap Request: 4.3% (R396,282 refunded value, R9.3m captured value)\",\n    \"3. Capitec Pay: 3.7% (R565,316 refunded value, R15.1m captured value)\",\n    \"4. Card: 3.5% (R1.5m refunded value, R41.2m captured value)\",\n    \"5. Apple Pay: 2.8% (R1.0m refunded value, R36.0m captured value)\",\n    \"Payment method groups: 5 in total. Period: 3 Jul – 30 Sep 2026.\"\n  ],\n  \"notes\": []\n}"
+  },
+  "output": {
+    "headline": "Pay by bank leads refund rates",
+    "sentences": [
+      "During the period of 3 Jul – 30 Sep 2026, Pay by Bank recorded a refund rate of 4.3% with R772,741 refunded value.",
+      "PayShap Request matched this rate at 4.3% with R396,282 refunded value out of 5 payment method groups ranked."
+    ]
+  }
+}

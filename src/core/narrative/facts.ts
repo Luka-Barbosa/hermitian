@@ -1,4 +1,4 @@
-import { formatCount, formatDelta, formatPct, formatPp, formatSignedPct, formatValue, formatZar } from "../format";
+import { formatCount, formatDelta, formatPct, formatPp, formatSignedPct, formatTerm, formatValue, formatZar } from "../format";
 import type { QueryResult } from "../results";
 import type { Unit } from "../types";
 
@@ -22,8 +22,10 @@ export function factsFor(result: QueryResult): string[] {
   switch (d.shape) {
     case "scalar": {
       out.push(`${label}, ${d.period.label}: ${v(d.value, unit)}`);
-      if (d.denominator !== null && d.numerator !== null && unit === "ratio") out.push(`That is ${formatCount(d.numerator)} out of ${formatCount(d.denominator)}.`);
-      if (d.denominator !== null && d.numerator !== null && unit === "zar") out.push(`Based on ${formatZar(d.numerator)} over ${formatCount(d.denominator)} payments.`);
+      const t = result.terms;
+      if (t && d.numerator !== null && d.denominator !== null) {
+        out.push(`Calculated from ${formatTerm(d.numerator, t.numerator.unit)} ${t.numerator.label} and ${formatTerm(d.denominator, t.denominator.unit)} ${t.denominator.label}.`);
+      }
       break;
     }
     case "delta": {
@@ -53,7 +55,8 @@ export function factsFor(result: QueryResult): string[] {
       if (d.direction) out.push(`Ranked by ${label.toLowerCase()}, ${d.direction === "asc" ? "lowest" : "highest"} first: ${d.items[0]?.label ?? "none"} has the ${d.direction === "asc" ? "lowest" : "highest"} ${label.toLowerCase()} of the ${d.dimensionLabel.toLowerCase()} groups ranked.`);
       for (const it of d.items.slice(0, 10)) {
         let line = `${it.rank}. ${it.label}: ${v(it.value, unit)}`;
-        if (unit === "ratio" && it.numerator !== null && it.denominator !== null) line += ` (${formatCount(it.numerator)} of ${formatCount(it.denominator)})`;
+        const t = result.terms;
+        if (t && it.numerator !== null && it.denominator !== null) line += ` (${formatTerm(it.numerator, t.numerator.unit)} ${t.numerator.label}, ${formatTerm(it.denominator, t.denominator.unit)} ${t.denominator.label})`;
         else if (it.share !== null && result.metricId !== "payment_method_share") line += ` (${formatPct(it.share)} of total)`;
         out.push(line);
       }

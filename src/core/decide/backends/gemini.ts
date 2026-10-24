@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { system2Model } from "../../../env";
+import { system2Models } from "../../../env";
 import { geminiObject } from "../../system2/gemini";
 import { choiceAnswer, normalize, scoreAnswer } from "../confidence";
 import type { DecideAnswer, DecideRequest, LiveDecision } from "../types";
@@ -36,9 +36,10 @@ export async function geminiDecide(req: DecideRequest): Promise<LiveDecision> {
       described[name] = { type: "noul", instructions: q.instructions, ...(q.criteria ? { criteria: q.criteria } : {}) };
     }
   }
-  const model = system2Model("decide-sim");
   const prompt = `State:\n${JSON.stringify(req.state, null, 2)}\n\nQuestions:\n${JSON.stringify(described, null, 2)}`;
-  const raw = (await geminiObject({ model, system: SYSTEM, prompt, schema: z.object(shape) })) as Record<string, { probabilities?: Record<string, number>; probability_true?: number }>;
+  const res = await geminiObject({ models: system2Models("decide-sim"), system: SYSTEM, prompt, schema: z.object(shape) });
+  const model = res.model;
+  const raw = res.output as Record<string, { probabilities?: Record<string, number>; probability_true?: number }>;
   const answers: Record<string, DecideAnswer> = {};
   for (const [name, q] of Object.entries(req.questions)) {
     const r = raw[name] ?? {};

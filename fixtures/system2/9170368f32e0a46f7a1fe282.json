@@ -1,0 +1,19 @@
+{
+  "hash": "9170368f32e0a46f7a1fe282",
+  "task": "narrative",
+  "tag": "narrative: Show payment-method share by month.",
+  "model": "gemini-3.5-flash-lite",
+  "recordedAt": "2026-10-24T06:53:24.483Z",
+  "latencyMs": 1554,
+  "request": {
+    "system": "You write the short narrative for one answer in a payments analytics app.\nUse only the facts given. Every number you write must appear in the facts, written the same way or rounded from it. Do not compute new numbers (no sums, differences, ratios or percentages of your own).\nheadline: one short sentence-case statement of the main finding, at most 9 words, no trailing full stop. Not Title Case.\nsentences: one to three plain sentences that add what the headline does not: the period, the comparison, what stands out and why it matters. Do not restate the headline. No filler, no advice, no markdown.\nLead with what stands out: a dip, a spike, the leader, the biggest driver or the outlier, not the first or last value.\nName the period the way the facts do (e.g. 'September 2026', '26 Sep 2026').\nCaptured value is not revenue; never call it revenue or profit.",
+    "prompt": "{\n  \"question\": \"Show payment-method share by month.\",\n  \"topic\": \"PAYMENT-METHOD SHARE · BREAKDOWN\",\n  \"form\": \"stacked100\",\n  \"facts\": [\n    \"Scope: Apr–Sep 2026; all payments.\",\n    \"Apr 2026: Apple Pay 15.5%, Card 45.9%, Capitec Pay 6.6%, Pay by Bank 21.0%, PayShap Request 10.9%\",\n    \"May 2026: Apple Pay 18.4%, Card 43.4%, Capitec Pay 7.7%, Pay by Bank 19.4%, PayShap Request 11.1%\",\n    \"Jun 2026: Apple Pay 22.2%, Card 40.8%, Capitec Pay 9.0%, Pay by Bank 18.2%, PayShap Request 9.8%\",\n    \"Jul 2026: Apple Pay 26.1%, Card 38.1%, Capitec Pay 10.9%, Pay by Bank 16.1%, PayShap Request 8.9%\",\n    \"Aug 2026: Apple Pay 30.1%, Card 35.1%, Capitec Pay 12.2%, Pay by Bank 15.0%, PayShap Request 7.6%\",\n    \"Sep 2026: Apple Pay 33.7%, Card 31.0%, Capitec Pay 14.6%, Pay by Bank 13.7%, PayShap Request 7.0%\"\n  ],\n  \"notes\": []\n}"
+  },
+  "output": {
+    "headline": "Apple pay surged to lead payment methods",
+    "sentences": [
+      "Apple pay share rose from 15.5% in Apr 2026 to 33.7% in Sep 2026.",
+      "Meanwhile, card share declined from 45.9% to 31.0% over the same period across Apr–Sep 2026."
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "hash": "beacbe7b5c203ddeec1f121f",
+  "task": "parse_amount",
+  "tag": "amount: List refunds over R5,000 last month.",
+  "model": "gemini-3.5-flash-lite",
+  "recordedAt": "2026-10-24T06:57:09.431Z",
+  "latencyMs": 2603,
+  "request": {
+    "system": "Extract a payment-amount threshold from an analytics question about South African rand payments.\n'over R5,000' -> op gt, value_rand 5000. 'at least R1k' -> gte 1000. 'under R200' -> lt 200.\nIf the question has no amount threshold, return present false and nulls.",
+    "prompt": "{\"question\":\"List refunds over R5,000 last month.\"}"
+  },
+  "output": {
+    "present": true,
+    "op": "gt",
+    "value_rand": 5000
+  }
+}

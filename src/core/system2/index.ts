@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { env, system2Model } from "../../env";
+import { env, system2Models } from "../../env";
 import { FixtureMissError, readFixture, requestHash, writeFixture } from "../fixtures";
 import { geminiObject } from "./gemini";
 
@@ -46,8 +46,7 @@ async function run<T>(task: System2Task, tag: string, system: string, prompt: st
     }
     if (backend === "replay") throw new FixtureMissError("system2", hash, tag);
   }
-  const model = system2Model(task === "narrative" ? "narrative" : "parse");
-  const output = await geminiObject({ model, system, prompt, schema });
+  const { output, model } = await geminiObject({ models: system2Models(task === "narrative" ? "narrative" : "parse"), system, prompt, schema });
   const latencyMs = Math.round(performance.now() - started);
   if (backend === "record") {
     writeFixture("system2", hash, { hash, task, tag, model, recordedAt: new Date().toISOString(), latencyMs, request: { system, prompt }, output } satisfies System2Fixture);

@@ -16,6 +16,8 @@ export interface MetricTerm {
   where?: string;
   /** The aggregate is divided by this to reach the metric's unit (cents -> rand). */
   divisor?: number;
+  /** Unit of the scaled aggregate; defaults to a count. */
+  unit?: "zar" | "count";
 }
 
 export interface MetricDef {

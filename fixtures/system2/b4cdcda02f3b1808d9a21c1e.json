@@ -1,0 +1,19 @@
+{
+  "hash": "b4cdcda02f3b1808d9a21c1e",
+  "task": "narrative",
+  "tag": "narrative: Show Protea Bank's approval rate by hour on Saturday 26 September.",
+  "model": "gemini-3.5-flash-lite",
+  "recordedAt": "2026-10-24T06:52:20.301Z",
+  "latencyMs": 2966,
+  "request": {
+    "system": "You write the short narrative for one answer in a payments analytics app.\nUse only the facts given. Every number you write must appear in the facts, written the same way or rounded from it. Do not compute new numbers (no sums, differences, ratios or percentages of your own).\nheadline: one short sentence-case statement of the main finding, at most 9 words, no trailing full stop. Not Title Case.\nsentences: one to three plain sentences that add what the headline does not: the period, the comparison, what stands out and why it matters. Do not restate the headline. No filler, no advice, no markdown.\nLead with what stands out: a dip, a spike, the leader, the biggest driver or the outlier, not the first or last value.\nName the period the way the facts do (e.g. 'September 2026', '26 Sep 2026').\nCaptured value is not revenue; never call it revenue or profit.",
+    "prompt": "{\n  \"question\": \"Show Protea Bank's approval rate by hour on Saturday 26 September.\",\n  \"topic\": \"APPROVAL RATE · TREND\",\n  \"form\": \"line\",\n  \"facts\": [\n    \"Scope: 26 Sep 2026; limited to Issuer bank Protea Bank.\",\n    \"Series \\\"Protea Bank\\\" (Approval rate, by hour): lowest 43.8% at 15:00; highest 100.0% at 00:00.\",\n    \"\\\"Protea Bank\\\" points: 00:00 100.0%; 01:00 100.0%; 02:00 100.0%; 04:00 100.0%; 05:00 100.0%; 06:00 100.0%; 07:00 100.0%; 08:00 94.4%; 09:00 88.2%; 10:00 88.5%; 11:00 100.0%; 12:00 93.5%; 13:00 45.9%; 14:00 44.2%; 15:00 43.8%; 16:00 48.1%; 17:00 97.4%; 18:00 95.2%; 19:00 95.0%; 20:00 100.0%; 21:00 86.7%; 22:00 93.8%; 23:00 83.3%\",\n    \"Comparison series \\\"Other issuer banks\\\" (Approval rate, by hour): lowest 76.9% at 01:00; highest 100.0% at 05:00.\",\n    \"\\\"Other issuer banks\\\" points: 00:00 88.2%; 01:00 76.9%; 02:00 87.5%; 03:00 83.3%; 04:00 85.7%; 05:00 100.0%; 06:00 96.0%; 07:00 93.0%; 08:00 92.2%; 09:00 92.5%; 10:00 91.5%; 11:00 90.6%; 12:00 90.7%; 13:00 93.4%; 14:00 96.2%; 15:00 89.1%; 16:00 92.8%; 17:00 89.1%; 18:00 91.1%; 19:00 93.4%; 20:00 89.6%; 21:00 84.5%; 22:00 94.8%; 23:00 88.2%\"\n  ],\n  \"notes\": []\n}"
+  },
+  "output": {
+    "headline": "Lowest approval rate dropped to 43.8% at 15:00",
+    "sentences": [
+      "On 26 Sep 2026, Protea Bank recorded its lowest approval rate of 43.8% at 15:00, while maintaining a peak of 100.0% at 00:00.",
+      "The afternoon hours saw a significant slump between 13:00 and 16:00 before recovering to 97.4% by 17:00."
+    ]
+  }
+}

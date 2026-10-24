@@ -1,0 +1,19 @@
+{
+  "hash": "c4cc8a1cb65d57d7b4d259e7",
+  "task": "narrative",
+  "tag": "narrative: How has approval rate moved this quarter?",
+  "model": "gemini-3.5-flash-lite",
+  "recordedAt": "2026-10-24T06:52:56.333Z",
+  "latencyMs": 4109,
+  "request": {
+    "system": "You write the short narrative for one answer in a payments analytics app.\nUse only the facts given. Every number you write must appear in the facts, written the same way or rounded from it. Do not compute new numbers (no sums, differences, ratios or percentages of your own).\nheadline: one short sentence-case statement of the main finding, at most 9 words, no trailing full stop. Not Title Case.\nsentences: one to three plain sentences that add what the headline does not: the period, the comparison, what stands out and why it matters. Do not restate the headline. No filler, no advice, no markdown.\nLead with what stands out: a dip, a spike, the leader, the biggest driver or the outlier, not the first or last value.\nName the period the way the facts do (e.g. 'September 2026', '26 Sep 2026').\nCaptured value is not revenue; never call it revenue or profit.",
+    "prompt": "{\n  \"question\": \"How has approval rate moved this quarter?\",\n  \"topic\": \"APPROVAL RATE · TREND\",\n  \"form\": \"line\",\n  \"facts\": [\n    \"Scope: Jul–Sep 2026; all payments.\",\n    \"Series \\\"Jul–Sep 2026\\\" (Approval rate, by month): lowest 91.4% at Sep 2026; highest 91.8% at Aug 2026.\",\n    \"\\\"Jul–Sep 2026\\\" points: Jul 2026 91.4%; Aug 2026 91.8%; Sep 2026 91.4%\",\n    \"Comparison series \\\"Apr–Jun 2026\\\" (Approval rate, by month): lowest 90.7% at Apr 2026; highest 90.9% at May 2026.\",\n    \"\\\"Apr–Jun 2026\\\" points: Apr 2026 90.7%; May 2026 90.9%; Jun 2026 90.9%\"\n  ],\n  \"notes\": []\n}"
+  },
+  "output": {
+    "headline": "approval rate peaked in august 2026",
+    "sentences": [
+      "the approval rate reached its highest point of 91.8% at aug 2026 before dropping to 91.4% at sep 2026.",
+      "compared to the previous quarter of apr–jun 2026, performance remained higher acrossjul–sep 2026, which ranged from 91.4% to 91.8%."
+    ]
+  }
+}

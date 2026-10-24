@@ -1,0 +1,19 @@
+{
+  "hash": "96160783924a8b4a2be04357",
+  "task": "parse_period",
+  "tag": "period: Which issuer had the lowest approval rate on Saturday 26 September?",
+  "model": "gemini-3.5-flash-lite",
+  "recordedAt": "2026-10-24T06:54:36.510Z",
+  "latencyMs": 978,
+  "request": {
+    "system": "You turn the time period in an analytics question into explicit dates.\n\"Today\" is 2026-09-30. The data covers 2026-04-01 to 2026-09-30. Dates are inclusive, YYYY-MM-DD.\nA single day has start = end. Weeks start on Monday. A named month without a year means the most recent such month on or before today.\nIf the question names a second period to compare against, return it as comparison_start/comparison_end; otherwise return null for both.",
+    "prompt": "{\"question\":\"Which issuer had the lowest approval rate on Saturday 26 September?\",\"needs_comparison_if_named\":false}"
+  },
+  "output": {
+    "start": "2026-09-26",
+    "end": "2026-09-26",
+    "comparison_start": null,
+    "comparison_end": null,
+    "note": "Saturday 26 September 2026"
+  }
+}

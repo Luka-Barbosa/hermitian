@@ -1,0 +1,59 @@
+{
+  "hash": "baacec70d0fe00ad3a9d43a0",
+  "tag": "claims: Why did approval rate drop on 26 September compared with 19 September?",
+  "source": "gemini-sim",
+  "model": "gemini-3.5-flash-lite (simulated Jev)",
+  "recordedAt": "2026-10-24T06:56:30.251Z",
+  "latencyMs": 2587,
+  "inputTokens": null,
+  "request": {
+    "state": {
+      "facts": [
+        "Scope: 26 Sep 2026; all payments.",
+        "Approval rate, 19 Sep 2026: 90.6%",
+        "Approval rate, 26 Sep 2026: 88.4%",
+        "Change: -2.2 pp (-2.4%)",
+        "Contribution of Protea Bank: -2.5 pp (90.9% → 75.2%)",
+        "Contribution of Karoo Bank: +0.8 pp (87.3% → 92.0%)",
+        "Contribution of Highveld Bank: -0.3 pp (93.1% → 91.3%)",
+        "Contribution of Aloe Bank: +0.2 pp (88.2% → 91.1%)",
+        "Contribution of Kestrel Bank: -0.2 pp (91.4% → 88.8%)",
+        "Contribution of Fynbos Bank: -0.1 pp (93.8% → 93.0%)",
+        "Contribution of Other: -0.2 pp"
+      ],
+      "claims": [
+        "Protea bank drove the drop on 26 sep 2026",
+        "The approval rate fell from 90.6% on 19 sep 2026 to 88.4% on 26 sep 2026, marking a change of -2.2 pp.",
+        "Protea bank contributed -2.5 pp as its approval rate dropped from 90.9% to 75.2%, making it the largest driver."
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_1": {
+        "type": "noul",
+        "instructions": "`claims[1]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_2": {
+        "type": "noul",
+        "instructions": "`claims[2]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 1
+    },
+    "claim_1": {
+      "type": "noul",
+      "noul": 1
+    },
+    "claim_2": {
+      "type": "noul",
+      "noul": 1
+    }
+  }
+}

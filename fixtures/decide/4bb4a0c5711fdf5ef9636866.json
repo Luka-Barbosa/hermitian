@@ -1,0 +1,53 @@
+{
+  "hash": "4bb4a0c5711fdf5ef9636866",
+  "tag": "claims: How has approval rate moved this quarter?",
+  "source": "gemini-sim",
+  "model": "gemini-3.5-flash-lite (simulated Jev)",
+  "recordedAt": "2026-10-24T06:53:00.262Z",
+  "latencyMs": 3929,
+  "inputTokens": null,
+  "request": {
+    "state": {
+      "facts": [
+        "Scope: Jul–Sep 2026; all payments.",
+        "Series \"Jul–Sep 2026\" (Approval rate, by month): lowest 91.4% at Sep 2026; highest 91.8% at Aug 2026.",
+        "\"Jul–Sep 2026\" points: Jul 2026 91.4%; Aug 2026 91.8%; Sep 2026 91.4%",
+        "Comparison series \"Apr–Jun 2026\" (Approval rate, by month): lowest 90.7% at Apr 2026; highest 90.9% at May 2026.",
+        "\"Apr–Jun 2026\" points: Apr 2026 90.7%; May 2026 90.9%; Jun 2026 90.9%"
+      ],
+      "claims": [
+        "approval rate peaked in august 2026",
+        "the approval rate reached its highest point of 91.8% at aug 2026 before dropping to 91.4% at sep 2026.",
+        "compared to the previous quarter of apr–jun 2026, performance remained higher acrossjul–sep 2026, which ranged from 91.4% to 91.8%."
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_1": {
+        "type": "noul",
+        "instructions": "`claims[1]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_2": {
+        "type": "noul",
+        "instructions": "`claims[2]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 1
+    },
+    "claim_1": {
+      "type": "noul",
+      "noul": 1
+    },
+    "claim_2": {
+      "type": "noul",
+      "noul": 1
+    }
+  }
+}

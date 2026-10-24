@@ -1,0 +1,38 @@
+{
+  "hash": "97ee2fba49b14430778b63d9",
+  "tag": "form: Which stores took the most captured value last month?",
+  "source": "gemini-sim",
+  "model": "gemini-3.5-flash-lite (simulated Jev)",
+  "recordedAt": "2026-10-24T06:55:32.520Z",
+  "latencyMs": 1035,
+  "inputTokens": null,
+  "request": {
+    "state": {
+      "question": "Which stores took the most captured value last month?",
+      "result": "10 groups by store, ranked highest first"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "hbar": "Horizontal bar",
+          "table": "Table",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "hbar",
+      "confidence": 0.8499999999999999,
+      "probabilities": {
+        "hbar": 0.9,
+        "table": 0.1,
+        "none_of_these": 0
+      }
+    }
+  }
+}

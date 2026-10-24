@@ -1,0 +1,65 @@
+{
+  "hash": "3d95fa6b4b84ad6ea59c9cc9",
+  "tag": "claims: Why is captured value up this month?",
+  "source": "gemini-sim",
+  "model": "gemini-3.5-flash-lite (simulated Jev)",
+  "recordedAt": "2026-10-24T06:56:09.122Z",
+  "latencyMs": 3340,
+  "inputTokens": null,
+  "request": {
+    "state": {
+      "facts": [
+        "Scope: September 2026; all payments.",
+        "Captured payment value, August 2026: R39.7m",
+        "Captured payment value, September 2026: R42.4m",
+        "Change: +R2.7m (+6.7%)",
+        "Contribution of Spring Sale · Returning: +R8.8m (R0.00 → R8.8m)",
+        "Contribution of No promotion · Returning: -R7.4m (R31.9m → R24.5m)",
+        "Contribution of Spring Sale · New: +R2.5m (R0.00 → R2.5m)",
+        "Contribution of No promotion · New: -R1.3m (R7.8m → R6.5m)"
+      ],
+      "claims": [
+        "spring sale returning drove captured value growth",
+        "Captured payment value rose from R39.7m in August 2026 to R42.4m in September 2026, marking an increase of +R2.7m or +6.7%.",
+        "The biggest driver was Spring Sale · Returning, contributing +R8.8m as it went from R0.00 to R8.8m.",
+        "This growth was partially offset by a drop in No promotion · Returning of -R7.4m, moving from R31.9m to R24.5m."
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_1": {
+        "type": "noul",
+        "instructions": "`claims[1]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_2": {
+        "type": "noul",
+        "instructions": "`claims[2]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_3": {
+        "type": "noul",
+        "instructions": "`claims[3]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 1
+    },
+    "claim_1": {
+      "type": "noul",
+      "noul": 1
+    },
+    "claim_2": {
+      "type": "noul",
+      "noul": 1
+    },
+    "claim_3": {
+      "type": "noul",
+      "noul": 1
+    }
+  }
+}

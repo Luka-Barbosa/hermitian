@@ -10,7 +10,7 @@ import { z } from "zod";
 function loadEnvFiles(): void {
   if (process.env.NEXT_RUNTIME) return;
   for (const name of [".env.local", ".env"]) {
-    const file = path.join(process.cwd(), name);
+    const file = path.join(/*turbopackIgnore: true*/ process.cwd(), name);
     if (fs.existsSync(file)) process.loadEnvFile(file);
   }
 }
@@ -44,6 +44,8 @@ const schema = z.object({
   DATA_SEED: z.preprocess(blankToUndefined, z.coerce.number().int().default(42)),
 
   HERMITIAN_NO_LIVE: optionalString,
+  /** Logs each live model attempt (model, outcome, time) to stderr. */
+  HERMITIAN_DEBUG: optionalString,
 });
 
 export type Env = z.infer<typeof schema>;
@@ -73,13 +75,13 @@ export function liveCallsForbidden(): boolean {
   return Boolean(env().HERMITIAN_NO_LIVE) || Boolean(process.env.VITEST);
 }
 
-export function system2Model(task: "parse" | "narrative" | "decide-sim"): string {
+/** Models for a task, in order of preference. A value may list several, comma-separated. */
+export function system2Models(task: "parse" | "narrative" | "decide-sim"): string[] {
   const e = env();
-  if (task === "parse") return e.SYSTEM2_MODEL_PARSE ?? e.SYSTEM2_MODEL;
-  if (task === "narrative") return e.SYSTEM2_MODEL_NARRATIVE ?? e.SYSTEM2_MODEL;
-  return e.DECIDE_SIM_MODEL ?? e.SYSTEM2_MODEL;
+  const v = task === "parse" ? (e.SYSTEM2_MODEL_PARSE ?? e.SYSTEM2_MODEL) : task === "narrative" ? (e.SYSTEM2_MODEL_NARRATIVE ?? e.SYSTEM2_MODEL) : (e.DECIDE_SIM_MODEL ?? e.SYSTEM2_MODEL);
+  return v.split(",").map((m) => m.trim()).filter(Boolean);
 }
 
 export function resolvedDuckdbPath(): string {
-  return path.resolve(process.cwd(), env().DUCKDB_PATH);
+  return path.resolve(/*turbopackIgnore: true*/ process.cwd(), env().DUCKDB_PATH);
 }

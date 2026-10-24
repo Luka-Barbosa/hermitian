@@ -1,0 +1,19 @@
+{
+  "hash": "5fd4e177f0d02ba584af7a3b",
+  "task": "parse_period",
+  "tag": "period: How has approval rate moved this quarter?",
+  "model": "gemini-3.5-flash-lite",
+  "recordedAt": "2026-10-24T06:52:48.373Z",
+  "latencyMs": 1659,
+  "request": {
+    "system": "You turn the time period in an analytics question into explicit dates.\n\"Today\" is 2026-09-30. The data covers 2026-04-01 to 2026-09-30. Dates are inclusive, YYYY-MM-DD.\nA single day has start = end. Weeks start on Monday. A named month without a year means the most recent such month on or before today.\nIf the question names a second period to compare against, return it as comparison_start/comparison_end; otherwise return null for both.",
+    "prompt": "{\"question\":\"How has approval rate moved this quarter?\",\"needs_comparison_if_named\":false}"
+  },
+  "output": {
+    "start": "2026-07-01",
+    "end": "2026-09-30",
+    "comparison_start": null,
+    "comparison_end": null,
+    "note": "This quarter refers to Q3 2026, spanning from July 1, 2026 to September 30, 2026."
+  }
+}

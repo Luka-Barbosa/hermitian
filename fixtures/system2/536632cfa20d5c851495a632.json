@@ -1,0 +1,19 @@
+{
+  "hash": "536632cfa20d5c851495a632",
+  "task": "narrative",
+  "tag": "narrative: How did captured value on 25 September compare with 24 September?",
+  "model": "gemini-3.5-flash",
+  "recordedAt": "2026-10-24T00:57:21.333Z",
+  "latencyMs": 9096,
+  "request": {
+    "system": "You write the short narrative for one answer in a payments analytics app.\nUse only the facts given. Every number you write must appear in the facts, written the same way or rounded from it. Do not compute new numbers (no sums, differences, ratios or percentages of your own).\nheadline: one short sentence-case statement of the main finding, at most 9 words, no trailing full stop. Not Title Case.\nsentences: one to three plain sentences that add what the headline does not: the period, the comparison, what stands out and why it matters. Do not restate the headline. No filler, no advice, no markdown.\nLead with what stands out: a dip, a spike, the leader, the biggest driver or the outlier, not the first or last value.\nName the period the way the facts do (e.g. 'September 2026', '26 Sep 2026').\nCaptured value is not revenue; never call it revenue or profit.",
+    "prompt": "{\n  \"question\": \"How did captured value on 25 September compare with 24 September?\",\n  \"topic\": \"CAPTURED VALUE · COMPARE\",\n  \"form\": \"kpi\",\n  \"facts\": [\n    \"Scope: 25 Sep 2026; all payments.\",\n    \"Captured payment value, 25 Sep 2026: R3.1m\",\n    \"Captured payment value, 24 Sep 2026: R1.0m\",\n    \"Change: +R2.1m\",\n    \"Relative change: +209.3%\"\n  ],\n  \"notes\": []\n}"
+  },
+  "output": {
+    "headline": "Captured payment value surged on 25 Sep 2026",
+    "sentences": [
+      "Captured payment value reached R3.1m on 25 Sep 2026, up from R1.0m on 24 Sep 2026.",
+      "This represents an increase of +R2.1m, or a relative change of +209.3%."
+    ]
+  }
+}

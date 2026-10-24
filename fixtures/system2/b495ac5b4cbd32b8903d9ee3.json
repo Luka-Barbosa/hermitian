@@ -1,0 +1,19 @@
+{
+  "hash": "b495ac5b4cbd32b8903d9ee3",
+  "task": "narrative",
+  "tag": "narrative: How did captured value move this month?",
+  "model": "gemini-3.5-flash-lite",
+  "recordedAt": "2026-10-24T06:52:04.562Z",
+  "latencyMs": 4528,
+  "request": {
+    "system": "You write the short narrative for one answer in a payments analytics app.\nUse only the facts given. Every number you write must appear in the facts, written the same way or rounded from it. Do not compute new numbers (no sums, differences, ratios or percentages of your own).\nheadline: one short sentence-case statement of the main finding, at most 9 words, no trailing full stop. Not Title Case.\nsentences: one to three plain sentences that add what the headline does not: the period, the comparison, what stands out and why it matters. Do not restate the headline. No filler, no advice, no markdown.\nLead with what stands out: a dip, a spike, the leader, the biggest driver or the outlier, not the first or last value.\nName the period the way the facts do (e.g. 'September 2026', '26 Sep 2026').\nCaptured value is not revenue; never call it revenue or profit.",
+    "prompt": "{\n  \"question\": \"How did captured value move this month?\",\n  \"topic\": \"CAPTURED VALUE · TREND\",\n  \"form\": \"line\",\n  \"facts\": [\n    \"Scope: September 2026; all payments.\",\n    \"Series \\\"September 2026\\\" (Captured payment value, by day): lowest R863,689 at 21 Sep; highest R3.1m at 25 Sep.\",\n    \"\\\"September 2026\\\" points: 1 Sep R1.1m; 2 Sep R1.2m; 3 Sep R1.2m; 4 Sep R1.4m; 5 Sep R1.6m; 6 Sep R1.2m; 7 Sep R1.1m; 8 Sep R1.1m; 9 Sep R1.1m; 10 Sep R1.2m; 11 Sep R2.2m; 12 Sep R2.5m; 13 Sep R1.9m; 14 Sep R1.8m; 15 Sep R1.8m; 16 Sep R1.9m; 17 Sep R1.9m; 18 Sep R931,098; 19 Sep R1.2m; 20 Sep R912,898; 21 Sep R863,689; 22 Sep R884,169; 23 Sep R943,608; 24 Sep R1.0m; 25 Sep R3.1m; 26 Sep R2.1m; 27 Sep R1.2m; 28 Sep R982,487; 29 Sep R971,577; 30 Sep R1.2m\",\n    \"Comparison series \\\"August 2026\\\" (Captured payment value, by day): lowest R1.0m at 4 Aug; highest R2.4m at 25 Aug.\",\n    \"\\\"August 2026\\\" points: 1 Aug R1.5m; 2 Aug R1.2m; 3 Aug R1.1m; 4 Aug R1.0m; 5 Aug R1.2m; 6 Aug R1.1m; 7 Aug R1.4m; 8 Aug R1.5m; 9 Aug R1.2m; 10 Aug R1.0m; 11 Aug R1.1m; 12 Aug R1.1m; 13 Aug R1.2m; 14 Aug R1.4m; 15 Aug R1.5m; 16 Aug R1.1m; 17 Aug R1.0m; 18 Aug R1.0m; 19 Aug R1.1m; 20 Aug R1.2m; 21 Aug R1.3m; 22 Aug R1.6m; 23 Aug R1.2m; 24 Aug R1.1m; 25 Aug R2.4m; 26 Aug R1.5m; 27 Aug R1.3m; 28 Aug R1.4m; 29 Aug R1.6m; 30 Aug R1.2m; 31 Aug R1.2m\"\n  ],\n  \"notes\": []\n}"
+  },
+  "output": {
+    "headline": "highest captured value reached R3.1m at 25 sep",
+    "sentences": [
+      "During September 2026, captured payment value reached its lowest at R863,689 at 21 Sep and its highest at R3.1m at 25 Sep.",
+      "For comparison, August 2026 recorded its lowest at R1.0m at 4 Aug and highest at R2.4m at 25 Aug."
+    ]
+  }
+}

@@ -45,6 +45,8 @@ export function templateHeadline(r: QueryResult): string {
       return `${m} ${d.change >= 0 ? "rose" : "fell"} ${change.replace(/^[+-]/, "")} on ${d.comparison.label}`;
     }
     case "records":
-      return `${d.rows.length} of ${d.totalMatching} ${d.recordLabel.toLowerCase()}`;
+      return d.rows.length === d.totalMatching
+        ? `${d.recordLabel} matching the question: ${d.totalMatching}`
+        : `${d.rows.length} of ${d.totalMatching} matching ${d.recordLabel.toLowerCase()}, newest first`;
   }
 }

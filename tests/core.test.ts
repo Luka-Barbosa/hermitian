@@ -81,7 +81,7 @@ describe("decide()", () => {
 });
 
 const scalar = (value: number, unit: "zar" | "ratio" | "count"): QueryResult => ({
-  id: "q1", op: "aggregate", metricId: "m", metricLabel: "M", unit, views: ["v"], sql: [], rowCount: 1, latencyMs: 0, notes: [],
+  id: "q1", terms: null, op: "aggregate", metricId: "m", metricLabel: "M", unit, views: ["v"], sql: [], rowCount: 1, latencyMs: 0, notes: [],
   data: { shape: "scalar", value, numerator: null, denominator: null, period: { preset: "custom", start: "2026-09-26", end: "2026-09-26", label: "26 Sep 2026" } },
 });
 
@@ -103,6 +103,12 @@ describe("gate 3: narrative grounding", () => {
     expect(checkClaim("Captured value was R40m", allowed).ok).toBe(false);
     expect(checkClaim("That is 3x the usual", allowed).ok).toBe(false);
     expect(checkClaim("Captured value was R42.4m on 27 September", allowed).ok).toBe(false);
+  });
+  it("does not read words ending in r as rand amounts, and accepts day ranges", () => {
+    const allowed = allowedFrom([{ ...scalar(0.91, "ratio"), data: { shape: "scalar", value: 0.91, numerator: null, denominator: null, period: { preset: "custom", start: "2026-09-24", end: "2026-09-30", label: "" } } }]);
+    expect(extract("approval for 24 hours").numbers.map((n) => n.kind)).toEqual(["plain"]);
+    expect(checkClaim("Approval was 91% for 24–30 Sep 2026", allowed).ok).toBe(true);
+    expect(checkClaim("Approval was 91% for 23–30 Sep 2026", allowed).ok).toBe(false);
   });
   it("matches ratios as percentages", () => {
     const allowed = allowedFrom([scalar(0.4560, "ratio")]);

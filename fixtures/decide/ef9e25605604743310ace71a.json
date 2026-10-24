@@ -1,0 +1,38 @@
+{
+  "hash": "ef9e25605604743310ace71a",
+  "tag": "form: Show its approval rate by hour that day.",
+  "source": "gemini-sim",
+  "model": "gemini-3.5-flash-lite (simulated Jev)",
+  "recordedAt": "2026-10-24T06:55:01.331Z",
+  "latencyMs": 4518,
+  "inputTokens": null,
+  "request": {
+    "state": {
+      "question": "Show its approval rate by hour that day.",
+      "result": "a time series by hour: 2 series of 24 points"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "line": "Line chart",
+          "table": "Table",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "line",
+      "confidence": 0.9249999999999999,
+      "probabilities": {
+        "line": 0.95,
+        "table": 0.05,
+        "none_of_these": 0
+      }
+    }
+  }
+}

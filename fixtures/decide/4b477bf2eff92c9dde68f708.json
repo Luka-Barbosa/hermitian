@@ -1,0 +1,61 @@
+{
+  "hash": "4b477bf2eff92c9dde68f708",
+  "tag": "claims: Which stores took the most captured value last month?",
+  "source": "gemini-sim",
+  "model": "gemini-3.5-flash-lite (simulated Jev)",
+  "recordedAt": "2026-10-24T06:55:40.734Z",
+  "latencyMs": 4031,
+  "inputTokens": null,
+  "request": {
+    "state": {
+      "facts": [
+        "Scope: August 2026; all payments.",
+        "Ranked by captured payment value, highest first: Kloofmere Paarl has the highest captured payment value of the store groups ranked.",
+        "1. Kloofmere Paarl: R479,971 (4.9% of total)",
+        "2. Kloofmere Midrand: R413,153 (4.2% of total)",
+        "3. Kloofmere Soweto: R405,853 (4.1% of total)",
+        "4. Kloofmere Boksburg: R403,603 (4.1% of total)",
+        "5. Kloofmere Claremont: R390,693 (4.0% of total)",
+        "6. Kloofmere Fourways: R361,103 (3.7% of total)",
+        "7. Kloofmere Centurion: R334,584 (3.4% of total)",
+        "8. Kloofmere Durbanville: R300,765 (3.1% of total)",
+        "9. Kloofmere Brooklyn: R294,435 (3.0% of total)",
+        "10. Kloofmere Knysna: R293,155 (3.0% of total)",
+        "Store groups: 40 in total. Period: August 2026."
+      ],
+      "claims": [
+        "Kloofmere Paarl led captured value",
+        "During August 2026, Kloofmere Paarl achieved the highest captured payment value of R479,971, representing 4.9% of the total.",
+        "Kloofmere Midrand followed closely in second place with R413,153, while Kloofmere Knysna recorded the lowest among the listed stores at R293,155."
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_1": {
+        "type": "noul",
+        "instructions": "`claims[1]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_2": {
+        "type": "noul",
+        "instructions": "`claims[2]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 1
+    },
+    "claim_1": {
+      "type": "noul",
+      "noul": 1
+    },
+    "claim_2": {
+      "type": "noul",
+      "noul": 1
+    }
+  }
+}

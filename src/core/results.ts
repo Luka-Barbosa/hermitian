@@ -136,9 +136,16 @@ export interface RecordsData {
 export type ResultData = ScalarData | DeltaData | SeriesData | CategoryData | ShareMatrixData | ContributionData | RecordsData;
 export type ResultShape = ResultData["shape"];
 
+export interface TermMeta {
+  label: string;
+  unit: "zar" | "count";
+}
+
 export interface QueryResult {
   /** "q1", "q2", ... within a turn. */
   id: string;
+  /** What a ratio's numerator and denominator count, so they are never mislabelled. */
+  terms: { numerator: TermMeta; denominator: TermMeta } | null;
   op: string;
   metricId: string | null;
   metricLabel: string | null;

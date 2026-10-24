@@ -1,0 +1,18 @@
+{
+  "hash": "9323bf52fa4e7767eec40195",
+  "task": "narrative",
+  "tag": "narrative: What was the refund rate last month?",
+  "model": "gemini-3-flash-preview",
+  "recordedAt": "2026-10-24T06:51:18.953Z",
+  "latencyMs": 196258,
+  "request": {
+    "system": "You write the short narrative for one answer in a payments analytics app.\nUse only the facts given. Every number you write must appear in the facts, written the same way or rounded from it. Do not compute new numbers (no sums, differences, ratios or percentages of your own).\nheadline: one short sentence-case statement of the main finding, at most 9 words, no trailing full stop. Not Title Case.\nsentences: one to three plain sentences that add what the headline does not: the period, the comparison, what stands out and why it matters. Do not restate the headline. No filler, no advice, no markdown.\nLead with what stands out: a dip, a spike, the leader, the biggest driver or the outlier, not the first or last value.\nName the period the way the facts do (e.g. 'September 2026', '26 Sep 2026').\nCaptured value is not revenue; never call it revenue or profit.",
+    "prompt": "{\n  \"question\": \"What was the refund rate last month?\",\n  \"topic\": \"REFUND RATE · LOOKUP\",\n  \"form\": \"kpi\",\n  \"facts\": [\n    \"Scope: August 2026; all payments.\",\n    \"Refund rate, August 2026: 3.5%\",\n    \"Calculated from R1.4m refunded value and R39.7m captured value.\"\n  ],\n  \"notes\": []\n}"
+  },
+  "output": {
+    "headline": "The refund rate was 3.5% in August 2026",
+    "sentences": [
+      "This was calculated from R1.4m refunded value and R39.7m captured value across all payments."
+    ]
+  }
+}

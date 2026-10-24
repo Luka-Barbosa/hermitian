@@ -1,0 +1,53 @@
+{
+  "hash": "824dbe71830c30d17d6d6ea3",
+  "tag": "claims: Show its approval rate by hour that day.",
+  "source": "gemini-sim",
+  "model": "gemini-3.5-flash-lite (simulated Jev)",
+  "recordedAt": "2026-10-24T06:55:08.755Z",
+  "latencyMs": 3470,
+  "inputTokens": null,
+  "request": {
+    "state": {
+      "facts": [
+        "Scope: 26 Sep 2026; limited to Issuer bank Protea Bank.",
+        "Series \"Protea Bank\" (Approval rate, by hour): lowest 43.8% at 15:00; highest 100.0% at 00:00.",
+        "\"Protea Bank\" points: 00:00 100.0%; 01:00 100.0%; 02:00 100.0%; 04:00 100.0%; 05:00 100.0%; 06:00 100.0%; 07:00 100.0%; 08:00 94.4%; 09:00 88.2%; 10:00 88.5%; 11:00 100.0%; 12:00 93.5%; 13:00 45.9%; 14:00 44.2%; 15:00 43.8%; 16:00 48.1%; 17:00 97.4%; 18:00 95.2%; 19:00 95.0%; 20:00 100.0%; 21:00 86.7%; 22:00 93.8%; 23:00 83.3%",
+        "Comparison series \"Other issuer banks\" (Approval rate, by hour): lowest 76.9% at 01:00; highest 100.0% at 05:00.",
+        "\"Other issuer banks\" points: 00:00 88.2%; 01:00 76.9%; 02:00 87.5%; 03:00 83.3%; 04:00 85.7%; 05:00 100.0%; 06:00 96.0%; 07:00 93.0%; 08:00 92.2%; 09:00 92.5%; 10:00 91.5%; 11:00 90.6%; 12:00 90.7%; 13:00 93.4%; 14:00 96.2%; 15:00 89.1%; 16:00 92.8%; 17:00 89.1%; 18:00 91.1%; 19:00 93.4%; 20:00 89.6%; 21:00 84.5%; 22:00 94.8%; 23:00 88.2%"
+      ],
+      "claims": [
+        "Lowest approval rate of 43.8% at 15:00",
+        "On 26 Sep 2026, Protea Bank reached its lowest approval rate of 43.8% at 15:00 before recovering to 100.0% at 20:00.",
+        "The highest approval rate for Protea Bank was 100.0% at 00:00."
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_1": {
+        "type": "noul",
+        "instructions": "`claims[1]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_2": {
+        "type": "noul",
+        "instructions": "`claims[2]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 1
+    },
+    "claim_1": {
+      "type": "noul",
+      "noul": 1
+    },
+    "claim_2": {
+      "type": "noul",
+      "noul": 1
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "hash": "a21a10415793006b0d475576",
+  "tag": "form: Which payment method has the highest refund rate in the last 90 days?",
+  "source": "gemini-sim",
+  "model": "gemini-3.5-flash-lite (simulated Jev)",
+  "recordedAt": "2026-10-24T06:55:49.090Z",
+  "latencyMs": 1075,
+  "inputTokens": null,
+  "request": {
+    "state": {
+      "question": "Which payment method has the highest refund rate in the last 90 days?",
+      "result": "5 groups by payment method, ranked highest first"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "hbar": "Horizontal bar",
+          "table": "Table",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "hbar",
+      "confidence": 0.7749999999999998,
+      "probabilities": {
+        "hbar": 0.85,
+        "table": 0.1,
+        "none_of_these": 0.05
+      }
+    }
+  }
+}

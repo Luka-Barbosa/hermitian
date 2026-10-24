@@ -1,0 +1,19 @@
+{
+  "hash": "571aea2cc2d4aa32b6a397ef",
+  "task": "narrative",
+  "tag": "narrative: Show the last three payments for customer cus_sap5trau.",
+  "model": "gemini-3.5-flash-lite",
+  "recordedAt": "2026-10-24T06:56:56.489Z",
+  "latencyMs": 3858,
+  "request": {
+    "system": "You write the short narrative for one answer in a payments analytics app.\nUse only the facts given. Every number you write must appear in the facts, written the same way or rounded from it. Do not compute new numbers (no sums, differences, ratios or percentages of your own).\nheadline: one short sentence-case statement of the main finding, at most 9 words, no trailing full stop. Not Title Case.\nsentences: one to three plain sentences that add what the headline does not: the period, the comparison, what stands out and why it matters. Do not restate the headline. No filler, no advice, no markdown.\nLead with what stands out: a dip, a spike, the leader, the biggest driver or the outlier, not the first or last value.\nName the period the way the facts do (e.g. 'September 2026', '26 Sep 2026').\nCaptured value is not revenue; never call it revenue or profit.",
+    "prompt": "{\n  \"question\": \"Show the last three payments for customer cus_sap5trau.\",\n  \"topic\": \"CAPTURED PAYMENTS · RECORDS\",\n  \"form\": \"table\",\n  \"facts\": [\n    \"Scope: Apr–Sep 2026; limited to Customer cus_sap5trau.\",\n    \"3 captured payments shown, of 25 matching in Apr–Sep 2026.\",\n    \"Row 1: Payment pay_qhgmafyb9u, Captured 2026-09-24 19:08, Amount R699.99, Method Capitec Pay, Channel Online, Store —, Customer cus_sap5trau, Promotion No promotion\",\n    \"Row 2: Payment pay_cm44sak9vz, Captured 2026-09-24 15:18, Amount R479.99, Method Apple Pay, Channel Online, Store —, Customer cus_sap5trau, Promotion No promotion\",\n    \"Row 3: Payment pay_myjanqhur4, Captured 2026-09-23 13:12, Amount R759.99, Method Card, Channel App, Store —, Customer cus_sap5trau, Promotion No promotion\"\n  ],\n  \"notes\": []\n}"
+  },
+  "output": {
+    "headline": "last three captured payments for cus_sap5trau",
+    "sentences": [
+      "Three captured payments are shown out of 25 matching in Apr–Sep 2026.",
+      "The payments include pay_qhgmafyb9u for R699.99 on 2026-09-24 19:08 using Capitec Pay online, pay_cm44sak9vz for R479.99 on 2026-09-24 15:18 using Apple Pay online, and pay_myjanqhur4 for R759.99 on 2026-09-23 13:12 using Card in app."
+    ]
+  }
+}

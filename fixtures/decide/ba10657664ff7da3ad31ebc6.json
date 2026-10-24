@@ -1,0 +1,59 @@
+{
+  "hash": "ba10657664ff7da3ad31ebc6",
+  "tag": "claims: Which issuer had the lowest approval rate on Saturday 26 September?",
+  "source": "gemini-sim",
+  "model": "gemini-3.5-flash-lite (simulated Jev)",
+  "recordedAt": "2026-10-24T06:54:48.531Z",
+  "latencyMs": 3969,
+  "inputTokens": null,
+  "request": {
+    "state": {
+      "facts": [
+        "Scope: 26 Sep 2026; all payments.",
+        "Ranked by approval rate, lowest first: Protea Bank has the lowest approval rate of the issuer bank groups ranked.",
+        "1. Protea Bank: 75.2% (342 approved attempts, 455 authorization attempts)",
+        "2. Quagga Bank: 88.0% (161 approved attempts, 183 authorization attempts)",
+        "3. Kestrel Bank: 88.8% (175 approved attempts, 197 authorization attempts)",
+        "4. Aloe Bank: 91.1% (224 approved attempts, 246 authorization attempts)",
+        "5. Highveld Bank: 91.3% (345 approved attempts, 378 authorization attempts)",
+        "6. Karoo Bank: 92.0% (472 approved attempts, 513 authorization attempts)",
+        "7. Fynbos Bank: 93.0% (253 approved attempts, 272 authorization attempts)",
+        "8. Marula Bank: 93.1% (188 approved attempts, 202 authorization attempts)",
+        "Issuer bank groups: 8 in total, 0 with fewer than 10 not ranked. Period: 26 Sep 2026."
+      ],
+      "claims": [
+        "Protea Bank recorded the lowest approval rate",
+        "On 26 Sep 2026, Protea Bank achieved an approval rate of 75.2% with 342 approved attempts out of 455 authorization attempts.",
+        "This was the lowest among the eight issuer bank groups ranked for the period, compared to Quagga Bank at 88.0% and Marula Bank at 93.1%."
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_1": {
+        "type": "noul",
+        "instructions": "`claims[1]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_2": {
+        "type": "noul",
+        "instructions": "`claims[2]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 1
+    },
+    "claim_1": {
+      "type": "noul",
+      "noul": 1
+    },
+    "claim_2": {
+      "type": "noul",
+      "noul": 1
+    }
+  }
+}

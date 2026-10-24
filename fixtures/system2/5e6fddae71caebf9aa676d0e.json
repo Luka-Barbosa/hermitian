@@ -1,0 +1,19 @@
+{
+  "hash": "5e6fddae71caebf9aa676d0e",
+  "task": "narrative",
+  "tag": "narrative: What was the average transaction value last month?",
+  "model": "gemini-3-flash-preview",
+  "recordedAt": "2026-10-24T06:47:41.257Z",
+  "latencyMs": 174563,
+  "request": {
+    "system": "You write the short narrative for one answer in a payments analytics app.\nUse only the facts given. Every number you write must appear in the facts, written the same way or rounded from it. Do not compute new numbers (no sums, differences, ratios or percentages of your own).\nheadline: one short sentence-case statement of the main finding, at most 9 words, no trailing full stop. Not Title Case.\nsentences: one to three plain sentences that add what the headline does not: the period, the comparison, what stands out and why it matters. Do not restate the headline. No filler, no advice, no markdown.\nLead with what stands out: a dip, a spike, the leader, the biggest driver or the outlier, not the first or last value.\nName the period the way the facts do (e.g. 'September 2026', '26 Sep 2026').\nCaptured value is not revenue; never call it revenue or profit.",
+    "prompt": "{\n  \"question\": \"What was the average transaction value last month?\",\n  \"topic\": \"AVERAGE TRANSACTION VALUE · LOOKUP\",\n  \"form\": \"kpi\",\n  \"facts\": [\n    \"Scope: August 2026; all payments.\",\n    \"Average transaction value, August 2026: R791.19\",\n    \"Calculated from R39.7m captured value and 50,180 captured payments.\"\n  ],\n  \"notes\": []\n}"
+  },
+  "output": {
+    "headline": "Average transaction value was R791.19 in August 2026",
+    "sentences": [
+      "50,180 captured payments resulted in R39.7m captured value.",
+      "The scope for August 2026 includes all payments."
+    ]
+  }
+}

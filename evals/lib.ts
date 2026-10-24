@@ -209,7 +209,11 @@ export function grade(q: EvalQuestion, a: Answer, key: unknown, questionText: st
     id: q.id, question: questionText, scenario: q.scenario ?? null,
     expectedIntent: intents.join(" | "), actualIntent, expectedForm: q.forms.join(" | "), chosenForm: a.form,
     expectedAnswer: checks.map((c) => c.expected).join("; ") || "—",
-    actualAnswer: a.error ? `error: ${a.error.message}` : checks.map((c) => c.actual).join("; ") || "—",
+    actualAnswer: a.error
+      ? a.error.kind === "fixture_miss"
+        ? `error: no recorded fixture (hash ${a.error.hash})`
+        : `error: ${a.error.message.slice(0, 160)}`
+      : checks.map((c) => c.actual).join("; ") || "—",
     route: a.route === "escalated" ? "escalated" : "System 1", latencyMs: a.latencyMs, modelLatencyMs: a.modelLatencyMs,
     checks, formOk, intentOk, numbersOk, grounded, cutClaims: a.cutClaims.length, error: a.error?.message ?? null,
     pass: formOk && intentOk && numbersOk && grounded && !a.error, headline: a.headline,
