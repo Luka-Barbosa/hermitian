@@ -46,6 +46,8 @@ const schema = z.object({
   DATA_SEED: z.preprocess(blankToUndefined, z.coerce.number().int().default(42)),
 
   HERMITIAN_NO_LIVE: optionalString,
+  /** Record mode: re-record System 1 fixtures that a different live source produced. Set by `fixtures:record --refresh`. */
+  RECORD_REFRESH: optionalString,
   /** Logs each live model attempt (model, outcome, time) to stderr. */
   HERMITIAN_DEBUG: optionalString,
 });

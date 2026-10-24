@@ -72,4 +72,4 @@ Six months (April to September 2026) of synthetic payments for a fictional omnic
 
 `evals/questions.json` holds the eval questions, covering every intent and output form, with expected answers as paths into the answer key. `pnpm eval` writes the results table (expected and actual answer, expected and chosen form, route, latency, pass or miss) to `evals/results/latest.md`; the app shows the same table at `/eval`, misses first.
 
-The committed fixtures were recorded with simulated Jev (System 1 questions answered by free Gemini with Jev's confidence formulas), so their confidence is not calibrated. `pnpm fixtures:record` with a gateway key re-records them with Jev.
+The committed System 1 fixtures are real Jev answers (`jev-1.14.0`); the System 2 fixtures are free Gemini. `pnpm fixtures:record --via=jev --refresh` re-records the System 1 side (`--via=gemini` records a free simulation instead), and replay never calls a model. The first real-Jev run scored 26 of 34; the misses and what fixed them are in `docs/decisions.md`.

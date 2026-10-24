@@ -16,8 +16,8 @@ import { buildQuery } from "./query/builder";
 import type { QueryResult } from "./results";
 import { parseAmount, parsePeriod, writeNarrative } from "./system2";
 import { Trace, timed, type PipelineEvent } from "./trace";
-import { FORM_LABELS, NONE_OF_THESE, type Form, type Intent, type Period } from "./types";
-import { CONFIDENCE_THRESHOLD, understand } from "./understand";
+import { FORM_HELP, FORM_LABELS, NONE_OF_THESE, type Form, type Intent, type Period } from "./types";
+import { CONFIDENCE_THRESHOLD, SLOT_CONFIDENCE_THRESHOLD, understand } from "./understand";
 import { defaultForm, describeShape, validForms } from "./visuals/filter";
 
 export interface AskInput {
@@ -110,7 +110,7 @@ export async function ask(input: AskInput, deps: { adapter: DataAdapter; onEvent
         ["request", u.system1.hash],
         ["questions", String(u.slots.length)],
         ...(u.system1.recordedLatencyMs !== null ? [["recorded latency", `${u.system1.recordedLatencyMs} ms`] as [string, string]] : []),
-        ["threshold", `act at confidence ≥ ${CONFIDENCE_THRESHOLD}`],
+        ["threshold", `slots act at confidence ≥ ${SLOT_CONFIDENCE_THRESHOLD}, else System 2`],
       ],
       slots: u.slots,
     });
@@ -125,8 +125,12 @@ export async function ask(input: AskInput, deps: { adapter: DataAdapter; onEvent
     }
 
     // Out of scope: answered in code, no query, no LLM text.
-    if (u.intent === "out_of_scope") {
-      const g = { kind: "gate" as const, title: "Gate 1 · data support", ok: false, latencyMs: 0, detail: [["result", "Out of scope: payment records cannot answer this"], ["out-of-scope score", u.outOfScopeScore.toFixed(2)]] as [string, string][] };
+    // It is also out of scope when the intent needs a metric and, even after escalation, none fits
+    // ("none of these" on the metric slot, e.g. profit margin).
+    const noMetric = u.intent !== "out_of_scope" && u.intent !== "record_listing" && !u.metric && !input.followUp?.plan?.metric;
+    if (u.intent === "out_of_scope" || noMetric) {
+      const why = u.intent === "out_of_scope" ? "Out of scope: payment records cannot answer this" : "No metric in the catalog fits the question (System 1 and System 2 both said none of these)";
+      const g = { kind: "gate" as const, title: "Gate 1 · data support", ok: false, latencyMs: 0, detail: [["result", why], ["out-of-scope score", u.outOfScopeScore.toFixed(2)]] as [string, string][] };
       trace.add(g);
       const examples = catalog.outOfScopeExamples.slice(0, 3).join("; ");
       return base({
@@ -227,6 +231,15 @@ export async function ask(input: AskInput, deps: { adapter: DataAdapter; onEvent
       records: u.intent === "record_listing" ? { type: u.recordType ?? "payments", limit: u.limit ?? 10 } : null,
       drivers: null,
     };
+    // A breakdown by a dimension makes a filter on that same dimension meaningless (a share inside
+    // "new customers" is always 100%), so the breakdown wins and the filter is dropped.
+    if (draft.breakdown && (draft.intent === "breakdown" || draft.intent === "ranking")) {
+      const clash = draft.filters.filter((f) => f.kind === "dimension" && f.dimension === draft.breakdown);
+      if (clash.length) {
+        draft.filters = draft.filters.filter((f) => !clash.includes(f));
+        inherited.push(`filter on ${draft.breakdown} dropped: the answer is split by it`);
+      }
+    }
     let plan = QueryPlanSchema.parse(draft);
     trace.add({
       kind: "plan", title: "Query plan", ok: true, latencyMs: 0,
@@ -306,7 +319,7 @@ export async function ask(input: AskInput, deps: { adapter: DataAdapter; onEvent
     if (primary && valid.length > 1) {
       const res = await decide(
         { question, result: describeShape(primary) },
-        { form: { type: "choice", instructions: "Which way of showing `result` best answers `question`?", criteria: { ...Object.fromEntries(valid.map((f) => [f, FORM_LABELS[f]])), [NONE_OF_THESE]: "None of these fits" } } },
+        { form: { type: "choice", instructions: "Which way of showing `result` best answers `question`?", criteria: { ...Object.fromEntries(valid.map((f) => [f, `${FORM_LABELS[f]}: ${FORM_HELP[f]}`])), [NONE_OF_THESE]: "None of these fits" } } },
         { tag: `form: ${question}` },
       );
       const a = res.answers.form as ChoiceAnswer;

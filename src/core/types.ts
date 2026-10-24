@@ -25,6 +25,17 @@ export const FORM_LABELS: Record<Form, string> = {
   stacked100: "100% stacked bar",
 };
 
+/** What each visual is for, shown to System 1 when it picks one of the forms the code allows. */
+export const FORM_HELP: Record<Form, string> = {
+  text: "A sentence or two with no chart: one figure or a short statement is the whole answer",
+  kpi: "One headline number, with its change against another period",
+  table: "Exact values in rows and columns, or individual records to read one by one",
+  line: "How a value moves over time",
+  hbar: "Groups compared and ranked by one value, as bars from longest to shortest",
+  waterfall: "How a start value became an end value, as a step for each contribution",
+  stacked100: "How a total splits into parts, with every period adding up to 100%",
+};
+
 export const PERIOD_PRESETS = [
   "today",
   "yesterday",

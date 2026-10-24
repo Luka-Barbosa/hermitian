@@ -1,9 +1,11 @@
 /**
- * `pnpm fixtures:record [--via=jev|gemini] [--only=R1,E1] [--prune]`
+ * `pnpm fixtures:record [--via=jev|gemini] [--only=R1,E1] [--refresh] [--prune]`
  *
  * Runs the eval questions in record mode: existing fixtures are replayed,
  * missing ones are fetched live and saved to fixtures/. Jev calls are capped
  * by MAX_LIVE_JEV_CALLS. `--via=gemini` records simulated Jev on free Gemini.
+ * `--refresh` re-records System 1 fixtures that another source produced (e.g. simulated Jev),
+ * so `--via=jev --refresh` replaces them with real Jev answers. Without it, existing fixtures replay.
  * `--prune` deletes fixtures no question used (only after a clean full run).
  */
 import fs from "node:fs";
@@ -23,6 +25,7 @@ const base = env();
 process.env.DECIDE_BACKEND = "record";
 process.env.SYSTEM2_BACKEND = "record";
 if (via) process.env.RECORD_VIA = via;
+if (args.includes("--refresh")) process.env.RECORD_REFRESH = "1";
 // Fast free-tier models per task unless the config names its own.
 const chosen: string[] = [];
 const prefer = (name: "DECIDE_SIM_MODEL" | "SYSTEM2_MODEL_PARSE" | "SYSTEM2_MODEL_NARRATIVE", model: string) => {

@@ -36,13 +36,16 @@ export async function decide<Q extends DecideQuestions>(
     },
   });
 
+  const via = backend === "record" ? env().RECORD_VIA : backend;
+  const liveSource = via === "jev" ? "jev" : "gemini-sim";
   if (backend === "replay" || backend === "record") {
     const fixture = readFixture<DecideFixture>("decide", hash);
-    if (fixture) return fromFixture(fixture);
+    // With --refresh, a fixture from another source (e.g. simulated Jev) is re-recorded by the live model.
+    const stale = backend === "record" && Boolean(env().RECORD_REFRESH) && fixture !== undefined && fixture.source !== liveSource;
+    if (fixture && !stale) return fromFixture(fixture);
     if (backend === "replay") throw new FixtureMissError("decide", hash, opts.tag);
   }
 
-  const via = backend === "record" ? env().RECORD_VIA : backend;
   const live: LiveDecision = via === "jev" ? await jevDecide(request) : await geminiDecide(request);
   const latencyMs = Math.round(performance.now() - started);
   if (backend === "record") {

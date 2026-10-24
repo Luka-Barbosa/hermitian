@@ -13,7 +13,14 @@ import { GRAINS, INTENTS, NONE_OF_THESE, PERIOD_PRESETS, type Grain, type Intent
  * slots that matter for the intent escalate to System 2.
  */
 
+/** The visual pick is acted on at this confidence. */
 export const CONFIDENCE_THRESHOLD = 0.5;
+/**
+ * A slot that decides what is queried is acted on at this confidence, otherwise it
+ * escalates to System 2. Set from the real-Jev eval: of 302 acted slots only 10 were
+ * below 0.7, and the one wrong pick (0.50) was the lowest. A small sample; revisit with more data.
+ */
+export const SLOT_CONFIDENCE_THRESHOLD = 0.6;
 const OUT_OF_SCOPE_YES = 0.5;
 
 const INTENT_OPTIONS: Record<Intent, string> = {
@@ -40,11 +47,11 @@ const PERIOD_OPTIONS: Record<PeriodPreset | "custom" | "not_stated", string> = {
 };
 
 const GRAIN_OPTIONS: Record<Grain | "not_stated", string> = {
-  hour: "Hour by hour (hourly, by hour, during the day)",
-  day: "Day by day (daily, each day)",
-  week: "Week by week (weekly)",
-  month: "Month by month (monthly, by month)",
-  not_stated: "No time granularity is mentioned",
+  hour: "Hour by hour: the question says hourly, by hour or hour by hour",
+  day: "Day by day: the question says daily, by day or each day",
+  week: "Week by week: the question says weekly or by week",
+  month: "Month by month: the question says monthly, by month or each month, asking for several months side by side",
+  not_stated: "No granularity is asked for. A period such as 'this month', 'last month', 'this quarter' or 'yesterday' only says which time to look at; it is not a granularity",
 };
 
 const LIMITS: Record<string, number> = { one: 1, three: 3, five: 5, ten: 10, twenty: 20 };
@@ -90,7 +97,7 @@ export function understandingQuestions(catalog: Catalog, question: string): Deci
       no_breakdown: "No grouping is asked for",
       ...Object.fromEntries(catalog.dimensions.filter((d) => d.id !== "payment").map((d) => [d.id, `${d.label}: ${d.description}`])),
     }),
-    grain: choice("Does `question` ask for the metric over time at a particular granularity?", GRAIN_OPTIONS),
+    grain: choice("Does `question` ask for the metric to be shown as a series of steps over time (by hour, by day, by week or by month)? A period named in the question, such as 'this month', is not a granularity.", GRAIN_OPTIONS),
     rank_direction: choice("If `question` asks which group is highest or lowest, which end does it want?", {
       highest: "Highest, top, best, most",
       lowest: "Lowest, bottom, worst, least",
@@ -112,7 +119,11 @@ export function understandingQuestions(catalog: Catalog, question: string): Deci
     }),
     out_of_scope: {
       type: "noul",
-      instructions: "`question` asks for something payment records cannot answer: a prediction or forecast, credit or default risk, a judgement about a person, or data a merchant's payment records do not hold (profit, stock, identities).",
+      instructions: "Can `question` NOT be answered from a merchant's payment records?",
+      criteria: {
+        true: "It asks for a prediction or forecast, credit or default risk, a judgement about a person, or data payment records do not hold, such as profit, margin, cost, stock or real identities",
+        false: "It can be answered by adding up, counting, comparing or listing captured payments, authorization attempts, refunds or chargebacks, for any period, group or time series",
+      },
     } satisfies NoulQuestion,
     amount_filter: {
       type: "noul",
@@ -203,7 +214,7 @@ export async function understand(catalog: Catalog, question: string, followUp?: 
   for (const slot of relevantFor(intent0)) {
     const a = choiceOf(slot);
     if (!a) continue;
-    const unsure = a.confidence < CONFIDENCE_THRESHOLD;
+    const unsure = a.confidence < SLOT_CONFIDENCE_THRESHOLD;
     const abstained = a.choice === NONE_OF_THESE && !NONE_IS_NO.has(slot);
     if (unsure || abstained || (slot === "intent" && intentConflict)) {
       const q = questions[slot] as ChoiceQuestion;
