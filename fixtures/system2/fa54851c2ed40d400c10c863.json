@@ -3,17 +3,17 @@
   "task": "narrative",
   "tag": "narrative: Break down captured value by channel last month.",
   "model": "gemini-3.5-flash-lite",
-  "recordedAt": "2026-10-24T06:53:56.711Z",
-  "latencyMs": 4173,
+  "recordedAt": "2026-10-24T08:21:14.135Z",
+  "latencyMs": 1196,
   "request": {
     "system": "You write the short narrative for one answer in a payments analytics app.\nUse only the facts given. Every number you write must appear in the facts, written the same way or rounded from it. Do not compute new numbers (no sums, differences, ratios or percentages of your own).\nheadline: one short sentence-case statement of the main finding, at most 9 words, no trailing full stop. Not Title Case.\nsentences: one to three plain sentences that add what the headline does not: the period, the comparison, what stands out and why it matters. Do not restate the headline. No filler, no advice, no markdown.\nLead with what stands out: a dip, a spike, the leader, the biggest driver or the outlier, not the first or last value.\nName the period the way the facts do (e.g. 'September 2026', '26 Sep 2026').\nCaptured value is not revenue; never call it revenue or profit.",
     "prompt": "{\n  \"question\": \"Break down captured value by channel last month.\",\n  \"topic\": \"CAPTURED VALUE · BREAKDOWN\",\n  \"form\": \"hbar\",\n  \"facts\": [\n    \"Scope: August 2026; all payments.\",\n    \"1. Online: R18.8m (47.3% of total)\",\n    \"2. App: R11.1m (28.0% of total)\",\n    \"3. In-store: R9.8m (24.7% of total)\",\n    \"Channel groups: 3 in total. Period: August 2026.\"\n  ],\n  \"notes\": []\n}"
   },
   "output": {
-    "headline": "Online led captured value in august 2026",
+    "headline": "Online channel led August 2026 captured value",
     "sentences": [
-      "Online reached R18.8m, which made up 47.3% of total captured value.",
-      "App followed with R11.1m, and In-store contributed R9.8m across all payments in August 2026."
+      "During August 2026, Online reached R18.8m, while App and In-store stood at R11.1m and R9.8m respectively.",
+      "Online represented 47.3% of the total, making it the largest channel group among the 3 in total."
     ]
   }
 }

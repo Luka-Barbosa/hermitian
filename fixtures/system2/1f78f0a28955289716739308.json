@@ -1,0 +1,21 @@
+{
+  "hash": "1f78f0a28955289716739308",
+  "task": "resolve_slots",
+  "tag": "resolve: How has our payment method mix changed over the last six months?",
+  "model": "gemini-3.5-flash-lite",
+  "recordedAt": "2026-10-24T08:23:22.699Z",
+  "latencyMs": 4709,
+  "request": {
+    "system": "You resolve ambiguous slots for a read-only payments analytics agent.\nFor each slot, pick exactly one option key from its options. Use none_of_these when nothing fits.\nA fast classifier was unsure about these slots; its guess is shown but may be wrong.\nReply with option keys only, plus a one-line reason. Never invent options.",
+    "prompt": "{\n  \"question\": \"How has our payment method mix changed over the last six months?\",\n  \"context\": \"\",\n  \"slots\": [\n    {\n      \"slot\": \"intent\",\n      \"instructions\": \"What kind of analytics question is `question`?\",\n      \"options\": {\n        \"lookup\": \"A single figure for one period: what was, how much, how many\",\n        \"compare\": \"One figure in one period against another period: compare, versus, vs last month, up or down on\",\n        \"trend\": \"How a figure moved over time: trend, over time, daily, hourly, by day or by hour, how has it moved\",\n        \"breakdown\": \"How a total splits across groups, or the mix or share of each group, possibly by month\",\n        \"ranking\": \"Which group is highest or lowest: which, top, worst, best, most, least, rank\",\n        \"explain_change\": \"Why a figure went up or down: why, what drove, what explains the change\",\n        \"record_listing\": \"Individual records: list or show specific payments, refunds or chargebacks\",\n        \"out_of_scope\": \"Cannot be answered from payment records: predictions, forecasts, credit risk, judgements about people, or data not held\",\n        \"none_of_these\": \"None of these fits the question\"\n      },\n      \"classifier_guess\": \"trend\"\n    }\n  ]\n}"
+  },
+  "output": {
+    "choices": [
+      {
+        "slot": "intent",
+        "choice": "breakdown",
+        "reason": "The question asks for the mix of payment methods, which refers to the share or split across groups."
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "hash": "26404ee339d0407d72ff69fe",
+  "tag": "form: How many unique customers paid us last month?",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:20:18.368Z",
+  "latencyMs": 434,
+  "inputTokens": 391,
+  "request": {
+    "state": {
+      "question": "How many unique customers paid us last month?",
+      "result": "one value for one period"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "text": "Text: A sentence or two with no chart: one figure or a short statement is the whole answer",
+          "kpi": "KPI card: One headline number, with its change against another period",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "text",
+      "confidence": 0.49,
+      "probabilities": {
+        "text": 0.66,
+        "kpi": 0.33,
+        "none_of_these": 0.01
+      }
+    }
+  }
+}

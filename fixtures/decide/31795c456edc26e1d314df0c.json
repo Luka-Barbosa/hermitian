@@ -1,0 +1,38 @@
+{
+  "hash": "31795c456edc26e1d314df0c",
+  "tag": "form: How did captured value on 25 September compare with 24 September?",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:21:02.745Z",
+  "latencyMs": 312,
+  "inputTokens": 409,
+  "request": {
+    "state": {
+      "question": "How did captured value on 25 September compare with 24 September?",
+      "result": "one value in the current period and one in a comparison period, with the change"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "kpi": "KPI card: One headline number, with its change against another period",
+          "text": "Text: A sentence or two with no chart: one figure or a short statement is the whole answer",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "kpi",
+      "confidence": 0.86,
+      "probabilities": {
+        "kpi": 0.91,
+        "text": 0.08,
+        "none_of_these": 0.01
+      }
+    }
+  }
+}

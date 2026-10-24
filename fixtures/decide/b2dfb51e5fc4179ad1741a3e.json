@@ -1,0 +1,38 @@
+{
+  "hash": "b2dfb51e5fc4179ad1741a3e",
+  "tag": "form: How did the number of payments in September compare with August?",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:21:04.302Z",
+  "latencyMs": 286,
+  "inputTokens": 405,
+  "request": {
+    "state": {
+      "question": "How did the number of payments in September compare with August?",
+      "result": "one value in the current period and one in a comparison period, with the change"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "kpi": "KPI card: One headline number, with its change against another period",
+          "text": "Text: A sentence or two with no chart: one figure or a short statement is the whole answer",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "kpi",
+      "confidence": 0.79,
+      "probabilities": {
+        "kpi": 0.86,
+        "text": 0.13,
+        "none_of_these": 0.01
+      }
+    }
+  }
+}

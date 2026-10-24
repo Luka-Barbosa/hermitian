@@ -1,0 +1,38 @@
+{
+  "hash": "5d1f32859baea00a1ab1753e",
+  "tag": "form: What was our approval rate in the last 7 days?",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:20:11.481Z",
+  "latencyMs": 265,
+  "inputTokens": 394,
+  "request": {
+    "state": {
+      "question": "What was our approval rate in the last 7 days?",
+      "result": "one value for one period"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "text": "Text: A sentence or two with no chart: one figure or a short statement is the whole answer",
+          "kpi": "KPI card: One headline number, with its change against another period",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "text",
+      "confidence": 0.45,
+      "probabilities": {
+        "text": 0.63,
+        "kpi": 0.36,
+        "none_of_these": 0.01
+      }
+    }
+  }
+}

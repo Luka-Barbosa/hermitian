@@ -1,0 +1,42 @@
+{
+  "hash": "b9d0b57001de99abee6e51aa",
+  "tag": "claims: What was the average transaction value last month?",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:20:10.818Z",
+  "latencyMs": 305,
+  "inputTokens": 447,
+  "request": {
+    "state": {
+      "facts": [
+        "Scope: August 2026; all payments.",
+        "Average transaction value, August 2026: R791.19",
+        "Calculated from R39.7m captured value and 50,180 captured payments."
+      ],
+      "claims": [
+        "Average transaction value stood at R791.19",
+        "The figure for August 2026 covers all payments and was calculated from R39.7m captured value and 50,180 captured payments."
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_1": {
+        "type": "noul",
+        "instructions": "`claims[1]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 0.98
+    },
+    "claim_1": {
+      "type": "noul",
+      "noul": 0.93
+    }
+  }
+}

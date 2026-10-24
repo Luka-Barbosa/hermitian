@@ -3,17 +3,17 @@
   "task": "narrative",
   "tag": "narrative: What share of captured value came from new customers this month?",
   "model": "gemini-3.5-flash-lite",
-  "recordedAt": "2026-10-24T06:54:12.543Z",
-  "latencyMs": 4149,
+  "recordedAt": "2026-10-24T08:23:28.821Z",
+  "latencyMs": 2632,
   "request": {
     "system": "You write the short narrative for one answer in a payments analytics app.\nUse only the facts given. Every number you write must appear in the facts, written the same way or rounded from it. Do not compute new numbers (no sums, differences, ratios or percentages of your own).\nheadline: one short sentence-case statement of the main finding, at most 9 words, no trailing full stop. Not Title Case.\nsentences: one to three plain sentences that add what the headline does not: the period, the comparison, what stands out and why it matters. Do not restate the headline. No filler, no advice, no markdown.\nLead with what stands out: a dip, a spike, the leader, the biggest driver or the outlier, not the first or last value.\nName the period the way the facts do (e.g. 'September 2026', '26 Sep 2026').\nCaptured value is not revenue; never call it revenue or profit.",
     "prompt": "{\n  \"question\": \"What share of captured value came from new customers this month?\",\n  \"topic\": \"CAPTURED VALUE · BREAKDOWN\",\n  \"form\": \"hbar\",\n  \"facts\": [\n    \"Scope: September 2026; all payments.\",\n    \"1. Returning: R33.4m (78.8% of total)\",\n    \"2. New: R9.0m (21.2% of total)\",\n    \"Customer type groups: 2 in total. Period: September 2026.\"\n  ],\n  \"notes\": []\n}"
   },
   "output": {
-    "headline": "New customers contributed 21.2% of captured value",
+    "headline": "new customers generated r9.0m in september 2026",
     "sentences": [
-      "During September 2026, new customer payments reached R9.0m out of the total captured value.",
-      "Returning customers accounted for the remaining 78.8% of the total, bringing in R33.4m."
+      "New customers accounted for 21.2% of total captured value during the month.",
+      "Returning customers delivered the remaining R33.4m, representing 78.8% of the total across all payments."
     ]
   }
 }

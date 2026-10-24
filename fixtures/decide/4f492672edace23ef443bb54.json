@@ -1,0 +1,41 @@
+{
+  "hash": "4f492672edace23ef443bb54",
+  "tag": "claims: How many different customer accounts used card fp_afc6eb9e in the last 90 days?",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:23:09.382Z",
+  "latencyMs": 393,
+  "inputTokens": 442,
+  "request": {
+    "state": {
+      "facts": [
+        "Scope: 3 Jul – 30 Sep 2026; limited to Payment method Card; Card fp_afc6eb9e.",
+        "Unique customers, 3 Jul – 30 Sep 2026: 12"
+      ],
+      "claims": [
+        "twelve customer accounts used card fp_afc6eb9e",
+        "This activity occurred within the scope of 3 Jul – 30 Sep 2026 for the payment method card fp_afc6eb9e."
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_1": {
+        "type": "noul",
+        "instructions": "`claims[1]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 0.84
+    },
+    "claim_1": {
+      "type": "noul",
+      "noul": 0.86
+    }
+  }
+}

@@ -1,11 +1,11 @@
 {
   "hash": "4b477bf2eff92c9dde68f708",
   "tag": "claims: Which stores took the most captured value last month?",
-  "source": "gemini-sim",
-  "model": "gemini-3.5-flash-lite (simulated Jev)",
-  "recordedAt": "2026-10-24T06:55:40.734Z",
-  "latencyMs": 4031,
-  "inputTokens": null,
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:15:52.094Z",
+  "latencyMs": 276,
+  "inputTokens": 826,
   "request": {
     "state": {
       "facts": [
@@ -47,15 +47,15 @@
   "answers": {
     "claim_0": {
       "type": "noul",
-      "noul": 1
+      "noul": 0.98
     },
     "claim_1": {
       "type": "noul",
-      "noul": 1
+      "noul": 0.97
     },
     "claim_2": {
       "type": "noul",
-      "noul": 1
+      "noul": 0.56
     }
   }
 }

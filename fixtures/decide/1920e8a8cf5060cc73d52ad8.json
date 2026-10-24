@@ -1,11 +1,11 @@
 {
   "hash": "1920e8a8cf5060cc73d52ad8",
   "tag": "claims: How has approval rate moved over the last 7 days?",
-  "source": "gemini-sim",
-  "model": "gemini-3.5-flash-lite (simulated Jev)",
-  "recordedAt": "2026-10-24T06:52:40.166Z",
-  "latencyMs": 3559,
-  "inputTokens": null,
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:15:10.997Z",
+  "latencyMs": 263,
+  "inputTokens": 752,
   "request": {
     "state": {
       "facts": [
@@ -39,15 +39,15 @@
   "answers": {
     "claim_0": {
       "type": "noul",
-      "noul": 1
+      "noul": 0.92
     },
     "claim_1": {
       "type": "noul",
-      "noul": 1
+      "noul": 0.91
     },
     "claim_2": {
       "type": "noul",
-      "noul": 1
+      "noul": 0.82
     }
   }
 }

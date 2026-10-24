@@ -1,11 +1,11 @@
 {
   "hash": "79a94c55f2622ad6e8a653ac",
   "tag": "claims: How did the number of payments in September compare with August?",
-  "source": "gemini-sim",
-  "model": "gemini-3.5-flash-lite (simulated Jev)",
-  "recordedAt": "2026-10-24T06:51:52.573Z",
-  "latencyMs": 4361,
-  "inputTokens": null,
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:14:45.661Z",
+  "latencyMs": 381,
+  "inputTokens": 519,
   "request": {
     "state": {
       "facts": [
@@ -39,15 +39,15 @@
   "answers": {
     "claim_0": {
       "type": "noul",
-      "noul": 1
+      "noul": 0.97
     },
     "claim_1": {
       "type": "noul",
-      "noul": 1
+      "noul": 0.97
     },
     "claim_2": {
       "type": "noul",
-      "noul": 1
+      "noul": 0.98
     }
   }
 }

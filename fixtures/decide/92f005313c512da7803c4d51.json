@@ -1,11 +1,11 @@
 {
   "hash": "92f005313c512da7803c4d51",
   "tag": "claims: Compare our approval rate in the last 7 days with the week before.",
-  "source": "gemini-sim",
-  "model": "gemini-3.5-flash-lite (simulated Jev)",
-  "recordedAt": "2026-10-24T07:03:16.696Z",
-  "latencyMs": 1151,
-  "inputTokens": null,
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:14:44.610Z",
+  "latencyMs": 288,
+  "inputTokens": 536,
   "request": {
     "state": {
       "facts": [
@@ -39,15 +39,15 @@
   "answers": {
     "claim_0": {
       "type": "noul",
-      "noul": 1
+      "noul": 0.98
     },
     "claim_1": {
       "type": "noul",
-      "noul": 1
+      "noul": 0.98
     },
     "claim_2": {
       "type": "noul",
-      "noul": 1
+      "noul": 0.91
     }
   }
 }

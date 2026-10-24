@@ -1,0 +1,66 @@
+{
+  "hash": "18d154cf1e2c59181b6214fa",
+  "tag": "claims: Which cards have the highest chargeback rate in the last 90 days?",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:23:37.322Z",
+  "latencyMs": 298,
+  "inputTokens": 853,
+  "request": {
+    "state": {
+      "facts": [
+        "Scope: 3 Jul – 30 Sep 2026; limited to Payment method Card.",
+        "Ranked by chargeback rate, highest first: fp_d549f9c4 has the highest chargeback rate of the card groups ranked.",
+        "1. fp_d549f9c4: 86.2% (25 chargebacks, 29 captured payments)",
+        "2. fp_afc6eb9e: 84.4% (27 chargebacks, 32 captured payments)",
+        "3. fp_242e539c: 82.1% (23 chargebacks, 28 captured payments)",
+        "4. fp_1abf5464: 81.5% (22 chargebacks, 27 captured payments)",
+        "5. fp_2044ec4e: 71.0% (22 chargebacks, 31 captured payments)",
+        "6. fp_025a0ccc: 60.7% (17 chargebacks, 28 captured payments)",
+        "Card groups: 40,668 in total, 40,662 with fewer than 10 not ranked. Period: 3 Jul – 30 Sep 2026."
+      ],
+      "claims": [
+        "fp_d549f9c4 leads with highest chargeback rate",
+        "During the period of 3 Jul – 30 Sep 2026, card group fp_d549f9c4 recorded the highest chargeback rate of 86.2% with 25 chargebacks and 29 captured payments.",
+        "The second highest card group fp_afc6eb9e followed closely with 84.4% from 27 chargebacks and 32 captured payments.",
+        "Groups with fewer than 10 captured payments were not ranked out of the 40,668 card groups in total."
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_1": {
+        "type": "noul",
+        "instructions": "`claims[1]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_2": {
+        "type": "noul",
+        "instructions": "`claims[2]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_3": {
+        "type": "noul",
+        "instructions": "`claims[3]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 0.97
+    },
+    "claim_1": {
+      "type": "noul",
+      "noul": 0.95
+    },
+    "claim_2": {
+      "type": "noul",
+      "noul": 0.79
+    },
+    "claim_3": {
+      "type": "noul",
+      "noul": 0.3
+    }
+  }
+}

@@ -1,11 +1,11 @@
 {
   "hash": "6cb4de0454c0f16cc776012d",
   "tag": "claims: How many payments did we capture today?",
-  "source": "gemini-sim",
-  "model": "gemini-3.5-flash-lite (simulated Jev)",
-  "recordedAt": "2026-10-24T06:38:43.992Z",
-  "latencyMs": 1105,
-  "inputTokens": null,
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:14:12.056Z",
+  "latencyMs": 285,
+  "inputTokens": 402,
   "request": {
     "state": {
       "facts": [
@@ -31,11 +31,11 @@
   "answers": {
     "claim_0": {
       "type": "noul",
-      "noul": 1
+      "noul": 0.93
     },
     "claim_1": {
       "type": "noul",
-      "noul": 1
+      "noul": 0.94
     }
   }
 }

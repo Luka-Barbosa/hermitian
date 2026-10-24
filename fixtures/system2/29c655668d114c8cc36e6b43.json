@@ -1,0 +1,26 @@
+{
+  "hash": "29c655668d114c8cc36e6b43",
+  "task": "resolve_slots",
+  "tag": "resolve: What was our profit margin last month?",
+  "model": "gemini-3.5-flash-lite",
+  "recordedAt": "2026-10-24T08:16:06.356Z",
+  "latencyMs": 2668,
+  "request": {
+    "system": "You resolve ambiguous slots for a read-only payments analytics agent.\nFor each slot, pick exactly one option key from its options. Use none_of_these when nothing fits.\nA fast classifier was unsure about these slots; its guess is shown but may be wrong.\nReply with option keys only, plus a one-line reason. Never invent options.",
+    "prompt": "{\n  \"question\": \"What was our profit margin last month?\",\n  \"context\": \"\",\n  \"slots\": [\n    {\n      \"slot\": \"intent\",\n      \"instructions\": \"What kind of analytics question is `question`?\",\n      \"options\": {\n        \"lookup\": \"A single figure for one period: what was, how much, how many\",\n        \"compare\": \"One figure in one period against another period: compare, versus, vs last month, up or down on\",\n        \"trend\": \"How a figure moved over time: trend, over time, daily, hourly, by day or by hour, how has it moved\",\n        \"breakdown\": \"How a total splits across groups, or the mix or share of each group, possibly by month\",\n        \"ranking\": \"Which group is highest or lowest: which, top, worst, best, most, least, rank\",\n        \"explain_change\": \"Why a figure went up or down: why, what drove, what explains the change\",\n        \"record_listing\": \"Individual records: list or show specific payments, refunds or chargebacks\",\n        \"out_of_scope\": \"Cannot be answered from payment records: predictions, forecasts, credit risk, judgements about people, or data not held\",\n        \"none_of_these\": \"None of these fits the question\"\n      },\n      \"classifier_guess\": \"lookup\"\n    },\n    {\n      \"slot\": \"metric\",\n      \"instructions\": \"Which metric does `question` ask about?\",\n      \"options\": {\n        \"captured_value\": \"Captured payment value: Total rand value of successfully captured payments (sales, takings, volume in rand). Not revenue.\",\n        \"payment_count\": \"Payment count: Number of captured payments (transactions, orders paid, how many payments).\",\n        \"average_transaction_value\": \"Average transaction value: Average rand value per captured payment (basket size, ATV, average order value).\",\n        \"approval_rate\": \"Approval rate: Share of authorization attempts that were approved (acceptance, success rate, declines inverted).\",\n        \"refund_rate\": \"Refund rate: Refunded rand value as a share of captured value.\",\n        \"chargeback_rate\": \"Chargeback rate: Chargebacks (disputes) received as a share of captured payments, count-based. Use for any question about chargebacks or disputes.\",\n        \"payment_method_share\": \"Payment-method share: Each payment method's share of captured value (method mix, wallets vs card).\",\n        \"unique_customers\": \"Unique customers: Number of distinct (pseudonymised) customers or accounts with a captured payment.\",\n        \"none_of_these\": \"None of these fits the question\"\n      },\n      \"classifier_guess\": \"none_of_these\"\n    }\n  ]\n}"
+  },
+  "output": {
+    "choices": [
+      {
+        "slot": "intent",
+        "choice": "lookup",
+        "reason": "The question asks for a single figure for last month."
+      },
+      {
+        "slot": "metric",
+        "choice": "none_of_these",
+        "reason": "Profit margin is not in the list of available payment analytics metrics."
+      }
+    ]
+  }
+}

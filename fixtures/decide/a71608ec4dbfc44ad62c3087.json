@@ -1,0 +1,53 @@
+{
+  "hash": "a71608ec4dbfc44ad62c3087",
+  "tag": "claims: Break down captured value by channel last month.",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:21:14.441Z",
+  "latencyMs": 304,
+  "inputTokens": 547,
+  "request": {
+    "state": {
+      "facts": [
+        "Scope: August 2026; all payments.",
+        "1. Online: R18.8m (47.3% of total)",
+        "2. App: R11.1m (28.0% of total)",
+        "3. In-store: R9.8m (24.7% of total)",
+        "Channel groups: 3 in total. Period: August 2026."
+      ],
+      "claims": [
+        "Online channel led August 2026 captured value",
+        "During August 2026, Online reached R18.8m, while App and In-store stood at R11.1m and R9.8m respectively.",
+        "Online represented 47.3% of the total, making it the largest channel group among the 3 in total."
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_1": {
+        "type": "noul",
+        "instructions": "`claims[1]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_2": {
+        "type": "noul",
+        "instructions": "`claims[2]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 0.8
+    },
+    "claim_1": {
+      "type": "noul",
+      "noul": 0.94
+    },
+    "claim_2": {
+      "type": "noul",
+      "noul": 0.84
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "hash": "e75f13766dc8e5dced5b7104",
+  "task": "narrative",
+  "tag": "narrative: Which cards have the highest chargeback rate in the last 90 days?",
+  "model": "gemini-3.5-flash-lite",
+  "recordedAt": "2026-10-24T08:23:37.022Z",
+  "latencyMs": 3830,
+  "request": {
+    "system": "You write the short narrative for one answer in a payments analytics app.\nUse only the facts given. Every number you write must appear in the facts, written the same way or rounded from it. Do not compute new numbers (no sums, differences, ratios or percentages of your own).\nheadline: one short sentence-case statement of the main finding, at most 9 words, no trailing full stop. Not Title Case.\nsentences: one to three plain sentences that add what the headline does not: the period, the comparison, what stands out and why it matters. Do not restate the headline. No filler, no advice, no markdown.\nLead with what stands out: a dip, a spike, the leader, the biggest driver or the outlier, not the first or last value.\nName the period the way the facts do (e.g. 'September 2026', '26 Sep 2026').\nCaptured value is not revenue; never call it revenue or profit.",
+    "prompt": "{\n  \"question\": \"Which cards have the highest chargeback rate in the last 90 days?\",\n  \"topic\": \"CHARGEBACK RATE · RANKING\",\n  \"form\": \"hbar\",\n  \"facts\": [\n    \"Scope: 3 Jul – 30 Sep 2026; limited to Payment method Card.\",\n    \"Ranked by chargeback rate, highest first: fp_d549f9c4 has the highest chargeback rate of the card groups ranked.\",\n    \"1. fp_d549f9c4: 86.2% (25 chargebacks, 29 captured payments)\",\n    \"2. fp_afc6eb9e: 84.4% (27 chargebacks, 32 captured payments)\",\n    \"3. fp_242e539c: 82.1% (23 chargebacks, 28 captured payments)\",\n    \"4. fp_1abf5464: 81.5% (22 chargebacks, 27 captured payments)\",\n    \"5. fp_2044ec4e: 71.0% (22 chargebacks, 31 captured payments)\",\n    \"6. fp_025a0ccc: 60.7% (17 chargebacks, 28 captured payments)\",\n    \"Card groups: 40,668 in total, 40,662 with fewer than 10 not ranked. Period: 3 Jul – 30 Sep 2026.\"\n  ],\n  \"notes\": [\n    \"Groups with fewer than 10 captured payments are not ranked.\",\n    \"No card (bank payment) is excluded from this grouping.\"\n  ]\n}"
+  },
+  "output": {
+    "headline": "fp_d549f9c4 leads with highest chargeback rate",
+    "sentences": [
+      "During the period of 3 Jul – 30 Sep 2026, card group fp_d549f9c4 recorded the highest chargeback rate of 86.2% with 25 chargebacks and 29 captured payments.",
+      "The second highest card group fp_afc6eb9e followed closely with 84.4% from 27 chargebacks and 32 captured payments.",
+      "Groups with fewer than 10 captured payments were not ranked out of the 40,668 card groups in total."
+    ]
+  }
+}

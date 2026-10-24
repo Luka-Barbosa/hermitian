@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-10-24T07:03:25.626Z",
+  "ranAt": "2026-10-24T08:24:02.594Z",
   "backend": "replay",
   "decideBackend": "replay",
   "system2Backend": "replay",
@@ -25,7 +25,7 @@
     {
       "item": "No ungrounded claim reaches an answer",
       "ok": true,
-      "detail": "34/34 answers fully grounded; 2 claims cut before display"
+      "detail": "34/34 answers fully grounded; 4 claims cut before display"
     },
     {
       "item": "Misses are logged in a results table and shown in the demo, not hidden",
@@ -41,12 +41,12 @@
       "expectedIntent": "lookup",
       "actualIntent": "lookup",
       "expectedForm": "text | kpi",
-      "chosenForm": "kpi",
+      "chosenForm": "text",
       "expectedAnswer": "971577.1300",
       "actualAnswer": "971577.1300",
       "route": "System 1",
-      "latencyMs": 82,
-      "modelLatencyMs": 116814,
+      "latencyMs": 105,
+      "modelLatencyMs": 14954,
       "checks": [
         {
           "kind": "scalar",
@@ -71,12 +71,12 @@
       "expectedIntent": "lookup",
       "actualIntent": "lookup",
       "expectedForm": "text | kpi",
-      "chosenForm": "kpi",
+      "chosenForm": "text",
       "expectedAnswer": "1505",
       "actualAnswer": "1505",
       "route": "System 1",
-      "latencyMs": 20,
-      "modelLatencyMs": 25792,
+      "latencyMs": 27,
+      "modelLatencyMs": 30330,
       "checks": [
         {
           "kind": "scalar",
@@ -101,12 +101,12 @@
       "expectedIntent": "lookup",
       "actualIntent": "lookup",
       "expectedForm": "text | kpi",
-      "chosenForm": "kpi",
+      "chosenForm": "text",
       "expectedAnswer": "791.1882864",
       "actualAnswer": "791.1882864",
       "route": "System 1",
-      "latencyMs": 34,
-      "modelLatencyMs": 183689,
+      "latencyMs": 53,
+      "modelLatencyMs": 54912,
       "checks": [
         {
           "kind": "scalar",
@@ -122,7 +122,7 @@
       "cutClaims": 0,
       "error": null,
       "pass": true,
-      "headline": "Average transaction value was R791.19 in August 2026"
+      "headline": "Average transaction value stood at R791.19"
     },
     {
       "id": "L4",
@@ -131,12 +131,12 @@
       "expectedIntent": "lookup",
       "actualIntent": "lookup",
       "expectedForm": "text | kpi",
-      "chosenForm": "kpi",
+      "chosenForm": "text",
       "expectedAnswer": "0.9100207326",
       "actualAnswer": "0.9100207326",
       "route": "System 1",
-      "latencyMs": 57,
-      "modelLatencyMs": 20570,
+      "latencyMs": 68,
+      "modelLatencyMs": 6628,
       "checks": [
         {
           "kind": "scalar",
@@ -152,7 +152,7 @@
       "cutClaims": 0,
       "error": null,
       "pass": true,
-      "headline": "The approval rate was 91.0% for all payments"
+      "headline": "Approval rate stood at 91.0%"
     },
     {
       "id": "L5",
@@ -161,12 +161,12 @@
       "expectedIntent": "lookup",
       "actualIntent": "lookup",
       "expectedForm": "text | kpi",
-      "chosenForm": "kpi",
+      "chosenForm": "text",
       "expectedAnswer": "37135",
       "actualAnswer": "37135",
       "route": "System 1",
-      "latencyMs": 31,
-      "modelLatencyMs": 21909,
+      "latencyMs": 41,
+      "modelLatencyMs": 8413,
       "checks": [
         {
           "kind": "scalar",
@@ -182,7 +182,7 @@
       "cutClaims": 0,
       "error": null,
       "pass": true,
-      "headline": "37,135 unique customers paid in August 2026"
+      "headline": "37,135 unique customers made payments"
     },
     {
       "id": "L6",
@@ -191,12 +191,12 @@
       "expectedIntent": "lookup",
       "actualIntent": "lookup",
       "expectedForm": "text | kpi",
-      "chosenForm": "kpi",
+      "chosenForm": "text",
       "expectedAnswer": "0.03500497188",
       "actualAnswer": "0.03500497188",
       "route": "System 1",
-      "latencyMs": 45,
-      "modelLatencyMs": 205244,
+      "latencyMs": 61,
+      "modelLatencyMs": 29441,
       "checks": [
         {
           "kind": "scalar",
@@ -212,7 +212,7 @@
       "cutClaims": 0,
       "error": null,
       "pass": true,
-      "headline": "The refund rate was 3.5% in August 2026"
+      "headline": "August 2026 refund rate was 3.5%"
     },
     {
       "id": "L7",
@@ -221,12 +221,12 @@
       "expectedIntent": "lookup",
       "actualIntent": "lookup",
       "expectedForm": "text | kpi",
-      "chosenForm": "kpi",
+      "chosenForm": "text",
       "expectedAnswer": "12",
       "actualAnswer": "12",
-      "route": "System 1",
-      "latencyMs": 30,
-      "modelLatencyMs": 566205,
+      "route": "escalated",
+      "latencyMs": 46,
+      "modelLatencyMs": 9872,
       "checks": [
         {
           "kind": "scalar",
@@ -242,7 +242,7 @@
       "cutClaims": 0,
       "error": null,
       "pass": true,
-      "headline": "Card fp_afc6eb9e was used by 12 unique customers"
+      "headline": "Twelve customer accounts used card fp_afc6eb9e"
     },
     {
       "id": "C1",
@@ -255,8 +255,8 @@
       "expectedAnswer": "\"42353655.56 vs 39701828.21\"",
       "actualAnswer": "\"42353655.56 vs 39701828.21\"",
       "route": "System 1",
-      "latencyMs": 36,
-      "modelLatencyMs": 16257,
+      "latencyMs": 52,
+      "modelLatencyMs": 7345,
       "checks": [
         {
           "kind": "delta",
@@ -285,8 +285,8 @@
       "expectedAnswer": "\"3104322.930 vs 1003607.250\"",
       "actualAnswer": "\"3104322.930 vs 1003607.250\"",
       "route": "escalated",
-      "latencyMs": 24,
-      "modelLatencyMs": 99537,
+      "latencyMs": 37,
+      "modelLatencyMs": 90504,
       "checks": [
         {
           "kind": "delta",
@@ -315,8 +315,8 @@
       "expectedAnswer": "\"0.9100207326 vs 0.9136970554\"",
       "actualAnswer": "\"0.9100207326 vs 0.9136970554\"",
       "route": "System 1",
-      "latencyMs": 85,
-      "modelLatencyMs": 691849,
+      "latencyMs": 107,
+      "modelLatencyMs": 683863,
       "checks": [
         {
           "kind": "delta",
@@ -345,8 +345,8 @@
       "expectedAnswer": "\"57268 vs 50180\"",
       "actualAnswer": "\"57268 vs 50180\"",
       "route": "escalated",
-      "latencyMs": 35,
-      "modelLatencyMs": 20791,
+      "latencyMs": 48,
+      "modelLatencyMs": 6784,
       "checks": [
         {
           "kind": "delta",
@@ -375,8 +375,8 @@
       "expectedAnswer": "\"2026-09-25: 3104322.930\"; \"max at 2026-09-25\"",
       "actualAnswer": "\"2026-09-25: 3104322.930\"; \"max at 2026-09-25\"",
       "route": "System 1",
-      "latencyMs": 63,
-      "modelLatencyMs": 15551,
+      "latencyMs": 115,
+      "modelLatencyMs": 2475,
       "checks": [
         {
           "kind": "series_point",
@@ -395,10 +395,10 @@
       "intentOk": true,
       "numbersOk": true,
       "grounded": true,
-      "cutClaims": 0,
+      "cutClaims": 1,
       "error": null,
       "pass": true,
-      "headline": "Highest captured value reached R3.1m at 25 Sep"
+      "headline": "Captured value peaked at r3.1m"
     },
     {
       "id": "T2",
@@ -411,8 +411,8 @@
       "expectedAnswer": "\"2026-09-26 14:00: 0.4418604651\"; \"2026-09-26 10:00: 0.8846153846\"; \"min in 2026-09-26 13:00, 2026-09-26 14:00, 2026-09-26 15:00, 2026-09-26 16:00\"",
       "actualAnswer": "\"2026-09-26 14:00: 0.4418604651\"; \"2026-09-26 10:00: 0.8846153846\"; \"min at 2026-09-26 15:00\"",
       "route": "escalated",
-      "latencyMs": 109,
-      "modelLatencyMs": 20460,
+      "latencyMs": 154,
+      "modelLatencyMs": 7313,
       "checks": [
         {
           "kind": "series_point",
@@ -453,8 +453,8 @@
       "expectedAnswer": "\"2026-09-26: 0.8839566585\"",
       "actualAnswer": "\"2026-09-26: 0.8839566585\"",
       "route": "System 1",
-      "latencyMs": 111,
-      "modelLatencyMs": 14407,
+      "latencyMs": 133,
+      "modelLatencyMs": 4972,
       "checks": [
         {
           "kind": "series_point",
@@ -483,8 +483,8 @@
       "expectedAnswer": "\"2026-07-01 to 2026-09-30\"",
       "actualAnswer": "\"2026-07-01 to 2026-09-30\"",
       "route": "escalated",
-      "latencyMs": 118,
-      "modelLatencyMs": 19955,
+      "latencyMs": 147,
+      "modelLatencyMs": 8838,
       "checks": [
         {
           "kind": "plan_period",
@@ -500,7 +500,7 @@
       "cutClaims": 0,
       "error": null,
       "pass": true,
-      "headline": "Approval rate peaked in August 2026"
+      "headline": "Approval rate peaked at 92.2 percent"
     },
     {
       "id": "T5",
@@ -513,8 +513,8 @@
       "expectedAnswer": "\"2026-09-24: 1003607.250\"; \"2026-09-30: 1181834.950\"",
       "actualAnswer": "\"2026-09-24: 1003607.250\"; \"2026-09-30: 1181834.950\"",
       "route": "System 1",
-      "latencyMs": 47,
-      "modelLatencyMs": 15962,
+      "latencyMs": 53,
+      "modelLatencyMs": 5348,
       "checks": [
         {
           "kind": "series_point",
@@ -548,9 +548,9 @@
       "chosenForm": "stacked100",
       "expectedAnswer": "\"2026-09 Apple Pay: 0.3370811981\"; \"2026-09 Card: 0.3095409503\"; \"2026-04 Card: 0.4591684062\"; \"2026-04 Capitec Pay: 0.06622988717\"",
       "actualAnswer": "\"0.3370811981\"; \"0.3095409503\"; \"0.4591684062\"; \"0.06622988717\"",
-      "route": "System 1",
-      "latencyMs": 73,
-      "modelLatencyMs": 13245,
+      "route": "escalated",
+      "latencyMs": 101,
+      "modelLatencyMs": 7030,
       "checks": [
         {
           "kind": "share_cell",
@@ -596,9 +596,9 @@
       "chosenForm": "stacked100",
       "expectedAnswer": "\"2026-09 Capitec Pay: 0.1459513458\"; \"2026-08 Apple Pay: 0.3010262408\"",
       "actualAnswer": "\"0.1459513458\"; \"0.3010262408\"",
-      "route": "System 1",
-      "latencyMs": 67,
-      "modelLatencyMs": 15985,
+      "route": "escalated",
+      "latencyMs": 115,
+      "modelLatencyMs": 8227,
       "checks": [
         {
           "kind": "share_cell",
@@ -633,8 +633,8 @@
       "expectedAnswer": "\"Online: 18770562.59\"; \"In-store: 9809885.480\"",
       "actualAnswer": "\"Online: 18770562.59\"; \"In-store: 9809885.480\"",
       "route": "System 1",
-      "latencyMs": 34,
-      "modelLatencyMs": 16072,
+      "latencyMs": 58,
+      "modelLatencyMs": 2148,
       "checks": [
         {
           "kind": "item",
@@ -656,7 +656,7 @@
       "cutClaims": 0,
       "error": null,
       "pass": true,
-      "headline": "Online led captured value in August 2026"
+      "headline": "Online channel led August 2026 captured value"
     },
     {
       "id": "B4",
@@ -668,9 +668,9 @@
       "chosenForm": "hbar",
       "expectedAnswer": "\"New share 0.2122854316\"",
       "actualAnswer": "\"0.2122854316\"",
-      "route": "System 1",
-      "latencyMs": 31,
-      "modelLatencyMs": 16205,
+      "route": "escalated",
+      "latencyMs": 56,
+      "modelLatencyMs": 6887,
       "checks": [
         {
           "kind": "item_share",
@@ -686,7 +686,7 @@
       "cutClaims": 0,
       "error": null,
       "pass": true,
-      "headline": "New customers contributed 21.2% of captured value"
+      "headline": "New customers generated r9.0m in September 2026"
     },
     {
       "id": "R1",
@@ -699,8 +699,8 @@
       "expectedAnswer": "\"\\\"Quagga Bank\\\" 0.8920842825\"",
       "actualAnswer": "\"\\\"Quagga Bank\\\" 0.8920842825\"",
       "route": "System 1",
-      "latencyMs": 67,
-      "modelLatencyMs": 15549,
+      "latencyMs": 93,
+      "modelLatencyMs": 3869,
       "checks": [
         {
           "kind": "top_item",
@@ -729,8 +729,8 @@
       "expectedAnswer": "\"\\\"Protea Bank\\\" 0.7516483516\"",
       "actualAnswer": "\"\\\"Protea Bank\\\" 0.7516483516\"",
       "route": "escalated",
-      "latencyMs": 49,
-      "modelLatencyMs": 19924,
+      "latencyMs": 69,
+      "modelLatencyMs": 4851,
       "checks": [
         {
           "kind": "top_item",
@@ -759,8 +759,8 @@
       "expectedAnswer": "\"2026-09-26 15:00: 0.4375000000\"; \"min in 2026-09-26 13:00, 2026-09-26 14:00, 2026-09-26 15:00, 2026-09-26 16:00\"",
       "actualAnswer": "\"2026-09-26 15:00: 0.4375000000\"; \"min at 2026-09-26 15:00\"",
       "route": "escalated",
-      "latencyMs": 106,
-      "modelLatencyMs": 20109,
+      "latencyMs": 110,
+      "modelLatencyMs": 6744,
       "checks": [
         {
           "kind": "series_point",
@@ -794,9 +794,9 @@
       "chosenForm": "hbar",
       "expectedAnswer": "\"fp_025a0ccc,fp_1abf5464,fp_2044ec4e,fp_242e539c,fp_afc6eb9e,fp_d549f9c4\"; \"\\\"fp_d549f9c4\\\" 0.8620689655\"",
       "actualAnswer": "\"fp_025a0ccc,fp_1abf5464,fp_2044ec4e,fp_242e539c,fp_afc6eb9e,fp_d549f9c4\"; \"\\\"fp_d549f9c4\\\" 0.8620689655\"",
-      "route": "System 1",
-      "latencyMs": 61,
-      "modelLatencyMs": 15933,
+      "route": "escalated",
+      "latencyMs": 69,
+      "modelLatencyMs": 7912,
       "checks": [
         {
           "kind": "top_items_set",
@@ -815,7 +815,7 @@
       "intentOk": true,
       "numbersOk": true,
       "grounded": true,
-      "cutClaims": 0,
+      "cutClaims": 1,
       "error": null,
       "pass": true,
       "headline": "fp_d549f9c4 leads with highest chargeback rate"
@@ -831,8 +831,8 @@
       "expectedAnswer": "\"\\\"Kloofmere Paarl\\\" 479971.3100\"",
       "actualAnswer": "\"\\\"Kloofmere Paarl\\\" 479971.3100\"",
       "route": "System 1",
-      "latencyMs": 25,
-      "modelLatencyMs": 15924,
+      "latencyMs": 38,
+      "modelLatencyMs": 5136,
       "checks": [
         {
           "kind": "top_item",
@@ -861,8 +861,8 @@
       "expectedAnswer": "\"\\\"Pay by Bank\\\" 0.04341806832\"",
       "actualAnswer": "\"\\\"Pay by Bank\\\" 0.04341806832\"",
       "route": "System 1",
-      "latencyMs": 49,
-      "modelLatencyMs": 16222,
+      "latencyMs": 77,
+      "modelLatencyMs": 3320,
       "checks": [
         {
           "kind": "top_item",
@@ -891,8 +891,8 @@
       "expectedAnswer": "\"39701828.21 → 42353655.56, 4 steps\"",
       "actualAnswer": "\"39701828.21 → 42353655.56, Spring Sale · Returning 8837202.73; No promotion · Returning -7375523.50; Spring Sale · New 2466928.27; No promotion · New -1276780.15\"",
       "route": "System 1",
-      "latencyMs": 68,
-      "modelLatencyMs": 12707,
+      "latencyMs": 90,
+      "modelLatencyMs": 3012,
       "checks": [
         {
           "kind": "contribution",
@@ -921,8 +921,8 @@
       "expectedAnswer": "\"0.9061433447 → 0.8839566585\"; \"largest step \\\"Protea Bank\\\"\"",
       "actualAnswer": "\"0.9061433447 → 0.8839566585\"; \"\\\"Protea Bank\\\"\"",
       "route": "escalated",
-      "latencyMs": 49,
-      "modelLatencyMs": 20988,
+      "latencyMs": 68,
+      "modelLatencyMs": 7508,
       "checks": [
         {
           "kind": "contribution_rates",
@@ -956,9 +956,9 @@
       "chosenForm": "table",
       "expectedAnswer": "\"10 ids, 27 total\"",
       "actualAnswer": "\"10 ids (match), 27 total\"",
-      "route": "System 1",
-      "latencyMs": 38,
-      "modelLatencyMs": 12518,
+      "route": "escalated",
+      "latencyMs": 55,
+      "modelLatencyMs": 8115,
       "checks": [
         {
           "kind": "records",
@@ -987,8 +987,8 @@
       "expectedAnswer": "\"3 ids, 25 total\"",
       "actualAnswer": "\"3 ids (match), 25 total\"",
       "route": "System 1",
-      "latencyMs": 29,
-      "modelLatencyMs": 14525,
+      "latencyMs": 44,
+      "modelLatencyMs": 4470,
       "checks": [
         {
           "kind": "records",
@@ -1017,8 +1017,8 @@
       "expectedAnswer": "\"1 matching\"",
       "actualAnswer": "\"1 matching\"",
       "route": "escalated",
-      "latencyMs": 39,
-      "modelLatencyMs": 15812,
+      "latencyMs": 55,
+      "modelLatencyMs": 6843,
       "checks": [
         {
           "kind": "records_total",
@@ -1047,8 +1047,8 @@
       "expectedAnswer": "\"no query, out of scope\"",
       "actualAnswer": "\"0 queries, out of scope\"",
       "route": "System 1",
-      "latencyMs": 0,
-      "modelLatencyMs": 6265,
+      "latencyMs": 1,
+      "modelLatencyMs": 326,
       "checks": [
         {
           "kind": "no_query",
@@ -1078,7 +1078,7 @@
       "actualAnswer": "\"0 queries, out of scope\"",
       "route": "System 1",
       "latencyMs": 0,
-      "modelLatencyMs": 4476,
+      "modelLatencyMs": 575,
       "checks": [
         {
           "kind": "no_query",
@@ -1106,9 +1106,9 @@
       "chosenForm": "text",
       "expectedAnswer": "\"no query, out of scope\"",
       "actualAnswer": "\"0 queries, out of scope\"",
-      "route": "System 1",
-      "latencyMs": 0,
-      "modelLatencyMs": 3839,
+      "route": "escalated",
+      "latencyMs": 1,
+      "modelLatencyMs": 2985,
       "checks": [
         {
           "kind": "no_query",

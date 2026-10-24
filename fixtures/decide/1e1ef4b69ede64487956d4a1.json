@@ -1,0 +1,40 @@
+{
+  "hash": "1e1ef4b69ede64487956d4a1",
+  "tag": "form: Show payment-method share by month.",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:21:11.209Z",
+  "latencyMs": 393,
+  "inputTokens": 440,
+  "request": {
+    "state": {
+      "question": "Show payment-method share by month.",
+      "result": "shares of 5 payment method groups in each of 6 months, summing to 100% per month"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "stacked100": "100% stacked bar: How a total splits into parts, with every period adding up to 100%",
+          "table": "Table: Exact values in rows and columns, or individual records to read one by one",
+          "line": "Line chart: How a value moves over time",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "stacked100",
+      "confidence": 0.97,
+      "probabilities": {
+        "stacked100": 0.98,
+        "table": 0.02,
+        "line": 0,
+        "none_of_these": 0
+      }
+    }
+  }
+}

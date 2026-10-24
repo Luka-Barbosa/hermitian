@@ -1,11 +1,11 @@
 {
   "hash": "54919c89d62d04c3c8736b8e",
   "tag": "claims: Show the chargebacks on card fp_afc6eb9e.",
-  "source": "gemini-sim",
-  "model": "gemini-3.5-flash-lite (simulated Jev)",
-  "recordedAt": "2026-10-24T06:57:42.192Z",
-  "latencyMs": 1221,
-  "inputTokens": null,
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:16:01.131Z",
+  "latencyMs": 395,
+  "inputTokens": 1010,
   "request": {
     "state": {
       "facts": [
@@ -41,15 +41,15 @@
   "answers": {
     "claim_0": {
       "type": "noul",
-      "noul": 1
+      "noul": 0.97
     },
     "claim_1": {
       "type": "noul",
-      "noul": 1
+      "noul": 0.96
     },
     "claim_2": {
       "type": "noul",
-      "noul": 1
+      "noul": 0.77
     }
   }
 }

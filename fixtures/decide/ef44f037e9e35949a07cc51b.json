@@ -1,11 +1,11 @@
 {
   "hash": "ef44f037e9e35949a07cc51b",
   "tag": "claims: Show Protea Bank's approval rate by hour on Saturday 26 September.",
-  "source": "gemini-sim",
-  "model": "gemini-3.5-flash-lite (simulated Jev)",
-  "recordedAt": "2026-10-24T06:52:25.631Z",
-  "latencyMs": 5327,
-  "inputTokens": null,
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:15:04.870Z",
+  "latencyMs": 460,
+  "inputTokens": 1196,
   "request": {
     "state": {
       "facts": [
@@ -39,15 +39,15 @@
   "answers": {
     "claim_0": {
       "type": "noul",
-      "noul": 1
+      "noul": 0.94
     },
     "claim_1": {
       "type": "noul",
-      "noul": 1
+      "noul": 0.9
     },
     "claim_2": {
       "type": "noul",
-      "noul": 1
+      "noul": 0.86
     }
   }
 }

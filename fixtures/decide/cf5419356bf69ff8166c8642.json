@@ -1,0 +1,41 @@
+{
+  "hash": "cf5419356bf69ff8166c8642",
+  "tag": "claims: What was captured value yesterday?",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:18:45.740Z",
+  "latencyMs": 348,
+  "inputTokens": 411,
+  "request": {
+    "state": {
+      "facts": [
+        "Scope: 29 Sep 2026; all payments.",
+        "Captured payment value, 29 Sep 2026: R971,577"
+      ],
+      "claims": [
+        "Captured payment value reached R971,577",
+        "This scope includes all payments for 29 Sep 2026."
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_1": {
+        "type": "noul",
+        "instructions": "`claims[1]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 0.98
+    },
+    "claim_1": {
+      "type": "noul",
+      "noul": 0.97
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "hash": "6afc74dcc6f0bbd26c9838d3",
+  "tag": "claims: How has our payment method mix changed over the last six months?",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:23:25.599Z",
+  "latencyMs": 328,
+  "inputTokens": 864,
+  "request": {
+    "state": {
+      "facts": [
+        "Scope: Apr–Sep 2026; all payments.",
+        "Apr 2026: Apple Pay 15.5%, Card 45.9%, Capitec Pay 6.6%, Pay by Bank 21.0%, PayShap Request 10.9%",
+        "May 2026: Apple Pay 18.4%, Card 43.4%, Capitec Pay 7.7%, Pay by Bank 19.4%, PayShap Request 11.1%",
+        "Jun 2026: Apple Pay 22.2%, Card 40.8%, Capitec Pay 9.0%, Pay by Bank 18.2%, PayShap Request 9.8%",
+        "Jul 2026: Apple Pay 26.1%, Card 38.1%, Capitec Pay 10.9%, Pay by Bank 16.1%, PayShap Request 8.9%",
+        "Aug 2026: Apple Pay 30.1%, Card 35.1%, Capitec Pay 12.2%, Pay by Bank 15.0%, PayShap Request 7.6%",
+        "Sep 2026: Apple Pay 33.7%, Card 31.0%, Capitec Pay 14.6%, Pay by Bank 13.7%, PayShap Request 7.0%"
+      ],
+      "claims": [
+        "apple pay surged while card share dropped",
+        "Over the six months from Apr 2026 to Sep 2026, Apple Pay climbed from 15.5% to 33.7% to become a major driver of the payment method mix.",
+        "Meanwhile, card share declined from 45.9% in Apr 2026 down to 31.0% in Sep 2026.",
+        "Capitec Pay also grew from 6.6% to 14.6%, while Pay by Bank and PayShap Request both decreased over the same period."
+      ]
+    },
+    "questions": {
+      "claim_0": {
+        "type": "noul",
+        "instructions": "`claims[0]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_1": {
+        "type": "noul",
+        "instructions": "`claims[1]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_2": {
+        "type": "noul",
+        "instructions": "`claims[2]` is fully supported by `facts` and says nothing the facts do not show."
+      },
+      "claim_3": {
+        "type": "noul",
+        "instructions": "`claims[3]` is fully supported by `facts` and says nothing the facts do not show."
+      }
+    }
+  },
+  "answers": {
+    "claim_0": {
+      "type": "noul",
+      "noul": 0.83
+    },
+    "claim_1": {
+      "type": "noul",
+      "noul": 0.58
+    },
+    "claim_2": {
+      "type": "noul",
+      "noul": 0.96
+    },
+    "claim_3": {
+      "type": "noul",
+      "noul": 0.93
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "hash": "6ea1f61043cf77927b569599",
+  "tag": "form: How has approval rate moved over the last 7 days?",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:21:08.562Z",
+  "latencyMs": 289,
+  "inputTokens": 393,
+  "request": {
+    "state": {
+      "question": "How has approval rate moved over the last 7 days?",
+      "result": "a time series by day: 2 series of 7 points"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "line": "Line chart: How a value moves over time",
+          "table": "Table: Exact values in rows and columns, or individual records to read one by one",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "line",
+      "confidence": 0.98,
+      "probabilities": {
+        "line": 0.99,
+        "table": 0.01,
+        "none_of_these": 0
+      }
+    }
+  }
+}

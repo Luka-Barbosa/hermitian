@@ -1,0 +1,38 @@
+{
+  "hash": "5caf53fa2d3fdf4f00947520",
+  "tag": "form: What share of captured value came from new customers this month?",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:23:26.187Z",
+  "latencyMs": 410,
+  "inputTokens": 394,
+  "request": {
+    "state": {
+      "question": "What share of captured value came from new customers this month?",
+      "result": "2 groups by customer type"
+    },
+    "questions": {
+      "form": {
+        "type": "choice",
+        "instructions": "Which way of showing `result` best answers `question`?",
+        "criteria": {
+          "hbar": "Horizontal bar: Groups compared and ranked by one value, as bars from longest to shortest",
+          "table": "Table: Exact values in rows and columns, or individual records to read one by one",
+          "none_of_these": "None of these fits"
+        }
+      }
+    }
+  },
+  "answers": {
+    "form": {
+      "type": "choice",
+      "choice": "hbar",
+      "confidence": 0.48,
+      "probabilities": {
+        "hbar": 0.65,
+        "table": 0.3,
+        "none_of_these": 0.05
+      }
+    }
+  }
+}

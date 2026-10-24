@@ -1,0 +1,393 @@
+{
+  "hash": "dcbcdbf655e160b36e93b7a2",
+  "tag": "understand: Show Protea Bank's approval rate by hour on Saturday 26 September.",
+  "source": "jev",
+  "model": "jev-1.14.0",
+  "recordedAt": "2026-10-24T08:21:07.220Z",
+  "latencyMs": 313,
+  "inputTokens": 2994,
+  "request": {
+    "state": {
+      "question": "Show Protea Bank's approval rate by hour on Saturday 26 September."
+    },
+    "questions": {
+      "intent": {
+        "type": "choice",
+        "instructions": "What kind of analytics question is `question`?",
+        "criteria": {
+          "lookup": "A single figure for one period: what was, how much, how many",
+          "compare": "One figure in one period against another period: compare, versus, vs last month, up or down on",
+          "trend": "How a figure moved over time: trend, over time, daily, hourly, by day or by hour, how has it moved",
+          "breakdown": "How a total splits across groups, or the mix or share of each group, possibly by month",
+          "ranking": "Which group is highest or lowest: which, top, worst, best, most, least, rank",
+          "explain_change": "Why a figure went up or down: why, what drove, what explains the change",
+          "record_listing": "Individual records: list or show specific payments, refunds or chargebacks",
+          "out_of_scope": "Cannot be answered from payment records: predictions, forecasts, credit risk, judgements about people, or data not held",
+          "none_of_these": "None of these fits the question"
+        }
+      },
+      "metric": {
+        "type": "choice",
+        "instructions": "Which metric does `question` ask about?",
+        "criteria": {
+          "captured_value": "Captured payment value: Total rand value of successfully captured payments (sales, takings, volume in rand). Not revenue.",
+          "payment_count": "Payment count: Number of captured payments (transactions, orders paid, how many payments).",
+          "average_transaction_value": "Average transaction value: Average rand value per captured payment (basket size, ATV, average order value).",
+          "approval_rate": "Approval rate: Share of authorization attempts that were approved (acceptance, success rate, declines inverted).",
+          "refund_rate": "Refund rate: Refunded rand value as a share of captured value.",
+          "chargeback_rate": "Chargeback rate: Chargebacks (disputes) received as a share of captured payments, count-based. Use for any question about chargebacks or disputes.",
+          "payment_method_share": "Payment-method share: Each payment method's share of captured value (method mix, wallets vs card).",
+          "unique_customers": "Unique customers: Number of distinct (pseudonymised) customers or accounts with a captured payment.",
+          "none_of_these": "None of these fits the question"
+        }
+      },
+      "period": {
+        "type": "choice",
+        "instructions": "Which time period does `question` ask about? For a comparison, pick the more recent period.",
+        "criteria": {
+          "today": "Today, the latest day in the data",
+          "yesterday": "Yesterday",
+          "last_7_days": "The last 7 days, this week or the past week",
+          "month_to_date": "This month or month to date (the current month)",
+          "last_month": "Last month: the previous calendar month as a whole",
+          "last_90_days": "The last 90 days or the last three months",
+          "last_6_months": "The last six months, all the data, or month by month over the whole period",
+          "custom": "A specific date or range not listed above: a named day or month, a quarter, a date like 25 September, or two named periods to compare",
+          "not_stated": "No time period is mentioned",
+          "none_of_these": "None of these fits the question"
+        }
+      },
+      "breakdown": {
+        "type": "choice",
+        "instructions": "Does `question` ask to split, group or rank the metric by something? If so, by what?",
+        "criteria": {
+          "no_breakdown": "No grouping is asked for",
+          "payment_method": "Payment method: Card, Apple Pay, Pay by Bank, Capitec Pay or PayShap Request",
+          "issuer_bank": "Issuer bank: The bank that issued the card or holds the paying account",
+          "channel": "Channel: Online, app or in-store (POS)",
+          "store": "Store: One of about 40 physical stores (in-store payments only)",
+          "customer_type": "Customer type: New (account under 30 days old) vs returning customers",
+          "promotion": "Promotion: Promotion code used (Winter Warmers, Spring Sale) or no promotion",
+          "card": "Card: Individual card, by card fingerprint (fp_...)",
+          "customer": "Customer: Individual customer, by pseudonymised ID (cus_...)",
+          "hour_of_day": "Hour of day: Hour of the day as a category, for 'which hour' questions (not for hour-by-hour trends)",
+          "day_of_week": "Day of week: Weekday as a category, for 'which day of the week' questions",
+          "none_of_these": "None of these fits the question"
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "instructions": "Does `question` ask for the metric to be shown as a series of steps over time (by hour, by day, by week or by month)? A period named in the question, such as 'this month', is not a granularity.",
+        "criteria": {
+          "hour": "Hour by hour: the question says hourly, by hour or hour by hour",
+          "day": "Day by day: the question says daily, by day or each day",
+          "week": "Week by week: the question says weekly or by week",
+          "month": "Month by month: the question says monthly, by month or each month, asking for several months side by side",
+          "not_stated": "No granularity is asked for. A period such as 'this month', 'last month', 'this quarter' or 'yesterday' only says which time to look at; it is not a granularity",
+          "none_of_these": "None of these fits the question"
+        }
+      },
+      "rank_direction": {
+        "type": "choice",
+        "instructions": "If `question` asks which group is highest or lowest, which end does it want?",
+        "criteria": {
+          "highest": "Highest, top, best, most",
+          "lowest": "Lowest, bottom, worst, least",
+          "not_ranking": "Not a ranking question",
+          "none_of_these": "None of these fits the question"
+        }
+      },
+      "limit": {
+        "type": "choice",
+        "instructions": "How many items or records does `question` ask for?",
+        "criteria": {
+          "one": "One (the single highest, lowest or latest)",
+          "three": "Three",
+          "five": "Five",
+          "ten": "Ten",
+          "twenty": "Twenty",
+          "not_stated": "No number is given",
+          "none_of_these": "None of these fits the question"
+        }
+      },
+      "record_type": {
+        "type": "choice",
+        "instructions": "If `question` asks to list individual records, which kind?",
+        "criteria": {
+          "payments": "Payments or transactions",
+          "refunds": "Refunds",
+          "chargebacks": "Chargebacks or disputes",
+          "not_records": "Not a request for individual records",
+          "none_of_these": "None of these fits the question"
+        }
+      },
+      "out_of_scope": {
+        "type": "noul",
+        "instructions": "Can `question` NOT be answered from a merchant's payment records?",
+        "criteria": {
+          "true": "It asks for a prediction or forecast, credit or default risk, a judgement about a person, or data payment records do not hold, such as profit, margin, cost, stock or real identities",
+          "false": "It can be answered by adding up, counting, comparing or listing captured payments, authorization attempts, refunds or chargebacks, for any period, group or time series"
+        }
+      },
+      "amount_filter": {
+        "type": "noul",
+        "instructions": "`question` limits payments by a rand amount threshold or range, for example 'over R5,000' or 'under R200'."
+      },
+      "filter_payment_method": {
+        "type": "choice",
+        "instructions": "Does `question` restrict the data to one payment method? If so, which?",
+        "criteria": {
+          "no_filter": "Not restricted to a single payment method",
+          "card": "Card",
+          "apple_pay": "Apple Pay",
+          "pay_by_bank": "Pay by Bank",
+          "capitec_pay": "Capitec Pay",
+          "payshap_request": "PayShap Request",
+          "none_of_these": "None of these fits the question"
+        }
+      },
+      "filter_issuer_bank": {
+        "type": "choice",
+        "instructions": "Does `question` restrict the data to one issuer bank? If so, which?",
+        "criteria": {
+          "no_filter": "Not restricted to a single issuer bank",
+          "karoo_bank": "Karoo Bank",
+          "protea_bank": "Protea Bank",
+          "highveld_bank": "Highveld Bank",
+          "fynbos_bank": "Fynbos Bank",
+          "aloe_bank": "Aloe Bank",
+          "kestrel_bank": "Kestrel Bank",
+          "marula_bank": "Marula Bank",
+          "quagga_bank": "Quagga Bank",
+          "none_of_these": "None of these fits the question"
+        }
+      },
+      "filter_channel": {
+        "type": "choice",
+        "instructions": "Does `question` restrict the data to one channel? If so, which?",
+        "criteria": {
+          "no_filter": "Not restricted to a single channel",
+          "online": "Online",
+          "app": "App",
+          "in_store": "In-store",
+          "none_of_these": "None of these fits the question"
+        }
+      },
+      "filter_customer_type": {
+        "type": "choice",
+        "instructions": "Does `question` restrict the data to one customer type? If so, which?",
+        "criteria": {
+          "no_filter": "Not restricted to a single customer type",
+          "new": "New",
+          "returning": "Returning",
+          "none_of_these": "None of these fits the question"
+        }
+      },
+      "filter_promotion": {
+        "type": "choice",
+        "instructions": "Does `question` restrict the data to one promotion? If so, which?",
+        "criteria": {
+          "no_filter": "Not restricted to a single promotion",
+          "winter_warmers": "Winter Warmers",
+          "spring_sale": "Spring Sale",
+          "no_promotion": "No promotion",
+          "none_of_these": "None of these fits the question"
+        }
+      }
+    }
+  },
+  "answers": {
+    "intent": {
+      "type": "choice",
+      "choice": "trend",
+      "confidence": 0.87,
+      "probabilities": {
+        "lookup": 0.01,
+        "compare": 0,
+        "trend": 0.88,
+        "breakdown": 0.09,
+        "ranking": 0,
+        "explain_change": 0,
+        "record_listing": 0,
+        "out_of_scope": 0.02,
+        "none_of_these": 0
+      }
+    },
+    "metric": {
+      "type": "choice",
+      "choice": "approval_rate",
+      "confidence": 1,
+      "probabilities": {
+        "captured_value": 0,
+        "payment_count": 0,
+        "average_transaction_value": 0,
+        "approval_rate": 1,
+        "refund_rate": 0,
+        "chargeback_rate": 0,
+        "payment_method_share": 0,
+        "unique_customers": 0,
+        "none_of_these": 0
+      }
+    },
+    "period": {
+      "type": "choice",
+      "choice": "custom",
+      "confidence": 1,
+      "probabilities": {
+        "today": 0,
+        "yesterday": 0,
+        "last_7_days": 0,
+        "month_to_date": 0,
+        "last_month": 0,
+        "last_90_days": 0,
+        "last_6_months": 0,
+        "custom": 1,
+        "not_stated": 0,
+        "none_of_these": 0
+      }
+    },
+    "breakdown": {
+      "type": "choice",
+      "choice": "hour_of_day",
+      "confidence": 0.9,
+      "probabilities": {
+        "no_breakdown": 0,
+        "payment_method": 0,
+        "issuer_bank": 0,
+        "channel": 0,
+        "store": 0,
+        "customer_type": 0,
+        "promotion": 0,
+        "card": 0,
+        "customer": 0,
+        "hour_of_day": 0.91,
+        "day_of_week": 0,
+        "none_of_these": 0.09
+      }
+    },
+    "grain": {
+      "type": "choice",
+      "choice": "hour",
+      "confidence": 1,
+      "probabilities": {
+        "hour": 1,
+        "day": 0,
+        "week": 0,
+        "month": 0,
+        "not_stated": 0,
+        "none_of_these": 0
+      }
+    },
+    "rank_direction": {
+      "type": "choice",
+      "choice": "not_ranking",
+      "confidence": 0.99,
+      "probabilities": {
+        "highest": 0,
+        "lowest": 0,
+        "not_ranking": 0.99,
+        "none_of_these": 0.01
+      }
+    },
+    "limit": {
+      "type": "choice",
+      "choice": "not_stated",
+      "confidence": 0.71,
+      "probabilities": {
+        "one": 0.05,
+        "three": 0,
+        "five": 0,
+        "ten": 0.03,
+        "twenty": 0.12,
+        "not_stated": 0.75,
+        "none_of_these": 0.05
+      }
+    },
+    "record_type": {
+      "type": "choice",
+      "choice": "not_records",
+      "confidence": 0.9,
+      "probabilities": {
+        "payments": 0.06,
+        "refunds": 0,
+        "chargebacks": 0,
+        "not_records": 0.92,
+        "none_of_these": 0.02
+      }
+    },
+    "out_of_scope": {
+      "type": "noul",
+      "noul": 0.13
+    },
+    "amount_filter": {
+      "type": "noul",
+      "noul": 0.02
+    },
+    "filter_payment_method": {
+      "type": "choice",
+      "choice": "no_filter",
+      "confidence": 0.96,
+      "probabilities": {
+        "no_filter": 0.97,
+        "card": 0,
+        "apple_pay": 0,
+        "pay_by_bank": 0.03,
+        "capitec_pay": 0,
+        "payshap_request": 0,
+        "none_of_these": 0
+      }
+    },
+    "filter_issuer_bank": {
+      "type": "choice",
+      "choice": "protea_bank",
+      "confidence": 1,
+      "probabilities": {
+        "no_filter": 0,
+        "karoo_bank": 0,
+        "protea_bank": 1,
+        "highveld_bank": 0,
+        "fynbos_bank": 0,
+        "aloe_bank": 0,
+        "kestrel_bank": 0,
+        "marula_bank": 0,
+        "quagga_bank": 0,
+        "none_of_these": 0
+      }
+    },
+    "filter_channel": {
+      "type": "choice",
+      "choice": "no_filter",
+      "confidence": 0.95,
+      "probabilities": {
+        "no_filter": 0.96,
+        "online": 0.01,
+        "app": 0,
+        "in_store": 0,
+        "none_of_these": 0.03
+      }
+    },
+    "filter_customer_type": {
+      "type": "choice",
+      "choice": "no_filter",
+      "confidence": 1,
+      "probabilities": {
+        "no_filter": 1,
+        "new": 0,
+        "returning": 0,
+        "none_of_these": 0
+      }
+    },
+    "filter_promotion": {
+      "type": "choice",
+      "choice": "no_filter",
+      "confidence": 0.75,
+      "probabilities": {
+        "no_filter": 0.8,
+        "winter_warmers": 0,
+        "spring_sale": 0,
+        "no_promotion": 0.19,
+        "none_of_these": 0.01
+      }
+    }
+  }
+}

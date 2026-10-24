@@ -1,0 +1,21 @@
+{
+  "hash": "db324bdf32d7ddd77de662ac",
+  "task": "resolve_slots",
+  "tag": "resolve: Which cards have the highest chargeback rate in the last 90 days?",
+  "model": "gemini-3.5-flash-lite",
+  "recordedAt": "2026-10-24T08:23:32.811Z",
+  "latencyMs": 3202,
+  "request": {
+    "system": "You resolve ambiguous slots for a read-only payments analytics agent.\nFor each slot, pick exactly one option key from its options. Use none_of_these when nothing fits.\nA fast classifier was unsure about these slots; its guess is shown but may be wrong.\nReply with option keys only, plus a one-line reason. Never invent options.",
+    "prompt": "{\n  \"question\": \"Which cards have the highest chargeback rate in the last 90 days?\",\n  \"context\": \"\",\n  \"slots\": [\n    {\n      \"slot\": \"filter_payment_method\",\n      \"instructions\": \"Does `question` restrict the data to one payment method? If so, which?\",\n      \"options\": {\n        \"no_filter\": \"Not restricted to a single payment method\",\n        \"card\": \"Card\",\n        \"apple_pay\": \"Apple Pay\",\n        \"pay_by_bank\": \"Pay by Bank\",\n        \"capitec_pay\": \"Capitec Pay\",\n        \"payshap_request\": \"PayShap Request\",\n        \"none_of_these\": \"None of these fits the question\"\n      },\n      \"classifier_guess\": \"no_filter\"\n    }\n  ]\n}"
+  },
+  "output": {
+    "choices": [
+      {
+        "slot": "filter_payment_method",
+        "choice": "card",
+        "reason": "The question specifically asks for cards with the highest chargeback rate."
+      }
+    ]
+  }
+}
