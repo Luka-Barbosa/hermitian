@@ -155,3 +155,38 @@ describe("boundaries", () => {
     for (const f of all) expect(fs.readFileSync(f, "utf8"), f).not.toMatch(/\.env\.local|loadEnvFile/);
   });
 });
+
+describe("Jev routes (no network)", () => {
+  const keys = ["TYPESAFE_API_KEY", "AI_GATEWAY_API_KEY", "TYPESAFE_BASE_URL", "JEV_MODEL"] as const;
+  const saved = Object.fromEntries(keys.map((k) => [k, process.env[k]]));
+
+  async function route(vars: Partial<Record<(typeof keys)[number], string>>) {
+    const { resetEnvCache } = await import("../src/env");
+    const { jevRoute } = await import("../src/core/decide/backends/jev");
+    try {
+      // Blank, not deleted: env.ts only loads .env.local for variables that are not already set.
+      for (const k of keys) process.env[k] = "";
+      Object.assign(process.env, vars);
+      resetEnvCache();
+      return jevRoute();
+    } finally {
+      for (const k of keys) {
+        if (saved[k] === undefined) delete process.env[k];
+        else process.env[k] = saved[k];
+      }
+      resetEnvCache();
+    }
+  }
+
+  it("uses the direct API with the SDK defaults when TYPESAFE_API_KEY is set", async () => {
+    const r = await route({ TYPESAFE_API_KEY: "test-direct", AI_GATEWAY_API_KEY: "test-gateway" });
+    expect(r).toEqual({ route: { kind: "direct", apiKey: "test-direct", baseURL: "https://api.typesafe.ai", model: "jev-latest" } });
+  });
+  it("falls back to the gateway settings otherwise", async () => {
+    const r = await route({ AI_GATEWAY_API_KEY: "test-gateway", TYPESAFE_BASE_URL: "https://gateway.example.test/typesafe", JEV_MODEL: "gw/jev" });
+    expect(r).toEqual({ route: { kind: "gateway", apiKey: "test-gateway", baseURL: "https://gateway.example.test/typesafe", model: "gw/jev" } });
+  });
+  it("reports no route when neither key is set", async () => {
+    expect("error" in (await route({}))).toBe(true);
+  });
+});

@@ -30,6 +30,8 @@ const schema = z.object({
   /** Minimum spacing between live Gemini calls (free-tier rate limits). */
   GEMINI_MIN_INTERVAL_MS: z.preprocess(blankToUndefined, z.coerce.number().int().nonnegative().default(4000)),
 
+  /** Direct TypeSafe route. When set it wins over the gateway settings below. */
+  TYPESAFE_API_KEY: optionalString,
   AI_GATEWAY_API_KEY: optionalString,
   TYPESAFE_BASE_URL: z.preprocess(blankToUndefined, z.url().default("https://ai-gateway.vercel.sh/typesafe")),
   JEV_MODEL: z.preprocess(blankToUndefined, z.string().trim().default("typesafe-ai/jev")),

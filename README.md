@@ -32,10 +32,10 @@ Open http://localhost:3000 and try one of the planted scenarios on the start pag
 | `pnpm check:scenarios` | Plain-SQL checks, against the raw tables, that every planted scenario is present |
 | `pnpm typecheck` / `pnpm test` | TypeScript / Vitest (replay only, never live) |
 | `pnpm eval` | Runs the eval questions on replay fixtures and writes `evals/results/latest.md` |
-| `pnpm eval --live` | The same against live Jev through the Vercel AI Gateway (paid, capped by `MAX_LIVE_JEV_CALLS`) |
+| `pnpm eval --live` | The same against live Jev (paid, capped by `MAX_LIVE_JEV_CALLS`). Direct to TypeSafe if `TYPESAFE_API_KEY` is set, otherwise through the Vercel AI Gateway |
 | `pnpm fixtures:record` | Records missing fixtures (`--via=gemini` for simulated Jev on free Gemini, `--prune` to drop unused ones) |
 | `pnpm ask "question" --trace` | One question from the terminal |
-| `pnpm doctor` | Checks config (presence only), the database, one Gemini call and one Jev call |
+| `pnpm doctor` | Checks config (presence only), the database, one Gemini call and one Jev call on whichever route is configured (a 403 free-tier reply is reported as SKIP) |
 
 ## How it works
 

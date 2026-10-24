@@ -8,7 +8,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { z } from "zod";
 import { createStitchAdapter } from "../src/adapters/stitch";
-import { jevDecide } from "../src/core/decide/backends/jev";
+import { describeRoute, isFreeTierBlock, jevDecide, jevRoute } from "../src/core/decide/backends/jev";
 import { geminiObject } from "../src/core/system2/gemini";
 import { NONE_OF_THESE } from "../src/core/types";
 import { env, resolvedDuckdbPath, system2Models } from "../src/env";
@@ -30,7 +30,8 @@ try {
 }
 
 record("Gemini key", Boolean(e.GOOGLE_GENERATIVE_AI_API_KEY), e.GOOGLE_GENERATIVE_AI_API_KEY ? "set" : "GOOGLE_GENERATIVE_AI_API_KEY is missing");
-record("gateway key", Boolean(e.AI_GATEWAY_API_KEY), e.AI_GATEWAY_API_KEY ? "set" : "AI_GATEWAY_API_KEY is missing (only needed for live Jev)");
+const jev = jevRoute();
+record("Jev route", "route" in jev, "route" in jev ? describeRoute(jev.route) : jev.error + " (only needed for live Jev)");
 record("backends", true, `DECIDE_BACKEND=${e.DECIDE_BACKEND}, SYSTEM2_BACKEND=${e.SYSTEM2_BACKEND}`);
 
 const dbPath = resolvedDuckdbPath();
@@ -72,9 +73,11 @@ else {
       questions: { metric: { type: "choice", instructions: "Which metric does `question` ask about?", criteria: { captured_value: "Captured payment value", approval_rate: "Approval rate", [NONE_OF_THESE]: "None of these" } } },
     });
     const a = r.answers.metric;
-    record("Jev call", true, `${r.model}: ${a?.type === "choice" ? `${a.choice} @ ${a.confidence.toFixed(2)}` : "answered"} in ${Math.round(performance.now() - t)} ms`);
+    record("Jev call", true, `via ${"route" in jev ? jev.route.kind : "?"}, ${r.model}: ${a?.type === "choice" ? `${a.choice} @ ${a.confidence.toFixed(2)}` : "answered"} in ${Math.round(performance.now() - t)} ms`);
   } catch (err) {
-    record("Jev call", false, (err as Error).message.slice(0, 200));
+    // A free-tier account cannot use Jev yet: report it, but it is not a fault in this repo.
+    if (isFreeTierBlock(err)) record("Jev call", null, `${"route" in jev ? jev.route.kind : "?"} route: 403, account is on the free tier`);
+    else record("Jev call", false, `${"route" in jev ? `${jev.route.kind} route: ` : ""}${(err as Error).message.slice(0, 200)}`);
   }
 }
 
